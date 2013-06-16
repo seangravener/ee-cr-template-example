@@ -1,0 +1,29 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	<h2>My Creations</h2>
+	
+	{exp:channel:entries channel="creations" author_id="CURRENT_USER" status="not closed" limit="15" paginate="bottom"}
+	{if no_results}
+		You havn't uploaded any photos of your creations yet. Share something you've created or <a href="{path=gallery}">get inspired by designs from other members</a>, then get creative and <a href="{path=my/creations/add}" title="upload a new project">share it with everyone</a>!
+	{/if}
+	{embed="_embed/.activity_{channel_short_name}"
+			author="{author}"
+			avatar_url="{avatar_url}"
+			author_id="{author_id}"
+			title="{title}"
+			entry_id="{entry_id}"
+			url_title="{url_title}"
+			view_count_one="{view_count_one}"
+			entry_date="{entry_date}"
+			comment_total="{comment_total}"
+			projects_summary="{projects_summary}"
+			projects_default_photo="{projects_default_photo}"
+			status="{status}"
+			edit_bar="yes"
+			quick_comments="no"
+		}
+	{paginate}{if total_pages > 1}
+	<p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+	{/if}{/paginate}
+	{/exp:channel:entries}
+</div>

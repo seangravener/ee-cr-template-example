@@ -1,0 +1,35 @@
+<div id="main-content" class="grid_11 do-cufon">
+	<h2>Official Club Ruby Videos</h2>		
+	{exp:channel:entries cache="yes" refresh="60" channel="videos" status="open|published" limit="15" paginate="bottom" group_id="{embed:group_id}"}
+	{if no_results}
+	<p>There aren't any videos in this channel yet</p>
+	{/if}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		videos_summary="{videos_summary}"
+		videos_video_1_thumb="{videos_video_1_thumb}"
+		status="{status}"
+		edit_bar="no"
+		quick_comments="yes"
+	}
+	
+	{paginate}{if total_pages > 1}
+	{if previous_page}
+	<a href="{auto_path}">Previous Page</a> &nbsp;
+	{/if}
+	
+	{if next_page}
+	<a href="{auto_path}">Next Page</a>
+	{/if}
+	{/if}{/paginate}
+	
+	{/exp:channel:entries}
+	
+</div>

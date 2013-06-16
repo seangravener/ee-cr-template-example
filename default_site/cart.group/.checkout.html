@@ -1,0 +1,66 @@
+{exp:dm_force_ssl:force}
+<h1>Your Cart</h1>
+
+{exp:mage_checkout:show_cart uri="https://secure.clubrubydesigners.com/index.php/cart/checkout"}
+
+<table border="1">
+<tr>
+<td>Product</td>
+<td>Price</td>
+</tr>
+<tr>
+<td>{product_name}<br/><strong>Subscription Type: </strong>{subscription_type}<br /><strong>First delivery: </strong>{subscription_start}</td><td>{product_price}</td>
+</tr>
+<tr><td>&nbsp;</td><td>Sub Total: {subtotal}<br />{if discount != '0'}Discount ({coupon_code}) {discount}{/if}<br /><br />Total: {grand_total}</td>
+</table>
+{if discount != '0'}<input type="submit" name="cart_action" value="Cancel Coupon"/>{if:else}<input type="text" name="coupon"/><input type="submit" name="cart_action" value="Apply Coupon"/>{/if}
+<br /><br />
+<!-- input type="submit" name="cart_action" value="Checkout"/ -->
+{/exp:mage_checkout:show_cart}
+
+<h1>Checkout</h1>
+
+{exp:mage_checkout:checkout_form uri="https://secure.clubrubydesigners.com/index.php/cart/success"}
+
+<h2>Billing Address</h2>
+<input type="hidden" name="billing_entity_id" value="{billing_entity_id}"/>
+First Name: <input type="text" name="billing_firstname" value="{billing_firstname}"/><br />
+Last Name: <input type="text" name="billing_lastname" value="{billing_lastname}"/><br />
+Street: <input type="text" name="billing_street_1" value="{billing_street_1}"/><br />
+<input type="text" name="billing_street_2" value="{billing_street_2}"/><br />
+City: <input type="text" name="billing_city" value="{billing_city}"/><br />
+Country: <select name="billing_country_id">{exp:mage_checkout:country_options default='{billing_country_id}' first='-- THIS IS AN OPTIONAL PARAMETER --'}</select><br />
+<!--Region is only for countries that don't have region lists: <input type="text" name="billing_region" value="{billing_region}"/><br />-->
+State: <select name="billing_region_id">{exp:mage_checkout:region_options country_code='US' default='{billing_region_id}'}</select><br />
+Zip: <input type="text" name="billing_postcode" value="{billing_postcode}"/><br />
+Telephone: <input type="text" name="billing_telephone" value="{billing_telephone}"/><br />
+
+<h2>Shipping Address</h2>
+Same as Billing? <input type="checkbox" name="same_as_billing" value="yes" {if same_as_billing == "yes"}checked="checked"{/if}/>
+<br />
+<br />
+<input type="hidden" name="shipping_entity_id" value="{shipping_entity_id}"/>
+First Name: <input type="text" name="shipping_firstname" value="{shipping_firstname}"/><br />
+Last Name: <input type="text" name="shipping_lastname" value="{shipping_lastname}"/><br />
+Street: <input type="text" name="shipping_street_1" value="{shipping_street_1}"/><br />
+<input type="text" name="shipping_street_2" value="{shipping_street_2}"/><br />
+City: <input type="text" name="shipping_city" value="{shipping_city}"/><br />
+Country: <select name="shipping_country_id">{exp:mage_checkout:country_options default='{shipping_country_id}'}</select><br />
+<!--State : <input type="text" name="billing_region" value="{billing_region}"/><br />-->
+State: <select name="shipping_region_id">{exp:mage_checkout:region_options country_code='US' default='{shipping_region_id}'}</select><br />
+
+Zip: <input type="text" name="shipping_postcode" value="{shipping_postcode}"/><br />
+Telephone: <input type="text" name="shipping_telephone" value="{shipping_telephone}"/><br />
+
+<input type="hidden" name="shipping_method" value="flatrate_flatrate"/>
+
+<h2>Payment Details</h2>
+Name on Card: <input type="text" name="cc_owner"/><br />
+Card Type: <select name="cc_type"><option value="">-- Please Select --</option>{card_types}</select><br />
+Credit Card Number: <input type="text" name="cc_number"/><br />
+Expiration Date: <select name="cc_exp_month"><option value="">Month</option>{exp_months}</select> <select name="cc_exp_year"><option value="">Year</option>{exp_years}</select><br />
+Verification Number: <input type="text" name="cc_cid" size="4"/><br />
+<br />
+<input type="submit" name="submit" value="Checkout"/>
+{/exp:mage_checkout:checkout_form}
+

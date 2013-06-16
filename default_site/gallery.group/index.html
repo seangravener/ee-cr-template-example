@@ -1,0 +1,26 @@
+{embed="_acl/.default"
+	{if segment_2 == 'tag'}
+		target="{segment_1}/.tag"
+	{if:else}
+		target="{segment_1}/.default"
+	{/if}
+	active_location="gallery"
+	page_title="Gallery"
+	page_layout="rightrail"
+	page_tabs="{segment_1}/.default_tabs"
+	{if segment_2 == 'creations' || segment_2 == 'photos' || segment_2 == 'kits'}
+		channel="{segment_2}"
+	{if:else}
+		channel="creations|photos"
+	{/if}
+	{if segment_2 == 'dt'}
+		group_id="10|11"
+	{if:elseif segment_2 == 'master-dt'}
+		group_id="10"
+	{if:elseif segment_2 == 'members'}
+		group_id="5|6|7|8|9"
+	{if:elseif segment_2 == 'challenges'}
+		channel="{segment_2}"
+		category="13"
+	{/if}
+}

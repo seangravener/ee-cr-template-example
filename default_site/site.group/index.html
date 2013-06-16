@@ -1,0 +1,33 @@
+{if segment_2 == ''}
+	{redirect="login"}
+{/if}
+{exp:channel:entries channel="site" limit="1"}
+{embed="landing/.page_head"
+	sticky_js="no"
+	page_title="{title}"
+	text_css="yes"
+}
+<div id="what-is-ruby" style="margin: 0;"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		<div class="cl">&nbsp;</div>
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+<div class="nav nav-type-1"> 
+	<div class="in"> 
+			<h2 class="heading" style="text-align: left; margin-left: 20px;">{title}</h2>
+		<div class="cl">&nbsp;</div> 
+	</div> 
+</div>
+
+<div class="prefix_1 suffix_1 site-content">
+	{general_body}
+</div>
+
+<div class="cl"></div>
+{embed="landing/.page_footer"
+	include_js=""
+}
+{/exp:channel:entries}

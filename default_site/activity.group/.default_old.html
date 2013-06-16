@@ -1,0 +1,172 @@
+<div id="content" class="left grid_11">
+	<div class="dashboard tab-item">
+		<div class="upload-items ajaxcontent">
+			
+			{exp:channel:entries channel="{embed:channel}" status="not draft|closed|private" limit="15" paginate="bottom" group_id="{embed:group_id}"}
+			{if no_results}
+			<p>No one has posted anything yet... must be a creative block ;)</p>
+			{/if}
+			<div class="upload-item">
+				
+				{if '{channel_short_name}' == 'creations'}
+				<div class="avatar left">
+					<a href="{path=designer}/{author_id}" title="{author}">
+						{embed="activity/.img_avatar"
+							default="images/default/member_photo.jpg"
+							src="{avatar_url}"
+							width="48"
+						}
+					</a>
+				</div>
+				<div class="info left">
+					<p class="date"><em>{exp:friendly_date}{entry_date}{/exp:friendly_date}</em></p>
+
+					<p class="author"><a href="{path=designer}/{author_id}"><strong>{author}</strong></a> added the {channel} <a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}">"{title}"</a></p>
+					<p>{exp:word_limit total="50"}{projects_summary}{/exp:word_limit}</p>
+				</div>
+				<div class="item right">
+					<a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}/">
+					{embed="gallery/.img_tag"
+						src="{projects_photo_1}"
+						width="136"
+						height="95"
+						default="images/default/{channel_short_name}_photo.jpg"
+						alt="{title}"
+					}
+					</a>
+					<a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}/#responses" class="comments right">{comment_total}</a>
+					<div class="cl">&nbsp;</div>
+				</div>
+				
+				{if:elseif '{channel_short_name}' == 'journals'}
+				<div class="avatar left">
+					<a href="{path=designer}/{author_id}" title="{author}">
+						{embed="activity/.img_avatar"
+							default="images/default/member_photo.jpg"
+							src="{avatar_url}"
+							width="48"
+						}
+					</a>
+				</div>
+				<div class="info left">
+					<p class="date"><em>{exp:friendly_date}{entry_date}{/exp:friendly_date}</em></p>
+					<p class="author"><a href="{path=designer}/{author_id}"><strong>{author}</strong></a> added the {channel} <a href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}">"{title}"</a></p>
+					{exp:word_limit total="50"}{journal_body}{/exp:word_limit}
+				</div>
+				<div class="item right">
+					<a href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}/">
+					{embed="gallery/.img_tag"
+						src="{journal_photo_1}"
+						width="136"
+						height="95"
+						default="images/default/{channel_short_name}_photo.jpg"
+						alt="{title}"
+					}
+					</a>
+					<a href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}/#responses" class="comments right">{comment_total}</a>
+					<div class="cl">&nbsp;</div>
+				</div>
+				
+				{if:elseif '{channel_short_name}' == 'photos'}
+				<div class="avatar left">
+					<a href="{path=designer}/{author_id}" title="{author}">
+						{embed="activity/.img_avatar"
+							default="images/default/member_photo.jpg"
+							src="{avatar_url}"
+							width="48"
+						}
+					</a>
+				</div>
+				<div class="info left">
+					<p class="date"><em>{exp:friendly_date}{entry_date}{/exp:friendly_date}</em></p>
+					<p class="author"><a href="{path=designer}/{author_id}"><strong>{author}</strong></a> added the {channel} <a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}">"{title}"</a></p>
+					{exp:word_limit total="50"}{photos_gallery_description}{/exp:word_limit}
+				</div>
+				<div class="item right">
+					<a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}/">
+					{embed="gallery/.img_tag"
+						src="{photos_photo_1}"
+						width="136"
+						height="95"
+						default="images/default/{channel_short_name}_photo.jpg"
+						alt="{title}"
+					}
+					</a>
+					<a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}/#responses" class="comments right">{comment_total}</a>
+					<div class="cl">&nbsp;</div>
+				</div>
+				
+				{if:elseif '{channel_short_name}' == 'kits'}
+				<div class="avatar left">
+					<a href="{path=kits}" title="Ruby Kits">
+						{embed="activity/.img_avatar"
+							default="images/default/member_photo.jpg"
+							src="{avatar_url}"
+							width="48"
+						}
+					</a>
+				</div>
+				<div class="info left">
+					<p class="date"><em>{exp:friendly_date}{entry_date}{/exp:friendly_date}</em></p>
+					<p class="author">The new Ruby Kit <a href="{path=kits/detail}/{url_title}/{entry_id}">"{title}"</a> was added.</p>
+					{exp:word_limit total="50"}{kit_summary}{/exp:word_limit}
+				</div>
+				<div class="item right">
+					<a href="{title_permalink=kits/detail}/{entry_id}">
+					{embed="gallery/.img_tag"
+						src="{kit_photo}"
+						width="136"
+						height="95"
+						default="images/default/kit_photo.jpg"
+						alt="{title}"
+					}
+					</a>
+					<a href="{title_permalink=kits/detail}/{entry_id}/#responses" class="comments right">{comment_total}</a>
+					<div class="cl">&nbsp;</div>
+				</div>
+				
+				{if:elseif '{channel_short_name}' == 'videos'}
+				<div class="avatar left">
+					<a href="{path=videos}" title="Video Library">
+						{embed="activity/.img_avatar"
+							default="images/default/member_photo.jpg"
+							src="{avatar_url}"
+							width="48"
+						}
+					</a>
+				</div>
+				<div class="info left">
+					<p class="date"><em>{exp:friendly_date}{entry_date}{/exp:friendly_date}</em></p>
+					<p class="author">The {channel} <a href="{title_permalink=videos/view}/{entry_id}">"{title}"</a> was added to the <a href="{path=videos}">Video Library</a></p>
+					{exp:word_limit total="50"}{videos_summary}{/exp:word_limit}
+				</div>
+				<div class="item right">
+					<a href="{title_permalink=videos/view}/{entry_id}">
+					{embed="gallery/.img_tag"
+						src="{videos_video_1_thumb}"
+						width="136"
+						height="95"
+						default="images/default/{channel_short_name}_photo.jpg"
+						alt="{title}"
+					}
+					</a>
+					<a href="{title_permalink=videos/view}/{entry_id}/#responses" class="comments right">{comment_total}</a>
+					<div class="cl">&nbsp;</div>
+				</div>
+				{/if}
+				
+				<div class="cl">&nbsp;</div>
+			</div>
+		{paginate}{if next_page}
+		</div><!-- / .upload-items -->
+		<a href="{auto_path}" id="more" class="yellow-btn"><span>More</span></a>
+		<?php $more = 'true'; ?>
+		{/if}{/paginate}
+		{/exp:channel:entries}
+		<?php if (!isset($more)) echo '</div><!-- / .upload-items -->'; ?>
+
+		<!-- /div-->
+		<!-- a href="" id="more" class="yellow-btn"><span>More</span></a -->
+	</div>
+						
+</div>

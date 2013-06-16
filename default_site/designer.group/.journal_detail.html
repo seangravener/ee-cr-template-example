@@ -1,0 +1,56 @@
+{exp:channel:entries channel="journals" author_id="{segment_2}" dynamic="off" entry_id="{segment_5}" status="not closed|draft|private"}
+<div id="profile-meta">
+	<div class="container_16 clearfix do-cufon">
+		<div class="grid_16 profile-section journal-entry">
+			<div class="date">
+				{entry_date format="%l, %F %j%S, %Y"}
+			</div>
+			
+			
+			{exp:user:is_mine member_id="{author_id}"}{if mine}
+			<div class="message info">
+				Hey {author}, this is your photo. Feel free to <a href="{path=my/journal/edit}/{entry_id}">add or change details</a>. 
+			</div>
+			{/if}{/exp:user:is_mine}
+			
+			<div class="grid_4 alpha">
+				<div class="box-1">
+					<h5 class="small-title">Share</h5>
+					<iframe src="http://www.facebook.com/plugins/like.php?href={path='{exp:ssc_uri:get_uri}'}&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:20px;" allowTransparency="true"></iframe>
+					<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="clubruby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				</div>
+			
+			{related_entries id="photos_kits"}
+				<strong>{title}</strong>	
+				<a href="{title_permalink=kits/detail}/{entry_id}">
+					{exp:imgsizer:size src="{kit_photo}" width="220" default="images/default/kit_photo.jpg"}
+					<img src="{sized}" width="{width}" height="{height}" alt="{title}" />
+					{/exp:imgsizer:size}
+				</a>
+				<p>This journal is related to the Club Ruby <a href="{title_permalink=kits/detail}/{entry_id}">"{title}"</a> Kit</p>
+			{/related_entries}
+		</div>
+		<div class="grid_12 omega">
+			
+			<h3>{title}</h3>
+			{journal_body}
+			
+			<p>
+			{exp:imgsizer:size src="{avatar_url}" width="25" height="25" default="images/default/member_photo.jpg"}
+				<a href="{path=designer}/{author_id}" title="View Profile of {author}"><img class="profile-image" style="float: left; margin-right: 10px;" src="{sized}" width="{width}" height="{height}" /></a>
+			{/exp:imgsizer:size}
+			written by <a href="{path=designer}/{author_id}">{author}</a>
+			</p>
+			
+			{embed="_embed/.comments"
+				entry_id="{segment_5}"
+				channel="journals"
+				preview="comment/preview"
+			}
+			
+		</div>
+			
+		</div>
+	</div>
+</div>
+{/exp:channel:entries}

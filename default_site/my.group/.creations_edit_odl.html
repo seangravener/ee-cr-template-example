@@ -1,0 +1,319 @@
+{exp:ssc_rules:edit_page entry_id="{segment_4}" redirect="my/creations"}
+<div id="content" class="left grid_11">
+	<div class="personal-info creation tab-item">
+		
+		{exp:channel:entries entry_id="{segment_4}" status="not closed"}
+
+		{exp:form_helper:member_is_author author_id="{author_id}"}
+		{if member_not_author}
+		Sorry. Only the author of this entry is allowed to edit it.
+		{/if}
+		
+		<div class="form">
+		<h2>Editing: {title}</h2>
+		{exp:channel:entry_form channel="creations" return="my/creations" show_fields="projects_summary|projects_body|projects_kits"}
+			<input type="hidden" name="url_title"  value="{url_title}" />
+			<input type="hidden" name="entry_id" value="{entry_id}" />
+			<input type="hidden" name="entry_date" value="{entry_date format='%Y-%m-%d %g:%i %A'}" />
+
+			<label for="title">* Title of Your Creation</label>
+			<div class="field-section">				
+				<p class="field-instructions">Give your creation a creative, but meaningful title.</p>
+				<input type="text" name="title" id="title" value="{title}" size="50" maxlength="100" />
+			</div>
+			
+			<p class="notice-info">
+				NOTE: Currently, we have to limit the number and size of photos being uploaded. We're working hard to increase capacity to accept more and larger photos. 
+				If your photos are larger than 1 MB, you can easily resize them using this online tool: <a href="http://www.picresize.com/" target="blank">Picture Resize</a>. 
+				Thanks for your patience as we expand!
+			</p>
+				
+			<label for="title">Photo of Completed Project</label>
+			<div class="field-section">
+				<p class="field-instructions">A picture is worth 1,000 words. Upload the best photo you have of your finished project.</p>
+				<div class="filebox">
+					<p class="left">
+						Repleace the current photo:<br />
+						<input type="file" name="field_id_9" value="" />
+						<input type="hidden" name="field_id_9_hidden" value="{projects_photo_1}" />
+						<input type="hidden" name="field_id_9_directory" value="2" />
+					</p>
+					<div class="current-photo right">
+					{exp:imgsizer:size src="{projects_photo_1}" width="100" default="images/default/projects_photo.jpg"}
+					<img src="{sized}" width="{width}" height="{height}" />
+					<br />Current Photo
+					{/exp:imgsizer:size}
+					</div>
+					<div class="cl"></div>
+				</div>
+			</div>
+
+			<div class="grid_5">
+				<label for="tag_f">Photo #1</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_2}<input type="checkbox" name="field_id_15_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+					{exp:imgsizer:size src="{projects_photo_2}" width="100"}
+					<img src="{sized}" width="{width}" height="{height}" />
+					<span style="text-align: left; display: block;">Replace this photo:</span>
+					{/exp:imgsizer:size}
+						<input type="file" name="field_id_15" value="{projects_photo_2}" />
+						<input type="hidden" name="field_id_15_hidden" value="{projects_photo_2}" />
+						<input type="hidden" name="field_id_15_directory" value="2" />
+					 </p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_28_hidden" value="{projects_photo_3}" />
+				<input type="hidden" name="field_id_28_directory" value="2" />
+				<label for="tag_f">Photo #2</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_3}<input type="checkbox" name="field_id_28_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_3}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_28" value="{projects_photo_3}" />
+					</p>
+				</div>
+			</div>
+			<div class="cl"></div>
+
+			* <label for="projects_summary">Summary</label>
+			<div class="field-section">
+				<p class="field-instructions">Describe your creation in 1 or 2 sentences.</p>
+				<textarea id="projects_summary" name="{exp:form_helper:field_grabber field_name='projects_summary'}" rows="2">{exp:form_helper:field_parser}{projects_summary}{/exp:form_helper:field_parser}</textarea>
+			</div>
+
+			* <label for="projects_body">Instructions</label>
+			<div class="field-section">
+				<p class="field-instructions">Include instructions that describe how this project was created. The more detail, the better.</p>
+				<textarea id="projects_body" name="{exp:form_helper:field_grabber field_name='projects_body'}" rows="6">{exp:form_helper:field_parser}{projects_body}{/exp:form_helper:field_parser}</textarea>
+			</div>
+			
+			{custom_fields}
+			{if relationship}
+			<label for="{field_name}">{field_label}</label>
+			<div class="field-section">
+				<p class="field-instructions">{field_instructions}</p>
+				<select id="{field_name}" name="{field_name}">
+				{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}<br />
+				</select>
+			</div>
+			{/if}
+			{/custom_fields}
+			
+			{status_menu}
+			<label for="status">Publish Status</label>
+			<div class="field-section">
+				<p class="field-instructions">Save as a draft (only viewable to you) or publish and share it with the community!</p>
+				<select id="status" name="status">
+					{select_options}
+				</select>
+			</div>
+			{/status_menu}
+
+			<label for="tag_f">Labels and Colors</label>
+			<div class="field-section">
+				<p class="field-instructions">Label your creations with meaningful words. For example: <br />scrapbooking<br />summer<br />club ruby<br />green<br />Enter one label per line.</p>
+{!-- this textarea must be set with the proper whitespace! --}
+<textarea id="tag_f" name="tag_f" rows="2">{exp:tag:tags entry_id="{entry_id}" type="weblog"}{tag}
+{/exp:tag:tags}</textarea>
+			</div>
+
+		</div>
+		{!-- 
+		<div class="form">
+			<h2>Additional Photos</h2>
+			<p>You may upload up to 10 additional photos of your project. Image formats accepted are .jpg, .png and .gif</p>
+			<div class="grid_5">
+				<label for="tag_f">Photo #1</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_2}<input type="checkbox" name="field_id_15_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+					{exp:imgsizer:size src="{projects_photo_2}" width="100"}
+					<img src="{sized}" width="{width}" height="{height}" />
+					<span style="text-align: left; display: block;">Replace this photo:</span>
+					{/exp:imgsizer:size}
+						<input type="file" name="field_id_15" value="{projects_photo_2}" />
+						<input type="hidden" name="field_id_15_hidden" value="{projects_photo_2}" />
+						<input type="hidden" name="field_id_15_directory" value="2" />
+					 </p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_28_hidden" value="{projects_photo_3}" />
+				<input type="hidden" name="field_id_28_directory" value="2" />
+				<label for="tag_f">Photo #2</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_3}<input type="checkbox" name="field_id_28_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_3}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_28" value="{projects_photo_3}" />
+					</p>
+				</div>
+			</div>
+			<div class="cl"></div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_29_hidden" value="{projects_photo_4}" /> 
+				<input type="hidden" name="field_id_29_directory" value="2">
+				<label for="tag_f">Photo #3</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_4}<input type="checkbox" name="field_id_29_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_4}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_29" value="{projects_photo_4}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_30_hidden" value="{projects_photo_5}" />
+				<input type="hidden" name="field_id_30_directory" value="2" />
+				<label for="tag_f">Photo #4</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_5}<input type="checkbox" name="field_id_30_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_5}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_30" value="{projects_photo_5}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_31_hidden" value="{projects_photo_6}" />
+				<input type="hidden" name="field_id_31_directory" value="2" />
+				<label for="tag_f">Photo #5</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_6}<input type="checkbox" name="field_id_31_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_6}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_31" value="{projects_photo_6}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_32_hidden" value="{projects_photo_7}" />
+				<input type="hidden" name="field_id_32_directory" value="2" />
+				<label for="tag_f">Photo #6</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_7}<input type="checkbox" name="field_id_32_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_7}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_32" value="{projects_photo_7}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_33_hidden" value="{projects_photo_8}" />
+				<input type="hidden" name="field_id_33_directory" value="2" />
+				<label for="tag_f">Photo #7</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_8}<input type="checkbox" name="field_id_33_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_8}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_33" value="{projects_photo_8}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_34_hidden" value="{projects_photo_9}" />
+				<input type="hidden" name="field_id_34_directory" value="2" />
+				<label for="tag_f">Photo #8</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_9}<input type="checkbox" name="field_id_34_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_9}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_34" value="{projects_photo_9}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_35_hidden" value="{projects_photo_10}" />
+				<input type="hidden" name="field_id_35_directory" value="2" />
+				<label for="tag_f">Photo #9</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_10}<input type="checkbox" name="field_id_35_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_10}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_35" value="{projects_photo_10}" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<input type="hidden" name="field_id_36_hidden" value="{projects_photo_11}" />
+				<input type="hidden" name="field_id_36_directory" value="2" />
+				<label for="tag_f">Photo #10</label>
+				<div class="field-section">
+					<p class="field-instructions">
+						{if projects_photo_11}<input type="checkbox" name="field_id_36_hidden" value="" /> Delete This Photo{/if}
+					</p>
+					<p class="filebox" style="text-align: center;">
+						{exp:imgsizer:size src="{projects_photo_11}" width="100"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						<span style="text-align: left; display: block;">Replace this photo:</span>
+						{/exp:imgsizer:size}
+						<input type="file" name="field_id_36" value="{projects_photo_11}" />
+					</p>
+				</div>
+			</div>
+
+		</div>
+		--}
+		
+		<input type="hidden" name="allow_comments" value="y" />
+		<input type="hidden" name="userform" value="{exp:ssc_rules:random_hash}" />
+		<p style="text-align: right;"><a href="{path=my/profile}">Cancel</a> or <input type="submit" name="submit" value="Save My Changes" /></p>
+		
+		{/exp:channel:entry_form}
+		{/exp:form_helper:member_is_author}
+		{/exp:channel:entries}
+
+		
+	</div>
+</div>

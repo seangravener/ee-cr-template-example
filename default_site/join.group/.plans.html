@@ -1,0 +1,190 @@
+{exp:dm_force_ssl:unforce}
+<?php
+	function start_date($days_added=1) 
+	{
+		$timestamp = time() + (86400 * $days_added);
+		$start_date = date('n/j/y', $timestamp);
+		
+		return $start_date;
+	}
+?>
+{embed="_embed/.head_landing"}
+<div id="what-is-ruby"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		{!-- <div class="seals">
+			<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="dd35bdf9-5357-484e-a901-96b1d4d86607";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script></div>
+			<div class="ssl-seal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=qm2itMJhSyeqAidp3wCa3RZ6t2KNveF4uhZSDelWCzxGJPk1Op"></script></div>
+		</div> --}
+		<div class="cl">&nbsp;</div> 
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+<div class="nav nav-type-1"> 
+	<div class="in"> 
+			<h2 class="heading">Select Your Club Ruby Membership Plan</h2>
+		<div class="cl">&nbsp;</div> 
+	</div> 
+</div>
+
+<div class="choose-plan">
+	<div class="feature-titles prefix_2 grid_7">
+		<ul>
+			<li> </li>
+			
+			
+			<li><span>Design Profile</span><p>Share as much or as little about yourself and your projects as you would like</p></li>
+			<li><span>Upload Creations & Photos</span><p>Upload photos of projects you are working for everyone to see.</p></li>
+			<li><span>Journal</span><p>Share your stories in your own Design Journal</p></li>
+			<li><span>Member Only Forums</span><p>Ask questions, get answers, share ideas and so much more!</p></li>
+			<li><span>How-To Video Library</span><p>Videos Dedicated to helping you learn tricks and how to use the tools of the trade</p></li>
+			<li><span>Design Team Tutorials</span><p>See the Design Team's montly kit projects and step-by-step instructions</p></li>
+			<li><span>Sneak-Peek Previews</span><p>Get sneak peek previews of upcoming titles from Above Rubies Studio</p></li>
+			<li><span>Discount Bin</span><p>Get special discounts on products from Above Rubies Studio and Club Ruby partners</p></li>
+			<li><span>Live Classroom Webinars</span><p>Join Megan and her guests in a live class-room setting</p></li>
+			<li><span>Montly Kit Video Tutorials</span><p>Videos using Club Ruby's Montly Kits designed to help you get more from your membership!</p></li>
+			<li><span>Montly Kits</span><p>Automatically receive a brand-new trendy and fun Kit every month!</p></li>
+			<!-- li class="option"><span>6 Months *</span><p>Become a Club Ruby member for 6 Months up-front and <strong>save 29%</strong>!</p></li>
+			<li class="option"><span>Monthly</span><p>Become a Club Ruby member on a month-to-month basis</p></li -->
+			<li> </li>
+		</ul>
+	</div>
+	<div class="feature-list suffix_2 grid_13">
+		<div class="row heading">
+			<ul>
+				<li>Ruby Member<span>FREE</span></li>
+				<li>Premium Member<span>$14/mo</span></li>
+				<li>Kit Club Member<span>$35/mo</span></li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li class="yes">yes</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul>
+				<li>-</li>
+				<li>-</li>
+				<li class="yes">yes</li>
+			</ul>
+		</div>
+		
+		<div class="row text">
+			<ul>
+				<li>
+					{if group_id == '5'}
+					- Current Plan -
+					{if:else}
+					<a href="https://secure.clubrubydesigners.com/join/account/basic">Create a Free Account</a>
+					{/if}
+				</li>
+				<li>
+					{if group_id == '6'}
+					- Current Plan -
+					{if:else}
+					- Premium Membership is Full -
+					{!-- exp:mage_checkout:product_form product_type="subscription" uri="https://secure.clubrubydesigners.com/join/account"}
+					<input type="hidden" name="sku" value="ruby-premium" />
+					<input type="hidden" name="type" value="2" />
+					<input type="hidden" name="start" value="<?php echo start_date(1); ?>" />
+					<button type="submit" name="submit" onclick="this.submit();" style="padding: 3px 5px;" />Become a <br />Premium Member!</button>
+					{/exp:mage_checkout:product_form --}
+					{/if}
+				</li>
+				<li>
+					{if group_id == '9'}
+					- Current Plan -
+					{if:else}
+					- Kit Club Membership is Full -
+					{!-- exp:mage_checkout:product_form product_type="subscription" uri="https://secure.clubrubydesigners.com/join/account"}
+					<input type="hidden" name="sku" value="ruby-kit-club" />
+					<input type="hidden" name="type" value="2" />
+					<input type="hidden" name="start" value="<?php echo start_date(1); ?>" />
+					<button type="submit" name="submit" onclick="this.submit();" style="padding: 3px 5px;" />Become a Kit <br />Club Member</button>
+					{/exp:mage_checkout:product_form --}
+					{/if}
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+	<div class="plan-notes prefix_9">
+		Your satisfaction is very important to us. You can cancel at anytime for any reason conveniently within your account profile.
+		<br /> * We are only able to ship kits to the US at the moment
+	</div>
+</div>
+
+		<div class="seals">
+			<p style="font-size: 11px; padding-top: 10px;" class="grid_12">Order online safely and securely. All orders are secured by 256-bit Secure Sockets Layer encryption (SSL) -- You're 100% protected!)</p>
+			<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="dd35bdf9-5357-484e-a901-96b1d4d86607";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script></div>
+			<div class="ssl-seal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=qm2itMJhSyeqAidp3wCa3RZ6t2KNveF4uhZSDelWCzxGJPk1Op"></script></div>
+		</div>
+	<div class="cl" style="padding-bottom: 20px;"></div>
+{embed="_embed/.footer_landing"}

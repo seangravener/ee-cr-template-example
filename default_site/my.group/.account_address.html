@@ -1,0 +1,189 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	{exp:mage_checkout:address_form uri="{path=my/account/address/success}"}
+	<div class="form">
+		<h2>Billing Address</h2>
+		<p class="summary"></p>
+		
+		<input type="hidden" name="billing_entity_id" value="{billing_entity_id}" /> 
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_firstname">First Name</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{billing_firstname}" name="billing_firstname" id="billing_firstname" />
+				<p>Enter your first name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_lastname">Last Name</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{billing_lastname}" name="billing_lastname" id="billing_lastname" />
+				<p>Enter your last name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_street_1">Street Address</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{billing_street_1}" name="billing_street_1" id="billing_street_1" />
+				<input class="text border-3" type="text" value="{billing_street_2}" name="billing_street_2" id="billing_street_2" />
+				<p>Enter the street address</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_city">City</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{billing_city}" name="billing_city" id="billing_city" />
+				<p>Enter the city</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_country_id">Country</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<select class="text border-3" name="billing_country_id"><option value="US">United States</option></select>
+				<!-- select name="billing_country_id">{!-- exp:mage_checkout:country_options default='{billing_country_id}' first='-- Select Your Country --' --}</select -->
+				
+				<p>Enter the country</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_region_id">State or Province</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<select class="text border-3" name="billing_region_id">{exp:mage_checkout:region_options country_code='US' default='{billing_region_id}'}</select>
+				<!-- input class="field2" type="text" name="billing_region_id" value="{billing_region_id}" id="billing_region_id" / --> 
+				
+				<p>Enter the state or province</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_postcode">Zipcode</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{billing_postcode}" name="billing_postcode" id="billing_postcode" />
+				<p>Enter the zipcode</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="billing_postcode">Daytime Phone</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{billing_telephone}" name="billing_telephone" id="billing_telephone" />
+				<p>Enter the daytime phone</p>
+			</div>
+		</div>
+		
+		<h2>Shipping Address</h2>
+		<p class="summary"></p>
+		
+		<input type="hidden" name="shipping_entity_id" value="{shipping_entity_id}" /> 
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_firstname">First Name</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{shipping_firstname}" name="shipping_firstname" id="shipping_firstname" />
+				<p>Enter your first name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_lastname">Last Name</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{shipping_lastname}" name="shipping_lastname" id="shipping_lastname" />
+				<p>Enter your last name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_street_1">Street Address</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{shipping_street_1}" name="shipping_street_1" id="shipping_street_1" />
+				<input class="text border-3" type="text" value="{shipping_street_2}" name="shipping_street_2" id="shipping_street_2" />
+				<p>Enter the street address</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_city">City</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{shipping_city}" name="shipping_city" id="shipping_city" />
+				<p>Enter the city</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_country_id">Country</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<select class="text border-3" name="shipping_country_id"><option value="US">United States</option></select>
+				<!-- select name="shipping_country_id">{!-- exp:mage_checkout:country_options default='{shipping_country_id}' first='-- Select Your Country --' --}</select -->
+				
+				<p>Enter the country</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_region_id">State or Province</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<select class="text border-3" name="shipping_region_id">{exp:mage_checkout:region_options country_code='US' default='{shipping_region_id}'}</select>
+				<!-- input class="field2" type="text" name="shipping_region_id" value="{shipping_region_id}" id="shipping_region_id" / --> 
+				
+				<p>Enter the state or province</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_postcode">Zipcode</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{shipping_postcode}" name="shipping_postcode" id="shipping_postcode" />
+				<p>Enter the zipcode</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="shipping_postcode">Daytime Phone</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{shipping_telephone}" name="shipping_telephone" id="shipping_telephone" />
+				<p>Enter the daytime phone</p>
+			</div>
+		</div>
+		<p style="margin:0; clear: both; text-align: right"><input type="submit" title="Click to update and save your address" class="button" value="Update and Save Addresses" /></p>
+		
+	</div>
+	{/exp:mage_checkout:address_form}
+	
+</div>

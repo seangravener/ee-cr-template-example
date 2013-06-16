@@ -1,0 +1,31 @@
+				{exp:comment:entries sort="desc" entry_id="{embed:entry_id}" limit="3" dynamic="off"}
+				<p class="comment clearfix">
+					{exp:imgsizer:size src="{avatar_url}" width="30" height="30" default="images/default/member_photo.jpg"}
+					<a href="{path=designer}/{author_id}"><img src="{sized}" width="{width}" height="{height}" /> <strong>{name}</strong></a>
+					{/exp:imgsizer:size}
+					 
+					{exp:tagstripper:stripAllTags}{comment}{/exp:tagstripper:stripAllTags}
+					<span>{exp:wb_relative_date}{comment_date}{/exp:wb_relative_date}</span>
+				</p>
+				{/exp:comment:entries}
+				{if embed:comment_total > 3}
+				<p class="comment clearfix">
+					<a class="comment-total" href="{embed:entry_url}#responses">View all {embed:comment_total} comments...</a>
+				</p>
+				{/if}
+				<script type="text/javascript">
+					$(function() {
+					    $('.quick-comment-text').input_replacement({ text: '{screen_name} says...', prefocus_class: 'prefocus-text' });
+					});
+				</script>
+				<div class="quick-comment">
+					{exp:member:custom_profile_data}
+					{exp:imgsizer:size src="{avatar_url}" width="20" height="20" default="images/default/member_photo.jpg"}
+					<img src="{sized}" width="{width}" height="{height}" />
+					{/exp:imgsizer:size}
+					{/exp:member:custom_profile_data}
+					{exp:comment:form entry_id="{embed:entry_id}" preview="{embed:preview}"}
+					<textarea class="text quick-comment-text border-3" name="comment" /></textarea>
+					<button class="mini-button" type="submit" name="submit" />comment</button>
+					{/exp:comment:form}
+				</div>

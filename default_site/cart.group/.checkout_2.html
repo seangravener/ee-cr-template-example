@@ -1,0 +1,159 @@
+	<div class="nav nav-type-1"> 
+		<div class="in"> 
+			<h2 class="heading">Secure Checkout</h2>
+			<div class="cl">&nbsp;</div> 
+		</div> 
+	</div>
+
+	{exp:mage_checkout:show_cart uri="https://secure.clubrubydesigners.com/cart/checkout/2"}
+	<div class="my-cart grid_20 prefix_2 suffix_2">
+		<div class="product-info">
+			<h3 class="title grid_16 alpha">Selected Plan: {product_name}</h3>
+			<div class="price grid_4 omega"><span>$<?php show_flatrate('{product_price}', '{sku}', 'subtotal'); ?></span></div>
+			<div class="cl"></div>	
+		</div>
+		<div class="sub"><span>Shipping: $<?php show_flatrate('{subtotal}', '{sku}', 'rate'); ?></span></div>
+		<div class="cl"></div>
+		<div class="sub"><span>Subtotal: ${subtotal}</span></div>
+		<div class="cl"></div>
+		{if discount != '0'}<div class="sub"><span>Discount ({coupon_code}): ${discount}</span></div>{/if}
+		<div class="cl"></div>
+		<div class="sub"><span>Total: ${grand_total}</span></div>
+		<div class="cl"></div>
+		<p style="text-align: right;">* First delivery will be on {subscription_start}, Billing: {subscription_type}</p>
+		<div class="box-1">
+			{if discount != '0'}
+			<input type="submit" name="cart_action" value="Cancel Coupon"/>
+			{if:else}
+			<p>If you have a coupon, enter it here</p>
+			<input type="text" name="coupon"/><br />
+			<input type="submit" name="cart_action" value="Apply Coupon"/>
+			{/if}	
+		</div>
+
+	</div>
+	{/exp:mage_checkout:show_cart}
+	<div class="cl"></div>
+
+<div class="prefix_2 suffix_2">
+	{exp:mage_checkout:checkout_form uri="https://secure.clubrubydesigners.com/cart/success"}
+<p style="text-align: right; margin-bottom: 20px;"><a id="edit-address" href="#">Click to Edit Your Addresses</a></p>
+<div id="addresses" style="display: none;">
+	<div class="address">
+	
+		<h2 class="heading-2">Billing Address</h2>
+		<div class="details">
+			<input type="hidden" name="billing_entity_id" value="{billing_entity_id}"/>
+			<input type="hidden" name="billing_region" value="{billing_region}" />
+			
+				<label for="billing_firstname">First Name</label>
+				<input class="field" type="text" name="billing_firstname" value="{billing_firstname}"/>
+			
+				<label for="billing_lastname">Last Name</label>
+				<input class="field" type="text" name="billing_lastname" value="{billing_lastname}"/>
+			
+				<label for="billing_street_1">Street</label>
+				<input class="field" type="text" name="billing_street_1" value="{billing_street_1}"/>
+				<input class="field" type="text" name="billing_street_2" value="{billing_street_2}"/>
+			
+				<label for="billing_city">City</label>
+				<input class="field" type="text" name="billing_city" value="{billing_city}"/>
+			
+				<label for="billing_country_id">United States Only (temporary)</label>
+				<select class="field" name="billing_country_id">
+					<option selected="selected" value="US">United States</option>
+				</select>
+			
+				<label for="billing_region_id">State</label>
+				<select class="field" name="billing_region_id">{exp:mage_checkout:region_options country_code='US' default='{billing_region_id}'}</select>
+			
+				<label for="billing_postcode">Zip Code</label>
+				<input class="field" type="text" name="billing_postcode" value="{billing_postcode}"/>
+			
+				{!-- <label for="billing_country_id">Country</label>
+				<select name="billing_country_id">{exp:mage_checkout:country_options default='{billing_country_id}' first='-- Select Your Country --'}</select> --}
+				
+				<label for="billing_telephone">Phone</label>
+				<input class="field" type="text" name="billing_telephone" value="{billing_telephone}"/>
+			 
+		</div>
+	</div>
+
+	<div class="address">
+	
+		<h2 class="heading-2">Shipping Address</h2>
+		<script type="text/javascript">
+		
+		$(document).ready(function(e){
+			$("#shipping-address").css("display","none");
+			$("#same_as_billing").click(function(){
+				$("#shipping-address").toggle();
+			});
+	    });
+    	</script>
+		<label style="margin-bottom: 20px;" for="same_as_billing"><input id="same_as_billing" type="checkbox" name="same_as_billing" value="yes" {if same_as_billing == "yes"}checked="checked"{/if}/> My shipping address is the same as my billing address</label>
+		
+		<div id="shipping-address" class="details" {if same_as_billing == 'yes'}style="display: none;"{/if}>
+			<input type="hidden" name="shipping_entity_id" value="{shipping_entity_id}"/>
+			<input type="hidden" name="shipping_region" value="{shipping_region}" />
+			
+				<label for="shipping_firstname">First Name</label>
+				<input class="field" type="text" name="shipping_firstname" value="{shipping_firstname}"/>
+			
+				<label for="shipping_lastname">Last Name</label>
+				<input class="field" type="text" name="shipping_lastname" value="{shipping_lastname}"/>
+			
+				<label for="shipping_street_1">Street</label>
+				<input class="field" type="text" name="shipping_street_1" value="{shipping_street_1}"/>
+				<input class="field" type="text" name="shipping_street_2" value="{shipping_street_2}"/>
+			
+				<label for="shipping_city">City</label>
+				<input class="field" type="text" name="shipping_city" value="{shipping_city}"/>
+		
+				<label for="shipping_country_id">United States Only (temporary)</label>
+				<select class="field" name="shipping_country_id">
+					<option selected="selected" value="US">United States</option>
+				</select>
+				
+				<label for="shipping_region_id">State</label>
+				<select class="field" name="shipping_region_id">{exp:mage_checkout:region_options country_code='US' default='{shipping_region_id}'}</select>
+		
+				<label for="shipping_postcode">Zip Code</label>
+				<input class="field" type="text" name="shipping_postcode" value="{shipping_postcode}"/>
+
+				{!-- <label for="shipping_country_id">Country</label>
+				<select name="shipping_country_id">{exp:mage_checkout:country_options default='{shipping_country_id}' first='-- Select Your Country --'}</select> --}
+							
+				<label for="shipping_telephone">Phone</label>
+				<input class="field" type="text" name="shipping_telephone" value="{shipping_telephone}"/>
+			 
+		</div>
+	</div>
+</div>
+
+	<input type="hidden" name="shipping_method" value="flatrate_flatrate"/>
+
+	<div class="address">
+		<h2 class="heading-2">Payment Details</h2>
+		<div class="details">
+			
+				<label for="cc_owner">Name on Card</label>
+				<input class="field" type="text" name="cc_owner" />
+			
+				<label for="cc_type">Card Type</label>
+				<select class="field" name="cc_type"><option value="">-- Please Select --</option>{card_types}</select>
+			
+				<label for="cc_number">Credit Card Number</label>
+				<input class="field" type="text" name="cc_number" />
+			
+				<label for="cc_exp_month">Expiration Date</label>
+				<select class="field" style="width: auto;" name="cc_exp_month"><option value="">Month</option>{exp_months}</select> <select class="field" style="width: auto;" name="cc_exp_year"><option value="">Year</option>{exp_years}</select>
+			
+				<label for="cc_cid">Verification Number</label>
+				<input class="field" type="text" name="cc_cid" style="width: auto;" size="4"/>
+			
+		</div>
+	</div>
+	<input type="submit" name="submit" value="Secure Checkout" />
+	
+	{/exp:mage_checkout:checkout_form}

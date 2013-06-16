@@ -1,0 +1,21 @@
+<div id="content" class="left grid_11">
+	
+	<div class="personal-info tab-item"> 
+		
+		{if segment_6}
+			{exp:mage_checkout:subscription_cancel subscription_id="{segment_4}" redirect="join/plans" confirm="{segment_6}"}
+		{/if}
+		
+		{exp:mage_checkout:subscription_view subscription_id="{segment_4}"}
+		<div style="margin: 20px 0;">
+		{result_message}
+		</div>
+		{/exp:mage_checkout:subscription_view}
+		
+		<h2>Confirm Cancelation</h2>
+		<p>By clicking the link below, your Club Ruby Membership account will be canceled. After canceling, you will no longer be able to access your account.</p>
+		
+		<a href="{path=my/account}/history/{segment_4}/{segment_5}/{exp:ssc_rules:random_hash}">Yes, please CANCEL MY MEMBERSHIP</a>
+		
+	</div>
+</div>

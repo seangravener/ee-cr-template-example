@@ -1,0 +1,52 @@
+<h2 id="responses" class="head-t">Responses</h2>
+<ul id="comments">
+{exp:comment:entries entry_id="{embed:entry_id}" sort="asc" limit="20"}
+{if no_results}
+	<li class="comment"><p>No one has commented yet.</p></li>
+{/if}
+	<li id="comment-{comment_id}" class="comment">
+        <div class="author">
+            <span class="avatar">
+            	{exp:imgsizer:size src="{avatar_url}" width="25" height="25" default="images/default/member_photo.jpg"}
+				<img src="{sized}" width="{width}" height="{height}" alt="{title}" />
+				{/exp:imgsizer:size}
+			</span>
+            <a href="{path=designer}/{author_id}" class="name">{author}</a> said <a class="time" href="#comment-{comment_id}">{exp:wb_relative_date}{comment_date}{/exp:wb_relative_date}</a>
+        </div>
+        <div class="comment-body">
+            <p>{comment}</p>
+        </div>
+        <!-- div class="reply-link">
+            <a href="#respond">Reply</a>
+        </div -->
+	</li>
+{/exp:comment:entries}
+</ul>
+
+<div class="form comment-form">
+	{if logged_in}
+	{exp:member:custom_profile_data}
+	{exp:imgsizer:size src="{avatar_url}" width="25" height="25" default="images/default/member_photo.jpg"}
+	<img style="float: left; padding: 10px 10px 0 0;" src="{sized}" width="{width}" height="{height}" alt="{title}" />
+	{/exp:imgsizer:size}
+	{/exp:member:custom_profile_data}
+	<h2 class="head-t">{screen_name} says:</h2>
+	<div class="cl"></div>
+	
+	{exp:comment:form channel="{embed:channel}" entry_id="{embed:entry_id}" preview="{embed:preview}"}
+		
+		<textarea name="comment" cols="70" rows="10">{comment}</textarea> 
+		
+		<p style="text-align: right;">
+		<label><input type="checkbox" name="notify_me" value="yes" {notify_me} /> Notify me when others leave responses?</label>
+		</p>
+		<p style="text-align: right;">
+		<input type="submit" name="submit" value="Submit My Response" />
+		</p>
+		
+	{/exp:comment:form}
+	{if:else}
+	<h2 class="head-t">Add a Comment</h2>
+	<p>You must be signed in to leave a comment. <a href="{path=join}">Sign Up</a> or <a href="{path=login}">Sign In</a>.</p>
+	{/if}
+</div>

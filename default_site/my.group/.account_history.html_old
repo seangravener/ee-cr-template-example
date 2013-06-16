@@ -1,0 +1,88 @@
+<div id="content" class="left grid_11">
+	
+	<div class="personal-info tab-item"> 
+		
+		<h2>Payments</h2>
+		<table id="ver-minimalist" summary="Club Ruby Plan">
+		    <thead>
+		    	<tr valign="bottom">
+		        	<th>Order #</th>
+		            <th>Billing Date</th>
+		            <th>Order Status</th>
+					<th>Amount Billed</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	{exp:mage_checkout:payment_history subscription_id="{segment_4}"}
+				{if no_results}
+				
+				nothing
+				{/if}
+				<tr>
+		        	<td>{order_num}</td>
+		            <td>{date}</td>
+		            <td>{status}</td>
+					<td>${amount}</td>
+		        </tr>
+				{items}
+				<tr>
+		        	<td>{h_order_num}</td>
+		            <td>{h_date}</td>
+		            <td>{h_status}</td>
+					<td>${h_amount}</td>
+		        </tr>
+				{/items}
+		        {/exp:mage_checkout:payment_history}
+		    </tbody>
+		</table>
+		
+		{exp:mage_checkout:subscription_view subscription_id="{segment_4}"}		
+		<div style="margin: 20px 0;">
+		{result_message}
+		<div class="grid_5">
+			<strong>Billed To:</strong><br />
+			{billing_address} 
+		</div>
+		<div class="grid_5">
+			<strong>Shipped To:</strong><br />
+			{shipping_address}
+		</div>
+		<div class="cl"></div>
+		</div>
+		
+		<ul>
+			<li>Shipping Method: {shipping_method}</li>
+			<li>Payment Method: 
+				<div class="cc-table">
+				{payment}
+				</div>
+			</li>
+			<li>Next Payment: {date_next_payment}
+			<li>Next Delivery: {date_next_delivery}</li>
+		</ul>
+
+		<h2>Options</h2>
+		
+		{!-- 
+		{if subscription_status == "Active"}
+		<br /><a href="{path=my/account/history}/{subscription_id}/reorder">Change</a><br />
+		{/if}
+		{if subscription_status == "Active"}
+		<a href="{path=my/account/history}/{subscription_id}/suspend">Suspend</a><br />
+		{if:elseif subscription_status == "Suspended by customer"}
+		<a href="{path=my/account/history}/{subscription_id}/activate">Activate</a><br />
+		{/if}
+		
+		{if subscription_status == "Suspended" OR subscription_status == "Canceled"}
+		This subscription is not active. If you want activate it, please click <a href="{path=my/account/history}/{subscription_id}/prolong}">Here</a>.<br />
+		{if:else}
+		<a href="{path=my/account/history}/{subscription_id}/cancel">Cancel</a><br />
+		{/if}
+		--}
+		
+		<ul>
+			<li><a href="{path=my/account/history}/{subscription_id}/cancel">Cancel Membership</a></li>
+		</ul>
+		{/exp:mage_checkout:subscription_view}
+	</div>
+</div>

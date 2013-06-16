@@ -1,0 +1,24 @@
+<div id="main-content" class="grid_11 do-cufon">
+	<h2>Member Journals</h2>		
+	{exp:channel:entries channel="journals" status="published" limit="15" paginate="bottom" group_id="{embed:group_id}"}
+	
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		journal_body="{exp:tagstripper:stripAllTags}{exp:word_limit total="50"}{journal_body}{/exp:word_limit}{/exp:tagstripper:stripAllTags}"
+	}
+	
+	{paginate}{if total_pages > 1}
+	<p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+	{/if}{/paginate}
+	
+	{/exp:channel:entries}
+	
+</div>

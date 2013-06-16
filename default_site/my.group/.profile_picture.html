@@ -1,0 +1,43 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	{exp:user:edit screen_name_password_required="no" return="my/profile/{segment_3}"}
+	<div class="form">
+		<h2>Upload a Profile Picture</h2>
+		<p class="summary"><strong>Your profile picture will be used to identify you.</strong> For example, when you leave a comment, this photo will show up beside your comment. It is also used as the main picture on <a target="_blank" href="{path=designer}/{member_id}">your profile page</a>.</p>
+		
+		<div class="grid_4 alpha">
+			<div class="img-box border-3">
+				{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="210" default="images/default/member_photo.jpg"}
+				<img src="{sized}" width="{width}" height="{height}" />
+				{/exp:imgsizer:size}
+				<p>{screen_name}</p>
+			</div>
+		</div>
+
+		<div class="grid_7 omega">
+
+			<p class="filebox">Change your profile photo:	<input type="file" name="avatar_filename" /></p>
+			<p class="small">You can upload .JPG, .PNG, or .GIF images.</p>	
+	
+		{!-- IMPORTANT: We get some resized images here to use in the Forums and to pre-cache --}
+		<div class="avatar-sizes" style="margin: 10px 0;">
+			<p>When identifying you, we'll need to resize and crop your photo. Here are some examples:</p>
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="25" height="25" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="50" height="50" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="75" height="75" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+		</div>
+		{if avatar_filename}<p style="text-align: right;"><input type="checkbox" name="remove_avatar" value="Delete Current Picture" /> Delete current picture</p>{/if}
+		<p style="margin:0; clear: both; text-align: right"><input type="submit" title="Click to update and save picture" class="button" value="Save Changes" /></p>
+		</div>
+		
+		
+	</div>
+	{/exp:user:edit}
+	
+</div>

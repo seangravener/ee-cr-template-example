@@ -1,0 +1,130 @@
+<div id="header">
+	<div class="shell">
+		<h1 id="logo"><a href="#" class="notext">Club Ruby Designers</a></h1>
+		<!-- div class="sign-in">
+			<p>{if logged_in}Hi, <strong>{screen_name}</strong>! <a href="{path=logout}">Sign Out</a>{if:else}<a href="{path=join}">Sign Up for Your Account</a>{/if}</p>
+		</div -->
+		<div class="cl">&nbsp;</div>
+		<div id="navigation">
+			<ul>
+			    {if logged_in}
+				<li><a href="{path=activity}"{if '{embed:active_location}' == 'activity'} class="active"{/if}><span>Community</span></a></li>
+			    <li><a href="{path=my/profile}"{if '{embed:active_location}' == 'profile'} class="active"{/if}><span>My Profile</span></a></li>
+				<!-- li><a href="{path=members}"{if '{embed:active_location}' == 'members'} class="active"{/if}><span>Members</span></a></li -->
+				<li><a href="{path=kits}"{if '{embed:active_location}' == 'kits'} class="active"{/if}><span>Kits</span></a></li>
+			    <li><a href="{path=videos}"{if '{embed:active_location}' == 'videos'} class="active"{/if}><span>Videos</span></a></li>
+				<li><a href="{path=gallery}"{if '{embed:active_location}' == 'gallery'} class="active"{/if}><span>Gallery</span></a></li>
+			    <li><a href="{path=forums}"><span>Forums</span></a></li>
+			    <li><a href="{path=journals}"{if '{embed:active_location}' == 'journals'} class="active"{/if}><span>Journals</span></a></li>
+				<li><a href="{path=members}"{if '{embed:active_location}' == 'members'} class="active"{/if}><span>Members</span></a></li>
+				{if:else}
+				<li><a href="{path=members}"{if '{embed:active_location}' == 'members'} class="active"{/if}><span>Members</span></a></li>
+				<li><a href="{path=designer/activity}"{if '{embed:active_location}' == 'activity' || segment_2 == 'activity'} class="active"{/if}><span>Designer Activity</span></a></li>
+			    <?php $segment_2 = '{segment_2}'; if (is_numeric($segment_2)) { ?><li><a href="{path=designer}/{segment_2}"{if '{embed:active_location}' == 'profile'} class="active"{/if}><span>Designer Profile</span></a></li><?php } ?>
+				{/if}
+			</ul>
+			<div class="cl">&nbsp;</div>
+		</div>
+		{!-- 
+		<a href="#" class="master-btn">Master Design Team</a>
+		<div class="box-master">
+			<div class="box-master-bg">
+      	<div>
+        	<div>
+            <div class="col left">
+              <ul>
+                  <li><a href="#">Megan Gravener</a></li>
+                  <li><a href="#">Leslie Jensen</a></li>
+                  <li><a href="#">Karen Lightman</a></li>
+                  <li><a href="#">Rachael McMillan</a></li>
+                  <li><a href="#">Jane Wells</a></li>
+                  <li><a href="#">Sally Field</a></li>
+              </ul>
+            </div>
+            <div class="col left">
+              <ul>
+                  <li><a href="#">Megan Gravener</a></li>
+                  <li><a href="#">Leslie Jensen</a></li>
+                  <li><a href="#">Karen Lightman</a></li>
+                  <li><a href="#">Rachael McMillan</a></li>
+                  <li><a href="#">Jane Wells</a></li>
+                  <li><a href="#">Sally Field</a></li>
+              </ul>
+            </div>
+            <div class="col left">
+              <ul>
+                  <li><a href="#">Megan Gravener</a></li>
+                  <li><a href="#">Leslie Jensen</a></li>
+                  <li><a href="#">Karen Lightman</a></li>
+                  <li><a href="#">Rachael McMillan</a></li>
+                  <li><a href="#">Jane Wells</a></li>
+                  <li><a href="#">Sally Field</a></li>
+              </ul>
+            </div>
+            <div class="col left">
+              <ul>
+                  <li><a href="#">Megan Gravener</a></li>
+                  <li><a href="#">Leslie Jensen</a></li>
+                  <li><a href="#">Karen Lightman</a></li>
+                  <li><a href="#">Rachael McMillan</a></li>
+                  <li><a href="#">Jane Wells</a></li>
+                  <li><a href="#">Sally Field</a></li>
+              </ul>
+            </div>
+            <div class="col left">
+              <ul>
+                  <li><a href="#">Megan Gravener</a></li>
+                  <li><a href="#">Leslie Jensen</a></li>
+                  <li><a href="#">Karen Lightman</a></li>
+                  <li><a href="#">Rachael McMillan</a></li>
+                  <li><a href="#">Jane Wells</a></li>
+                  <li><a href="#">Sally Field</a></li>
+              </ul>
+            </div>
+            <div class="cl">&nbsp;</div>
+          </div>
+        </div>
+			</div>
+		</div>
+		--}
+	</div>
+</div>
+
+<div id="head">
+	<div class="shell">
+		<h1 class="title left">{embed:page_title}</h1>
+		<!-- div class="search-form right">
+			<form action="#" method="post">
+				<div>
+					<input type="text" class="field blink left" value="Search" title="Search" />
+					<input type="submit" class="button left" value=" " />
+					<div class="cl">&nbsp;</div>
+				</div>
+			</form>
+		</div -->
+		<div class="cl">&nbsp;</div>
+	</div>
+</div>
+
+{!-- if segment_1 != 'classroom' && (group_id > 5 || group_id == 1)}
+<div class="container_16">
+	<div class="header-notice notice-video">
+		Don't miss the LIVE Online Class tonight at 9:30pm EST! <a href="{path=classroom/live}">Click here to watch the broadcast...</a>
+	</div>
+</div>
+{/if --}
+
+{!-- <div class="container_16">
+	{if group_id > 5 || group_id == 1}
+	<div class="header-notice notice-video">
+		As a Club Ruby Advantage Member, you <strong>get $12.00 OFF </strong>(30%!) past Club Ruby Kits at Craft-e-Corner! There is a limited supply, so <a href="{path=page/get-past-club-ruby-kits}">click here to learn how to get them before they're gone!</a>
+	</div>
+	<!-- div class="header-notice notice-video">
+		NOTICE: April's Kit is available for purchase! There is a very limited supply, so <a href="{path=kits/detail/april-2011/1919}">click here to watch the video and get it before they're gone!</a>
+	</div -->
+	{/if}
+	<div class="header-notice notice-video">
+		ANNOUNCEMENT: We've made some important changes to Club Ruby. <a href="{path=page/club-ruby-changes}">Click here to get the scoop...</a> (*fixed link!*)
+	</div>
+</div>
+--}

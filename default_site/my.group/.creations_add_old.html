@@ -1,0 +1,253 @@
+<div id="content" class="left grid_11">
+	<div class="personal-info creation tab-item">
+		
+		<div class="form">
+			<h2>Upload a Creation</h2>
+			<p>Use the form on this page to add a "creation" to your profile for everyone to see and comment on.</p>
+		
+		{exp:channel:entry_form channel="creations" return="my/creations" show_fields="projects_summary|projects_body|projects_kits"}
+			<input type="hidden" name="url_title"  value="{url_title}" />
+			<input type="hidden" name="entry_date" value="{entry_date}" />
+
+			<label for="title">* Title of Your Creation</label>
+			<div class="field-section">				
+				<p class="field-instructions">Give your creation a creative, but meaningful title.</p>
+				<input type="text" name="title" id="title" value="{title}" size="50" maxlength="100" />
+			</div>
+		
+			<p class="notice-info">
+				NOTE: Currently, we have to limit the number and size of photos being uploaded. We're working hard to increase capacity to accept more and larger photos. 
+				If your photos are larger than 1 MB, you can easily resize them using this online tool: <a href="http://www.picresize.com/" target="blank">Picture Resize</a>. 
+				Thanks for your patience as we expand!
+			</p>
+		
+			<label for="title">* Photo of Completed Project</label>
+			<div class="field-section">
+				<p class="field-instructions">A picture is worth 1,000 words. Upload the best photo you have of your finished project. </p>
+				<p class="filebox">
+				<input type="file" name="field_id_9" value="" />
+				<input type="hidden" name="field_id_9_directory" value="2" /></p>
+			</div>
+
+			<label for="field_id_15">Additional Photos</label>
+			<p class="field-instructions">You may also upload 2 additional photos of your creation. Image formats accepted are .jpg, .png and .gif up to 1 MB in size each.</p>
+			<div class="cl"></div>
+			<div class="grid_5 alpha">
+				<label for="tag_f">Photo #1</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_15" value="" />
+						<input type="hidden" name="field_id_15_directory" value="2" />
+					 </p>
+				</div>
+			</div>
+			<div class="grid_5 omega">
+				<label for="tag_f">Photo #2</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_28" value="" />
+					 	<input type="hidden" name="field_id_28_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="cl"></div>
+						
+			{custom_fields}
+			{if required}* {/if}
+			{if textarea}
+			<label for="{field_name}">{field_label}</label>
+			<div class="field-section">
+				<p class="field-instructions">{field_instructions}</p>
+				<textarea id="{field_name}" name="{field_name}" dir="{text_direction}" rows="{rows}">{field_data}</textarea>
+			</div>
+			{/if}
+
+			{if textinput}
+			<label for="{field_name}">{field_label}</label>
+			<div class="field-section">
+				<p class="field-instructions">{field_instructions}</p>
+				<input type="text" dir="{text_direction}" id="{field_name}" name="{field_name}" value="{field_data}" maxlength="{maxlength}" />
+			</div>
+			{/if}
+			
+			{if relationship}
+			<label for="{field_name}">{field_label}</label>
+			<div class="field-section">
+				<p class="field-instructions">{field_instructions}</p>
+				<select id="{field_name}" name="{field_name}">
+				{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}<br />
+				</select>
+			</div>
+			{/if}
+			
+{if pulldown}
+<select id="{field_name}" name="{field_name}">
+{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}<br />
+</select>
+{/if}
+
+{if date}
+<input type="text" id="{field_name}" name="{field_name}" value="{field_data}" maxlength="{maxlength}" size="50" /><br />
+{/if}
+
+
+
+{if multiselect}
+<select id="{field_name}" name="{field_name}[]" multiple="multiple">
+{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}
+</select>
+{/if}
+
+{if checkbox}
+{options}{option_value} <input type="checkbox" id="{field_name}" name="{field_name}[]" value="{option_value}"{checked} />
+{/options}
+{/if}
+
+{if radio}
+{options}{option_value} <input type="radio" id="{field_name}" name="{field_name}" value="{option_value}"{checked} />
+{/options}
+{/if}
+
+{if file}
+<div>
+	<p><input type="file" name="{field_name}" value="{field_data}" /></p>
+</div>
+{/if}
+
+{/custom_fields}
+
+			{status_menu}
+			<label for="status">Publish Status</label>
+			<div class="field-section">
+				<p class="field-instructions">Save as a draft (only viewable to you) or publish and share it with the community!</p>
+				<select id="status" name="status">
+					{select_options}
+				</select>
+			</div>
+			{/status_menu}
+
+			<label for="tag_f">Labels and Colors</label>
+			<div class="field-section">
+				<p class="field-instructions">Label your creations with meaningful words. For example: <br />scrapbooking<br />summer<br />club ruby<br />green<br />Enter one label per line.</p>
+				<textarea id="tag_f" name="tag_f" rows="2"></textarea>
+			</div>
+
+		</div>
+		{!--
+		<div class="form">
+			<h2>Additional Photos</h2>
+			<p>You may upload up to 10 additional photos of your project. Image formats accepted are .jpg, .png and .gif</p>
+			<div class="grid_5">
+				<label for="tag_f">Photo #1</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_15" value="" />
+						<input type="hidden" name="field_id_15_directory" value="2" />
+					 </p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #2</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_28" value="" />
+					 	<input type="hidden" name="field_id_28_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #3</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_29" value="" />
+						<input type="hidden" name="field_id_29_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #4</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_30" value="" />
+						<input type="hidden" name="field_id_30_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #5</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_31" value="" />
+						<input type="hidden" name="field_id_31_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #6</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_32" value="" />
+						<input type="hidden" name="field_id_32_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #7</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_33" value="" />
+						<input type="hidden" name="field_id_33_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #8</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_34" value="" />
+						<input type="hidden" name="field_id_34_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #9</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_35" value="" />
+						<input type="hidden" name="field_id_35_directory" value="2" />
+					</p>
+				</div>
+			</div>
+			<div class="grid_5">
+				<label for="tag_f">Photo #10</label>
+				<div class="field-section">
+					<p class="field-instructions"></p>
+					<p class="filebox">
+						<input type="file" name="field_id_36" value="" />
+						<input type="hidden" name="field_id_36_directory" value="2" />
+					</p>
+				</div>
+			</div>
+
+
+		</div>
+		--}
+		
+		<input type="hidden" name="allow_comments" value="y" />
+		<input type="hidden" name="userform" value="{exp:ssc_rules:random_hash}" />
+		<p style="text-align: right;"><a href="{path=my/profile}">Cancel</a> or <input type="submit" name="submit" value="Upload and Save My Creation" /></p>
+		{/exp:channel:entry_form}
+		
+	</div>
+</div>

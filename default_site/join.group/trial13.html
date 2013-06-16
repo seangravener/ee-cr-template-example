@@ -1,0 +1,106 @@
+{embed="landing/.page_head"
+	sticky_js="no"
+}
+<style type="text/css">
+	p {margin-bottom: 20px;}
+</style>
+<div id="what-is-ruby"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		<div class="cl">&nbsp;</div> 
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+
+	<div class="nav nav-type-1"> 
+		<div class="in"> 
+				<h2 class="heading">Create Your Free Club Ruby Account</h2>
+			<div class="cl">&nbsp;</div> 
+		</div> 
+	</div>
+
+	{if logged_in}
+		<div id="signup" class="prefix_2 suffix_2">
+		<p>You're already logged in, {screen_name}! <a href="{path=activity}">See what's happening in the community</a> or <a href="{path=my/profile}">Goto your profile</a>.
+		
+		<p>If this isn't you, <a href="{path=logout}">click here to logout</a></p>
+		</div>
+	{if:else}
+	<div class="prefix_2 suffix_2">
+		<p><strong>Claim your free gift from Above Rubies Studio</strong></p>
+		<p>Here's your exciting benefit: a trial membership to the Premier Kit Club &amp; Paper Craft Community, &quot;Club Ruby&quot;!
+	<p><em>There is no obligation and no catch</em>. Using the form below, you simply create a Club Ruby account and you will immediately have access as a Premium Member. No credit card or payment of any kind required.</p>		
+			{exp:user:register form:name="signup" return="activity" group_id="13"}
+		 
+			<h2 style="margin-bottom: 5px;">Email Address</h2>
+			<p style="margin-bottom: 20px;">Enter your current email address. You will use this email to login to your account.<br /><input type="text" name="username" class="input" style="padding: 5px;" size="45" /></p>
+			
+			<h2 style="margin-bottom: 5px;">Name</h2>
+			<p style="margin-bottom: 20px;">Enter your <strong>first name</strong><br />
+			<input type="text" name="fname" class="input" style="padding: 5px;" size="45" /><br />
+			
+			Enter your <strong>last name</strong> <br /><input type="text" name="lname" class="input" style="padding: 5px;" size="45" />
+			</p>
+			 
+			<h2 style="margin-bottom: 5px;">Choose a Password</h2>
+			<p style="margin-bottom: 20px;">Choose your password carefully<br /><input type="password" name="password" class="input" style="padding: 5px;" size="45" /></p>
+			<!-- p>Confirm Password: <input type="password" name="password_confirm" class="input" size="25" /></p -->
+				 
+			<p><input style="padding: 5px 10px;" type="submit" value="Create My Account!" /></p>
+			 
+			{/exp:user:register}
+		
+		<p>
+	<strong>What is Club Ruby?</strong></p>
+	<p>	At its core, Club Ruby Designers is a craft community for everyone who shares a passion for paper crafts. Creating your own design profile, uploading photos of your creations and photos albums is part of the Club Ruby Basic membership and doesn&#39;t cost anything.&nbsp;Premium members, however, get added benefits including fun and educational videos, on-line DVDs, detailed tutorials, live classroom broadcasts and more.<br />
+	</p>
+
+	<strong>What happens after my trial has ended?</strong></p>
+<p>
+	Once your trial has ended, your Premium membership will simply become a basic membership. You will not loose anything in your account; everything that you&#39;ve uploaded or written in your journal will still be there and accessible from your account.
+	</p>
+<p>
+	Building your design profile, upload your creations, &nbsp;will always be available for everyone as part of the basic membership at no cost.
+	
+</p>
+<p>
+	You can become a Premium member at any time within your account.</p>
+		
+		{!-- if segment_3}
+		
+			{exp:user:register form:name="signup" return="activity" group_id="13"}
+		 
+			<h2 style="margin-bottom: 5px;">Email Address</h2>
+			<p style="margin-bottom: 20px;">Enter your current email address. You will use this email to login to your account.<br /><input type="text" name="username" class="input" style="padding: 5px;" size="45" /></p>
+			
+			<h2 style="margin-bottom: 5px;">Name</h2>
+			<p style="margin-bottom: 20px;">Enter your <strong>first name</strong><br />
+			<input type="text" name="fname" class="input" style="padding: 5px;" size="45" /><br />
+			
+			Enter your <strong>last name</strong> <br /><input type="text" name="lname" class="input" style="padding: 5px;" size="45" />
+			</p>
+			 
+			<h2 style="margin-bottom: 5px;">Choose a Password</h2>
+			<p style="margin-bottom: 20px;">Choose your password carefully<br /><input type="password" name="password" class="input" style="padding: 5px;" size="45" /></p>
+			<!-- p>Confirm Password: <input type="password" name="password_confirm" class="input" size="25" /></p -->
+				 
+			<p><input style="padding: 5px 10px;" type="submit" value="Create My Account!" /></p>
+			 
+			{/exp:user:register}
+			
+		 {if:else}
+		 
+		 	<p>Please enter your private invitation key below:</p>
+		 	<form method="post" action="{path=join/trial13}/{exp:ssc_rules:random_hash}">
+		 		<input type="text" name="invite_key" /><br />
+				<input type="submit" name="submit" value="submit" />
+		 	</form>
+		 {/if --}
+
+	{/if}
+	</div>
+	
+	<div class="cl" style="padding-bottom: 20px;"></div>
+	
+{embed="landing/.page_footer"}

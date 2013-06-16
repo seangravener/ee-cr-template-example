@@ -1,0 +1,54 @@
+<div id="profile-meta">
+	<div class="container_16 clearfix">
+		<div class="grid_16 profile-section">
+			Recently added Club Ruby Design Team creations
+		</div>
+	</div>
+</div>
+
+<div id="creations" class="noise-bg thumb-list do-cufon">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+		
+			<h3>Club Ruby Design Team Creation Gallery</h3>
+	
+			{exp:channel:entries dynamic="off" channel="creations" group="11" status="not private|closed|draft" limit="28" paginate="bottom"}
+			{if no_results}No creations have been uploaded yet{/if}
+			<?php if ({switch='1|2|3|4'} == 1) { echo '<div class="thumb-row clearfix">'; } ?>
+				<div class="grid_4 <?php if ({switch='1|2|3|4'} == 1) { echo ' alpha'; } if ({switch='1|2|3|4'} == 4) { echo ' omega'; } ?>">
+					<div class="thumb img-preview">
+						<a class="" href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}" rel="{projects_photo_1}" title="{title}">
+							{exp:photo_manager:show_default entry_id="{entry_id}"}
+							{exp:imgsizer:size src="{default_url}" width="210" height="125" default="{default_projects_photo}"}
+							<img src="{sized}" width="{width}" height="{height}" />
+							{/exp:imgsizer:size}
+							{/exp:photo_manager:show_default}
+						</a>
+						<ul class="inline item-meta clearfix">
+							<li class="likes">0</li>
+							<li class="comments"><a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}#responses" title="{comment_total} comments">{comment_total}</a></li>
+							<li class="views">{view_count_one}</li>
+						</ul>
+					</div>
+					<div class="gallery-item-author">
+						<a href="{path=designer}/{author_id}" title="{author}">
+						{exp:imgsizer:size src="{avatar_url}" width="15" height="15" default="{default_member_photo}"}
+						<img class="profile-image" src="{sized}" width="{width}" height="{height}" />
+						{/exp:imgsizer:size}
+						<span>{author}</span>
+						</a>
+					</div>
+				</div>
+			<?php if ({switch='1|2|3|4'} == 4 || {count} == {total_results}) { echo '</div>'; } ?>
+			{paginate}
+			<p class="pageination">
+				{if previous_page}<a href="{auto_path}">&laquo; Previous Page</a> &nbsp;	{/if}
+				{if next_page} <a href="{auto_path}">Next Page &raquo;</a> {/if}
+			</p>
+			{/paginate}
+			{/exp:channel:entries}
+			
+			<div class="clear-fix"> </div>
+		</div>
+	</div>
+</div>

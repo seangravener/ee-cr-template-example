@@ -1,0 +1,212 @@
+<?php
+function remove_http($url = '')
+{
+  // return(str_replace(array('http://','https://'), '', $url));
+  	$list = array('http://', 'https://');
+    foreach ($list as $word)
+        if (strncasecmp($url, $word, strlen($word)) == 0)
+            return substr($url, strlen($word));
+    return $url;
+
+}
+?>
+{exp:user:stats member_id="{segment_2}"}
+<div id="profile-meta">
+	<div class="container_16 clearfix">
+		<div class="grid_16 profile-section">
+		<div class="grid_4 alpha">
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="220" default="{default_member_photo}"}
+			<img class="profile-image" src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+		</div>
+		
+		<div class="grid_8">
+			<h5 class="small-title">About Me</h5>
+					
+			{if bio}{bio}{if:else}{screen_name} hasn't written the "about me" section yet.{/if}
+            
+		</div>
+		
+		<div class="grid_4 omega">
+			{if location}
+			<h5 class="small-title">Location</h5>
+			<p>{location}</p>
+			{/if}
+			
+			{if specialty}
+			<h5 class="small-title">Craft Specialty</h5>
+			<p>{specialty}</p>
+			{/if}
+			
+			{if years_in_craft}
+			<h5 class="small-title">Years practicing craft</h5>
+			<p>{years_in_craft}</p>
+			{/if}
+			
+			{if url}
+			<h5 class="small-title">Website</h5>
+			
+			<p><a href="http://<?php echo remove_http('{url}'); ?>" target="_blank">{url}</a></p>
+			{/if}
+			
+			
+			
+			<h5 class="small-title">Other Profiles</h5>
+			<ul class="social-list">
+				<li><a href="http://www.clubrubydesigners.com/designer/{member_id}" target="_blank" rel="nofollow" title="Club Ruby Profile" class="social-cr notext">Club Ruby</a></li>
+				{if facebook}<li><a href="http://www.facebook.com/{facebook}" target="_blank" rel="nofollow"  title="Facebook Profile" class="social-fb notext">Facebook</a></li>{/if}
+				{if twitter}<li><a href="http://www.twitter.com/{twitter}" target="_blank" rel="nofollow"  title="Twitter Profile" class="social-tw notext">Twitter</a></li>{/if}
+				{if youtube}<li><a href="http://www.youtube.com/{youtube}" target="_blank" rel="nofollow"  title="YouTube Profile" class="social-yt notext">YouTube</a></li>{/if}
+			</ul>
+			
+		</div>
+		
+		<div class="clear-fix"></div>
+	</div>
+	</div>
+</div>
+{if enjoy_because}
+<div class="line-style-1">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+			<span>I enjoy my craft because</span> <em>{enjoy_because}</em>
+		</div>
+	</div>
+</div>
+{/if}
+{/exp:user:stats}
+
+<div id="creations" class="noise-bg thumb-list do-cufon">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+		
+			<h3>Creations</h3>
+	
+			{exp:channel:entries dynamic="off" channel="creations" status="published" author_id="{segment_2}"}
+			{if no_results}No creations have been uploaded yet{/if}
+			<?php if ({switch='1|2|3|4'} == 1) { echo '<div class="thumb-row clearfix">'; } ?>
+				<div class="grid_4 <?php if ({switch='1|2|3|4'} == 1) { echo ' alpha'; } if ({switch='1|2|3|4'} == 4) { echo ' omega'; } ?>">
+					<div class="thumb img-preview">
+						<a class="" href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}" rel="{projects_photo_1}" title="{title}">
+							{exp:photo_manager:show_default entry_id="{entry_id}"}
+							{if default_url}
+							{embed="_embed/.img_sizer"
+								src="{default_url}"
+								width="210"
+								height="125"
+								default="{default_projects_photo}"
+							}
+							{if:else}
+							{embed="_embed/.img_sizer"
+								src="{projects_default_photo}"
+								width="210"
+								height="125"
+								default="{default_projects_photo}"
+							}
+							{/if}
+							{/exp:photo_manager:show_default}
+						</a>
+						<ul class="inline item-meta clearfix">
+							<li class="likes">0</li>
+							<li class="comments"><a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}#responses">{comment_total}</a></li>
+							<li class="views">{view_count_one}</li>
+						</ul>
+					</div>
+				</div>
+			<?php if ({switch='1|2|3|4'} == 4 || {count} == {total_results}) { echo '</div>'; } ?>
+			{/exp:channel:entries}
+			
+			<div class="clear-fix"> </div>
+		</div>
+	</div>
+</div>
+
+<div id="journal" class="pattern-bg do-cufon">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+		
+			<h3>Journal</h3>
+			{exp:channel:entries dynamic="off" channel="journals" status="published" author_id="{segment_2}"}
+			{if no_results}No journal entries have been written yet{/if}
+			<?php if ({switch='1|2|3|4'} == 1) { echo '<div class="thumb-row clearfix">'; } ?>
+				<div class="grid_4 <?php if ({switch='1|2|3|4'} == 1) { echo ' alpha'; } if ({switch='1|2|3|4'} == 4) { echo ' omega'; } ?>">
+					<div class="entry clearfix">
+						<div class="date">
+							{entry_date format="%l, %F %j%S, %Y"}
+						</div>
+						<a href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}" title="{title}">
+							<h4>{title}</h4>
+							{exp:word_limit total="40"}{exp:tagstripper:tagsToSave tags="strong|em"}{journal_body}{/exp:tagstripper:tagsToSave}{/exp:word_limit}
+						</a>
+						<div class="comments">
+							<a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}#responses">{comment_total} comment{if comment_total != '1'}s{/if}</a>
+						</div>
+					</div>
+				</div>
+			<?php if ({switch='1|2|3|4'} == 4 || {count} == {total_results}) { echo '</div>'; } ?>
+			{/exp:channel:entries}
+			
+			
+		</div>
+	</div>
+</div>
+
+<div id="photos" class="noise-bg thumb-list do-cufon">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+		
+			<h3>Photo Albums</h3>
+	
+			{exp:channel:entries dynamic="off" channel="photos" status="published" author_id="{segment_2}"}
+			{if no_results}No photos have been uploaded yet{/if}
+			<?php if ({switch='1|2|3|4'} == 1) { echo '<div class="thumb-row clearfix">'; } ?>
+				<div class="grid_4 <?php if ({switch='1|2|3|4'} == 1) { echo ' alpha'; } if ({switch='1|2|3|4'} == 4) { echo ' omega'; } ?>">
+					<div class="thumb">
+						<a href="{path=designer}/{author_id}/photos/{url_title}/{entry_id}" title="{title}">
+							{exp:photo_manager:show_default entry_id="{entry_id}"}
+							{embed="_embed/.img_sizer"
+								src="{default_url}"
+								width="210"
+								height="125"
+								default="{default_projects_photo}"
+							}
+							{/exp:photo_manager:show_default}
+						</a>
+						<ul class="inline item-meta clearfix">
+							<li class="likes">0</li>
+							<li class="comments"><a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}#responses">{comment_total}</a></li>
+							<li class="views">{view_count_one}</li>
+						</ul>
+					</div>
+				</div>
+			<?php if ({switch='1|2|3|4'} == 4 || {count} == {total_results}) { echo '</div>'; } ?>
+			{/exp:channel:entries}
+			
+			<div class="clear-fix"> </div>
+		</div>
+	</div>
+</div>
+
+<div id="member-network" class="pattern-bg do-cufon">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+					
+			<div class="grid_5 alpha">
+				<h3>Followers</h3>
+				<p>...</p>
+			</div>
+			<div class="grid_5">
+				<h3>Following</h3>
+				<p>...</p>
+			</div>
+			<div class="grid_5">
+				<h3>Favorites</h3>
+				<p>...</p>
+			</div>
+			<div class="grid_1 omega">
+				links
+			</div>
+			
+		</div>
+	</div>
+</div>

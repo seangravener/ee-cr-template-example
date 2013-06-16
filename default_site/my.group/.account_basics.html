@@ -1,0 +1,37 @@
+<div id="content" class="left grid_11">
+	
+	<div class="personal-info tab-item"> 
+		
+		{exp:user:edit screen_name_password_required="no" password_required="no" username_override="yes"}
+			<h2 id="account-basics" class="header-t">The Basics</h2>
+			<div class="form">
+				<label for="username" class="left">Email</label>
+				<input type="text" name="username" value="{username}" id="username"/>
+				
+				<label for="screen_name" class="left">Screen Name</label>
+				<input type="text" name="screen_name" value="{screen_name}" id="screen_name"/></p>
+			
+				<label for="password" class="left">New Password</label>
+				<input type="password" name="password" id="password" />
+				
+				<label for="password_confirm" class="left">Confirm Password</label>
+				<input type="password" name="password_confirm" id="password_confirm" />
+			
+				<label for="current_password" class="left">Curent Password</label>
+				<input type="password" name="current_password" id="current_password">
+			
+			{!-- set value for unchecked --}
+			<!-- input type="hidden" name="privacy_journal" value="n" />
+			<p>Public Journal?: <input type="checkbox" name="privacy_journal" value="y" {if privacy_journal == "y"}checked="checked"{/if} /></p -->
+			
+			</div>
+			<div class="btns"> 
+				<a href="{path=my/account}" class="cancel">Cancel</a> or 
+				<input type="submit" class="button" value="Save and Update Basic Info" /> 
+				<div class="cl">&nbsp;</div> 
+			</div>
+		{/exp:user:edit}
+		
+	
+	</div>
+</div>

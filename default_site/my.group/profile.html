@@ -1,0 +1,60 @@
+{exp:ssc_rules:update_member_group}
+{if segment_3 == ''}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_default"
+		active_location="profile"
+		page_title="{screen_name}"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:elseif segment_3 == 'picture'}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_picture"
+		active_location="profile"
+		page_title="Picture"
+		page_layout="rightrail"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:elseif segment_3 == 'info'}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_info"
+		active_location="profile"
+		page_title="Profile Information"
+		page_layout="rightrail"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:elseif segment_3 == 'settings'}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_settings"
+		active_location="profile"
+		page_title="My Profile Settings"
+		page_layout="rightrail"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:elseif segment_3 == 'plan'}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_plan"
+		active_location="profile"
+		page_title="My Plan"
+		page_layout="rightrail"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:elseif segment_3 == 'details'}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_details"
+		active_location="profile"
+		page_title="My Profile Details"
+		page_layout="rightrail"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:elseif segment_3 == 'room'}
+	{embed="_acl/.default"
+		target="{segment_1}/.profile_friends"
+		active_location="profile"
+		page_title="My Craft Room"
+		page_layout="rightrail"
+		page_tabs="{segment_1}/.profile_tabs"
+	}
+{if:else}
+	{redirect="my/profile"}
+{/if}

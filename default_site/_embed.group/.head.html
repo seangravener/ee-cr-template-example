@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{lang}" lang="{lang}" dir="ltr">
+<head>
+
+	<title>{if embed:page_title}{embed:page_title} {if:else} The Premier Paper Crafting Community {/if}| Club Ruby Designers</title>
+	<meta http-equiv="Content-Type" content="text/html; charset={charset}" />
+	<link rel="shortcut icon" href="/themes/clubruby/images/favicon.ico" />
+	<link href="{path=_assets/core_css}" rel="stylesheet" type="text/css" />
+	<!--[if IE 6]>
+		<link rel="stylesheet" href="{path=_assets/ie6}" type="text/css" media="all" />
+	<![endif]-->
+	<script src="{path=_assets/core_js}" type="text/javascript"></script>
+	{if segment_2 == 'creations' || segment_2 == 'photos'}
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/element/element-min.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/uploader/uploader-min.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/datasource/datasource-min.js"></script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.8.1/build/datatable/datatable-min.js"></script>
+	{/if}
+	<link href="{path=_assets/memberbar_css}" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{path=assets/js}/lightbox/themes/default/jquery.lightbox.css" />
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="{path=assets/js}/lightbox/themes/default/jquery.lightbox.ie6.css" /><![endif]-->
+	<script type="text/javascript" src="{path=assets/js}/lightbox/jquery.lightbox.min.js"></script>
+	
+	{if segment_2 == 'creations' || segment_2 == 'photos' || segment_2 == 'journal'}
+	<script src="/assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+	<script src="/assets/ckeditor/adapters/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	   $(document).ready(function () {   
+		
+		var config = {
+			toolbar:
+			[
+				['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', 'Blockquote', '-', 'Undo','Redo', '-', 'Link', 'Unlink', '-', 'Smiley']
+			],
+			uiColor : '#DBF1F8'
+		};
+		
+		$('.editor').ckeditor(config);
+		}); 
+	</script>
+	{/if}
+    <script type="text/javascript">
+	    $(document).ready(function () {  
+			$('#memberbar #top-nav li').hover(  
+	            function () {  
+	                //show its submenu  
+	                $('ul', this).fadeIn(200);  
+	      
+	            },   
+	            function () {  
+	              //hide its submenu  
+	               $('ul', this).fadeOut(200);           
+	           }  
+				);
+			$('#show-notice-bar').click(function() {
+			  $('#notice-bar').slideToggle('slow', function() {
+			    // Animation complete.
+			  });
+			});
+			
+			$('.lightbox').lightbox();
+			
+			$('input[title!=""]').hint();
+			$('textarea[title!=""]').hint();
+	   });    
+	</script>
+	<script src="{path=assets/js}/jquery.input_replacement.pack.js" type="text/javascript"></script>
+	<script src="{path=assets}/player-fp/flowplayer-3.2.4.min.js" type="text/javascript"></script>
+	<script src="{path=assets}/player-fp/flowplayer.playlist-3.0.8.min.js" type="text/javascript"></script>
+	<!-- script src="https://jade.clubrubydesigners.com.s3.amazonaws.com/player-fp/flowplayer-3.2.4.min.js" type="text/javascript"></script>
+	<script src="https://jade.clubrubydesigners.com.s3.amazonaws.com/player-fp/flowplayer.playlist-3.0.8.min.js" type="text/javascript"></script -->
+</head>
+<body id="www-clubrubydesigners-com"{if '{embed:body_class}' != ''} class="{embed:body_class}"{/if}>

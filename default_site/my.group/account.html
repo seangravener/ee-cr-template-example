@@ -1,0 +1,69 @@
+{if segment_3 == ''}
+	{embed="_acl/.default"
+		target="{segment_1}/.account"
+		active_location="profile"
+		page_title="My Account"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.account_tabs"
+	}
+{if:elseif segment_3 == 'am'}
+	{embed="_acl/.default_ssl"
+		target="{segment_1}/.account_am"
+		active_location="profile"
+		page_title="My Account Basics"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.account_tabs"
+	}
+{if:elseif segment_3 == 'info'}
+	{embed="_acl/.default_ssl"
+		target="{segment_1}/.account_info"
+		active_location="profile"
+		page_title="My Account Basics"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.account_tabs"
+	}
+{if:elseif segment_3 == 'email'}
+	{embed="_acl/.default"
+		target="{segment_1}/.account_email"
+		active_location="profile"
+		page_title="Email Address"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.account_tabs"
+	}
+{if:elseif segment_3 == 'password'}
+	{embed="_acl/.default"
+		target="{segment_1}/.account_password"
+		active_location="profile"
+		page_title="Account Password"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.account_tabs"
+	}
+{if:elseif segment_3 == 'address'}
+	{embed="_acl/.default"
+		target="{segment_1}/.account_address"
+		active_location="profile"
+		page_title="Account Addresses"
+		sidebar="my/.profile_sidebar"
+		page_tabs="{segment_1}/.account_tabs"
+	}
+{if:elseif segment_3 == 'history'}
+	{if segment_5 == 'cancel' || segment_5 == 'prolong' || segment_5 == 'suspend'}
+		{embed="_acl/.default"
+			target="{segment_1}/.account_history_{segment_5}"
+			active_location="profile"
+			page_title="Payment History"
+			sidebar="my/.profile_sidebar"
+			page_tabs="{segment_1}/.account_tabs"
+		}
+	{if:else}	
+		{embed="_acl/.default"
+			target="{segment_1}/.account_history"
+			active_location="profile"
+			page_title="Payment History"
+			sidebar="my/.profile_sidebar"
+			page_tabs="{segment_1}/.account_tabs"
+		}
+	{/if}
+{if:else}
+	{redirect="my/account"}
+{/if}

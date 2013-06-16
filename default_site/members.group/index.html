@@ -1,0 +1,19 @@
+{embed="_acl/.default"
+	target="{segment_1}/.default"
+	active_location="members"
+	page_title="Members"
+	page_tabs="{segment_1}/.default_tabs"
+	page_layout="rightrail_public"
+	
+	{if segment_2 == ''}
+		group_id="not 1|2|3|4|5|12"
+	{if:elseif segment_2 == 'dt'}
+		group_id="10|11"
+	{if:elseif segment_2 == 'master-dt'}
+		group_id="10"
+	{if:elseif segment_2 == 'elite'}
+		group_id="9"
+	{if:elseif segment_2 == 'member'}
+		group_id="8"
+	{/if}	
+}

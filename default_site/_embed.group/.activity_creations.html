@@ -1,0 +1,85 @@
+	<div class="activity-item creations clearfix">
+		
+		<div class="grid_1 alpha badges">
+			<a href="{path=designer}/{embed:author_id}" title="View the profile of {embed:author}">
+					{embed="activity/.img_avatar"
+						default="images/default/member_photo.jpg"
+						src="{embed:avatar_url}"
+						width="40"
+					}
+			</a>
+			<div class="badge notext">
+				Creations
+			</div>
+		</div>
+	
+		<div class="grid_10 omega">
+			<span class="date">uploaded {exp:wb_relative_date}{embed:entry_date}{/exp:wb_relative_date}</span><!-- {embed:entry_date} -->
+			<p class="title"><strong><a href="{path=designer}/{embed:author_id}" title="View the profile of {embed:author}">{embed:author}</a></strong> has uploaded the <span class="content-type">creation</span> <a href="{path=designer}/{embed:author_id}/creations/{embed:url_title}/{embed:entry_id}" title="{embed:title}">"{embed:title}"</a></p>
+			{exp:photo_manager:show entry_id="{embed:entry_id}" show_default="yes" limit="3"}
+			{if image_url}
+			<a href="{path=designer}/{embed:author_id}/creations/{embed:url_title}/{embed:entry_id}" title="{caption}" class="activity-thumb">
+			{embed="_embed/.img_sizer"
+				src="{image_url}"
+				width="100"
+				height="100"
+				default="images/default/projects_photo.jpg"
+			}
+			</a>
+			{if:else}
+			<a href="{path=designer}/{embed:author_id}/creations/{embed:url_title}/{embed:entry_id}">
+			{embed="_embed/.img_sizer"
+				src="{embed:projects_default_photo}"
+				width="100"
+				height="100"
+				default="images/default/projects_photo.jpg"
+			}
+			</a>
+			{/if}
+			{/exp:photo_manager:show}
+			<p class="description">{embed:projects_summary}</p>
+			<div class="comment-bar border-5">
+				<ul class="inline clearfix">
+						<li class="comment-total"><a href="{path=designer}/{embed:author_id}/creations/{embed:url_title}/{embed:entry_id}#responses">{embed:comment_total} comments</a></li>
+						<li class="view-total">{embed:view_count_one} views</li>
+						{!-- <li>added {exp:wb_relative_date}{embed:entry_date}{/exp:wb_relative_date}</li> --}
+				</ul>
+				{if embed:quick_comments != 'no'}
+				{embed="_embed/.activity_comments"
+					entry_id="{embed:entry_id}"
+					channel="creations"
+					entry_url="{path=designer}/{embed:author_id}/creations/{embed:url_title}/{embed:entry_id}"
+					preview="no/preview"
+					comment_total="{embed:comment_total}"
+				}
+				{/if}
+				</div>
+		</div>
+		<!-- div class="grid_2 omega">
+			
+			
+		</div-->
+	
+			{if embed:edit_bar == 'yes'}
+			<div class="grid_10 alpha push_1">
+				<div class="action-bar border-5">
+					<ul class="inline clearfix">
+						{if embed:status == 'Published'}
+						<li><a href="{path=designer}/{embed:author_id}/creations/{embed:url_title}/{embed:entry_id}" target="_blank">view</a></li>
+						{if:elseif embed:status == 'Draft'}
+						<li>(DRAFT)</li>
+						{/if}
+						{if embed:projects_default_photo && group_id == '11'}
+						<li><a href="http://www.clubrubydesigners.com/ee-system.php?D=cp&C=content_publish&M=entry_form&entry_id={embed:entry_id}">edit</a></li>
+						{if:else}
+						<li><a href="{path=my/creations/edit}/{embed:entry_id}">edit</a></li>
+						{/if}
+						<li><a href="{path=my/creations/delete}/{embed:entry_id}">delete</a></li>
+						<!-- li><a href="{path=my/creations/hide}/{embed:entry_id}">hide</a></li -->
+					</ul>
+					
+				</div>
+				
+			</div>
+			{/if}
+		</div>

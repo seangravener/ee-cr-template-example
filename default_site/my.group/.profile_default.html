@@ -1,0 +1,61 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	<h2>Hi, {screen_name}!</h2>
+
+	<h2>Build Your Profile</h2>
+	<div id="add-content" class="border-5">
+		<ul class="inline clearfix">
+			<li class="add-creation">
+				<a href="{path=my/creations/add}" title="Upload photos of something you've created or designed">+ Creation</a>
+			</li>
+			<li class="add-journal" title="Write in your journal">
+				<a href="{path=my/journal/add}">+ Journal</a>
+			</li>
+			<li class="add-photo" title="Upload a photo album of photos you want to share">
+				<a href="{path=my/photos/add}">+ Album</a>
+			</li>
+	</div>
+	
+	<h2>Your Content</h2>
+	
+	{exp:channel:entries channel="creations|photos|journals" author_id="CURRENT_USER" status="not closed" limit="15"}
+	
+	{if channel_short_name == 'creations'}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		status="{status}"
+		projects_summary="{projects_summary}"
+		projects_default_photo="{projects_default_photo}"
+		edit_bar="yes"
+	}
+	{/if}
+	
+	{if channel_short_name == 'journals'}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		status="{status}"
+		journal_body="{exp:tagstripper:stripAllTags}{exp:word_limit total="50"}{journal_body}{/exp:word_limit}{/exp:tagstripper:stripAllTags}"
+		edit_bar="yes"
+	}
+	{/if}
+	{paginate}{if total_pages > 1}
+	<p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+	{/if}{/paginate}
+	{/exp:channel:entries}
+</div>

@@ -1,0 +1,49 @@
+	<div class="activity-item videos clearfix">
+		
+		<div class="grid_1 alpha badges">
+			<a href="{path=designer}/{embed:author_id}" title="View the profile of {embed:author}">
+					{embed="activity/.img_avatar"
+						default="images/default/member_photo.jpg"
+						src="{embed:avatar_url}"
+						width="40"
+					}
+			</a>
+			<div class="badge notext">
+				Videos
+			</div>
+		</div>
+	
+		<div class="grid_7">
+			<span class="date">added {exp:wb_relative_date}{embed:entry_date}{/exp:wb_relative_date}</span>
+			<p class="title"><strong><a href="{path=designer}/{embed:author_id}" title="View the profile of {embed:author}">{embed:author}</a></strong> has uploaded the <span class="content-type">video</span> <a href="{path=videos/view}/{embed:url_title}/{embed:entry_id}" title="{embed:title}">"{embed:title}"</a></p>
+			<p class="description">{embed:videos_summary}</p>
+			<div class="comment-bar border-5">
+				<ul class="inline clearfix">
+						<li class="comment-total"><a href="{path=designer}/{embed:author_id}/videos/{embed:url_title}/{embed:entry_id}#responses">{embed:comment_total} comments</a></li>
+						{!-- <li>added {exp:wb_relative_date}{embed:entry_date}{/exp:wb_relative_date}</li> --}
+				</ul>
+				{if embed:quick_comments != 'no'}
+				{embed="_embed/.activity_comments"
+					entry_id="{embed:entry_id}"
+					channel="creations"
+					entry_url="{path=videos/view}/{embed:url_title}/{embed:entry_id}"
+					preview="no/preview"
+					comment_total="{embed:comment_total}"
+				}
+				{/if}
+				</div>
+		</div>
+		<div class="grid_3 omega text-center">
+			<a href="{path=videos/view}/{embed:url_title}/{embed:entry_id}" title="Watch Video: {embed:title}">
+			{embed="_embed/.img_sizer"
+				src="{embed:videos_video_1_thumb}"
+				width="160"
+				height="80"
+				default="images/default/videos_photo.jpg"
+			}
+			<span class="small">Watch this Video</span>
+			</a>
+			
+		</div>
+	
+		</div>

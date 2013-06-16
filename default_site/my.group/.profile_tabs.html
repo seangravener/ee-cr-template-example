@@ -1,0 +1,12 @@
+<div class="main-tabs">
+	<ul>
+	    <li{if segment_2 == 'profile' && segment_3 == ''} class="active"{/if}><a href="{path=my/profile}"><span>Profile Home</span></a><span class="ribbon"></span></li>
+		<li{if segment_2 == 'journal'} class="active"{/if}><a href="{path=my/journal}"><span>My Journal</span></a><span class="ribbon"></span></li>
+		<li{if segment_2 == 'creations'} class="active"{/if}><a href="{path=my/creations}"><span>My Creations</span></a><span class="ribbon"></span></li>
+		<li{if segment_2 == 'photos'} class="active"{/if}><a href="{path=my/photos}"><span>My Photos</span></a><span class="ribbon"></span></li>
+		<li{if segment_3 == 'info'} class="active"{/if}><a href="{path=my/profile/info}"><span>Profile Info</span></a><span class="ribbon"></span></li>
+		<li{if segment_3 == 'picture'} class="active"{/if}><a href="{path=my/profile/picture}"><span>My Picture</span></a><span class="ribbon"></span></li>
+		
+	</ul>
+	<div class="cl">&nbsp;</div>
+</div>

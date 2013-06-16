@@ -1,0 +1,45 @@
+<h3>I'm in LOVE Kit!</h3>
+<div class="box-1 border-5">
+	<!-- iframe src="http://player.vimeo.com/video/32812740?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="230" height="129" frameborder="0"></iframe -->
+	
+ <p style="font-weight: strong; text-align: center; font-size: 22px; color: #900;">February 2012 Kit Available!</p>
+	
+	<p>Use the button below to goto the Kit page at Craft-e-Corner.com and get your Kit:</p>
+	<div style="text-align: center; margin-bottom: 10px; border: 2px dashed #900;">
+		<p style="text-align: center;"><strong>I'm in Love February 2012 Kit</strong> <br />
+		Your Coupon Code: <strong>FEB2012CR</strong><br />
+		Your Price: <strong>$32</strong>
+		</p>
+		<a target="_blank" href="http://www.craft-e-corner.com/p-2784-im-in-love-club-ruby-kit.aspx" class="button secondary">Buy Now!</a>
+	</div>
+	
+	<p><a href="{path=kits}/detail/im-in-love-kit/68080">Learn more about this kit >></a></p>
+
+	<!-- p>Have a question about Club Ruby Kits? <a href="{path=page/club-ruby-changes}">Click here to learn more about how Club Ruby works</a></p>
+	<p>Is shipping still free after the Craft-e-Corner shipping policy changes? <a href="{path=page/cec-shipping-policy}">Yes! Click her to read more...</a></p -->
+</div>
+
+<h3>CR Magazine</h3>
+<div class="box-1 border-5">
+		{exp:channel:entries channel="magazine"}
+		{if count == 1}
+			{if magazine_body}
+				<div>{magazine_body}</div>
+			{/if}
+			{exp:channel_files:files entry_id="{entry_id}"}
+				<p><a href="{file:locked_url}" title="Click to download Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}" target="_blank">Download Vol {magazine_volume}, Issue #{magazine_issue}</a></p>
+			{/exp:channel_files:files}
+		<p>Past Issues:</p>
+		<ul>
+		{if:else}
+			<li>
+			{exp:channel_files:files entry_id="{entry_id}"}
+				<a href="{file:locked_url}" title="Click to download Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}" target="_blank">Download Vol {magazine_volume}, Issue #{magazine_issue}</a>
+			{/exp:channel_files:files}
+			</li>
+		{/if}
+		{/exp:channel:entries}
+		</ul>
+		<p style="text-align: right;"><a href="{path=magazine}">See all past issues...</a></p>
+	</ul>
+</div>

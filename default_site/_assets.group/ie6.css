@@ -1,0 +1,15 @@
+
+.master-btn { background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/themes/clubruby/images/master-btn.png', sizingMethod='image'); }
+
+.master-btn-active { background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/themes/clubruby/images/master-btn-h.png', sizingMethod='image'); }
+
+.main-tabs ul li.active .ribbon { background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/themes/clubruby/images/ribbon.png', sizingMethod='image'); }
+
+#sidebar .badge { background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/themes/clubruby/images/badge.png', sizingMethod='image'); }
+
+.box-master-bg { background-image: none;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/themes/clubruby/images/master-bg.png', sizingMethod='image'); }

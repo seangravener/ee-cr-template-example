@@ -1,0 +1,10 @@
+<h3>Calendar</h3>
+<div class="box-1 border-5" >
+	{exp:channel:entries cache="yes" refresh="300" dynamic="off" channel="calendar" show_future_entries="yes" disable="categories|member_data|pagination" orderby="date" sort="asc"}
+	{if no_results}
+		<p>Nothing is currently scheduled.</p> 
+	{/if}
+	<p><strong>{entry_date format="%D, %F %d, %Y @ %g:%i%a"}</strong>: <a href="{url_title_path=calendar}">{title}</a></p>
+	{/exp:channel:entries}
+	<div class="small text-right">*All times are in EST</div>
+</div>

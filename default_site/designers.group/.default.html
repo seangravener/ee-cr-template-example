@@ -1,0 +1,66 @@
+<div id="profile-meta">
+	<div class="container_16 clearfix do-cufon">
+		<div class="grid_16 profile-section journal-entry">
+			
+			<p>Club Ruby's active members</p>
+						
+			<div class="grid_11 alpha">
+			<div class="member-row member-row-titles clearfix">
+				<div class="grid_5 alpha">
+					Member
+				</div>
+				<div class="grid_2 text-center">
+					Entries
+				</div>
+				<div class="grid_2 text-center">
+					Comments
+				</div>
+				<div class="grid_2 text-center omega">
+					Followers
+				</div>
+			</div>
+			{exp:user:users group_id="{embed:group_id}" orderby="total_entries" sort="desc" paginate="bottom" limit="25"}
+			
+			<div class="member-row clearfix">
+				<div class="grid_5 alpha">
+					<a href="{path=designer}/{member_id}">
+						{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="30" height="30" default="{default_member_photo}"}
+						<img class="avatar" src="{sized}" width="{width}" height="{height}" alt="{author}" />
+						{/exp:imgsizer:size}
+						<span class="name">{screen_name}</span>
+					</a>
+					<span class="member-meta">
+						{if personal_label}<em>"{personal_label}"</em>{/if}
+					</span>
+				</div>
+				<div class="grid_2 value">
+					{total_entries}
+				</div>
+				<div class="grid_2 value">
+					{total_comments}
+				</div>
+				<div class="grid_2 value omega">
+					-
+				</div>
+				<div>
+					{!-- exp:channel:entries channel="creations" status="published" author_id="{member_id}" dynamic="off" limit="3"}
+					{exp:imgsizer:size src="{projects_photo_1}" width="25" height="25"}
+						<img src="{sized}" width="{width}" height="{height}" alt="{author}" />
+					{/exp:imgsizer:size}
+					{/exp:channel:entries --}
+				</div>
+			</div>
+			
+			{paginate}
+			<p style="margin-top: 20px;">Page {current_page} &nbsp; | &nbsp; {pagination_links}</p>
+			{/paginate}  
+			
+			{/exp:user:users}
+			</div>		
+					<div class="grid_5 omega">
+						side
+					</div>
+			
+		</div>
+	</div>
+</div>

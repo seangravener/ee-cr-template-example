@@ -1,0 +1,13 @@
+<ul>
+	<li>Profile Information</li>
+	<li>Picutre</li>	
+</ul>
+
+		{exp:member:custom_profile_data}
+		<ul>
+			<li>Account Type: {group_title}
+			<li>Member Since: {exp:friendly_date}{join_date}{/exp:friendly_date}</li>	
+			<li>Last time you were active: {exp:friendly_date}{last_activity}{/exp:friendly_date}</li>
+			<li><a href="{path=designer}/{member_id}" target="_blank">View your profile as other see it >></a></li>
+		</ul>
+		{/exp:member:custom_profile_data}

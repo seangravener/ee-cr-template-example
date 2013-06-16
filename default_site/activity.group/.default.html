@@ -1,0 +1,77 @@
+<div id="main-content" class="grid_11 do-cufon">
+	<h2>Recent Activity</h2>		
+	{exp:channel:entries cache="yes" refresh="60" channel="{embed:channel}" status="open|published" limit="15" paginate="bottom" group_id="{embed:group_id}"}
+	
+	{if channel_short_name == 'creations'}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		projects_summary="{projects_summary}"
+		projects_default_photo="{projects_default_photo}"
+	}
+	{if:elseif channel_short_name == 'journals'}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		journal_body="{exp:tagstripper:stripAllTags}{exp:word_limit total="50"}{journal_body}{/exp:word_limit}{/exp:tagstripper:stripAllTags}"
+	}
+	{if:elseif channel_short_name == 'photos'}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		photos_gallery_description="{photos_gallery_description}"
+		status="{status}"
+		edit_bar="no"
+		quick_comments="yes"
+	}
+	{if:elseif channel_short_name == 'videos'}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		videos_summary="{videos_summary}"
+		videos_video_1_thumb="{videos_video_1_thumb}"
+		status="{status}"
+		edit_bar="no"
+		quick_comments="yes"
+	}
+	{/if}
+	{paginate}{if total_pages > 1}
+	{if previous_page}
+	<a href="{auto_path}">Previous Page</a> &nbsp;
+	{/if}
+	
+	{if next_page}
+	<a href="{auto_path}">Next Page</a>
+	{/if}
+	{/if}{/paginate}
+	
+	{/exp:channel:entries}
+	
+</div>

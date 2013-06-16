@@ -1,0 +1,53 @@
+	<div class="activity-item journals clearfix">
+		
+		<div class="grid_1 alpha badges">
+			<a href="{path=designer}/{embed:author_id}" title="View the profile of {embed:author}">
+					{embed="activity/.img_avatar"
+						default="images/default/member_photo.jpg"
+						src="{embed:avatar_url}"
+						width="40"
+						height=""
+					}
+			</a>
+			<div class="badge notext">
+				Journal
+			</div>
+		</div>
+	
+		<div class="grid_10 omega">
+			<span class="date">written {exp:wb_relative_date}{embed:entry_date}{/exp:wb_relative_date}</span>
+			<p class="title"><strong><a href="{path=designer}/{embed:author_id}" title="View the profile of {embed:author}">{embed:author}</a></strong> has written a <span class="content-type">journal entry</span> titled <a href="{path=designer}/{embed:author_id}/journal/{embed:url_title}/{embed:entry_id}" title="{embed:title}">"{embed:title}"</a></p>
+			<p class="description">{embed:journal_body}</p>
+			<div class="comment-bar border-5">
+				<ul class="inline clearfix">
+						<li class="comment-total"><a href="{path=designer}/{embed:author_id}/journal/{embed:url_title}/{embed:entry_id}#responses">{embed:comment_total} comments</a></li>
+						<!-- li class="view-total">{embed:view_count_one} views</li -->
+						{!-- <li>written {exp:wb_relative_date}{embed:entry_date}{/exp:wb_relative_date}</li> --}
+				</ul>
+				{if embed:quick_comments != 'no'}
+				{embed="_embed/.activity_comments"
+					entry_id="{embed:entry_id}"
+					channel="journals"
+					entry_url="{path=designer}/{embed:author_id}/journal/{embed:url_title}/{embed:entry_id}"
+					preview="no/preview"
+					comment_total="{embed:comment_total}"
+				}
+				{/if}
+				</div>
+		</div>
+			{if embed:edit_bar == 'yes'}
+			<div class="grid_10 alpha push_1">
+				<div class="action-bar border-5">
+					<ul class="inline clearfix">
+						<li><a href="{path=designer}/{embed:author_id}/journal/{embed:url_title}/{embed:entry_id}" target="_blank">view</a></li>
+						<li><a href="{path=my/journal/edit}/{embed:entry_id}">edit</a></li>
+						<li><a href="{path=my/journal/delete}/{embed:entry_id}">delete</a></li>
+						<!-- li><a href="{path=my/journal/hide}/{embed:entry_id}">hide</a></li -->
+					</ul>
+					
+				</div>
+				
+			</div>
+			{/if}
+			
+		</div>

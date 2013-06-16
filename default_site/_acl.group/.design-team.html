@@ -1,0 +1,18 @@
+{if group_id == '1' || group_id == '11'}
+	{embed="_embed/.page_constructor"
+		target="{embed:target}"
+		body_class="{embed:body_class}"
+		page_layout="{embed:page_layout}"
+		sidebar="{embed:sidebar}"
+		page_title="{embed:page_title}"
+		active_location="{embed:active_location}"
+		page_tabs="{embed:page_tabs}"
+		channel="{embed:channel}"
+		category="{embed:category}"
+		group_id="{embed:group_id}"
+	}
+{if:elseif logged_in}
+	{redirect="join/plans"}
+{if:else}
+	{redirect="login/{exp:ssc_uri:get_uri}"}
+{/if}

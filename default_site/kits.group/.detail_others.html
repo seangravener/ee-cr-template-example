@@ -1,0 +1,66 @@
+<div id="content" class="left grid_11">
+	<div class="gallery tab-item ajaxcontent">
+		{exp:channel:entries channel="kits" status="not closed|draft" dynamic="off" entry_id="{segment_4}"}
+		{reverse_related_entries channel="creations|photos|journals" orderby="date" status="not closed|draft|private"}
+		{if no_results}
+			<p>None yet</p>
+		{/if}
+		<div class="box-item left<?php if ({count} % 3 == 0) { ?> item-last<?php } ?>">
+			<div class="box-image">
+				<a title="Click to View: {title}" class="" href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}">
+					{embed="gallery/.img_tag"
+						{if channel_short_name == 'creations'}
+						src="{projects_photo_1}"
+						{if:elseif channel_short_name == 'photos'}
+						src="{photos_photo_1}"
+						{/if}
+						width="165" height ="121"
+						default="images/default/projects_photo.jpg"
+					}
+				</a>
+                <span class="item-type"><a href="{path=gallery}/{channel_short_name}">{channel}</a></span>
+				<a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}#responses" class="comments-2 right">{comment_total}</a> 
+				<span class="views">{view_count_one} view{if view_count_one > 1}s{/if}</span>
+				<div class="cl">&nbsp;</div>
+			</div>
+			<div class="author">
+				{exp:imgsizer:size src="{avatar_url}" width="25" height="25" default="images/default/member_photo.jpg"}
+				<img src="{sized}" width="{width}" height="{height}" alt="{author}" />
+				{/exp:imgsizer:size}
+				<a href="{path=designer}/{author_id}" title="View the profile of {screen_name}">{screen_name}</a>
+			</div>
+		</div>
+		{/reverse_related_entries}
+		{/exp:channel:entries}
+			
+					{!-- reverse_related_entries orderby="date" status="not closed|draft|private" limit="10"}
+					
+					
+					{if projects_photo_1}
+					<li>
+						<span class="other-author"><a href="{path=designer}/{author_id}">{author}</a> Created:</span>
+						<a href="{path=designer}/{author_id}/creations/{url_title}/{entry_id}" title="Click to View Creation: {title}">
+							{exp:imgsizer:size src="{projects_photo_1}" width="30" height="30" default="images/default/creations_photo.jpg"}
+							<img src="{sized}" width="{width}" height="{height}" />
+							{/exp:imgsizer:size}
+							"{title}"
+						</a>
+					</li>
+					{/if}
+					
+					{if photos_photo_1}
+					<li>
+						<span class="other-author"><a href="{path=designer}/{author_id}">{author}</a> Photographed:</span>
+						<a href="{path=designer}/{author_id}/photos/{url_title}/{entry_id}" title="Click to Photo Gallery: {title}">
+							{exp:imgsizer:size src="{photos_photo_1}" width="30" height="30" default="images/default/creations_photo.jpg"}
+							<img src="{sized}" width="{width}" height="{height}" />
+							{/exp:imgsizer:size}
+							"{title}"
+						</a>
+					</li>
+					{/if}
+					{/reverse_related_entries --}
+
+		
+	</div>
+</div>

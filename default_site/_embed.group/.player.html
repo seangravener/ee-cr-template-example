@@ -1,0 +1,39 @@
+<a href="http://d56llr5urhjl0.cloudfront.net/{embed:first_video}.{embed:format}" id="player" class="left" style="display:block;width:704px;height:396px"></a>
+<script type="text/javascript">  
+$(function() {
+	$f("player", {src: "http://jade.clubrubydesigners.com/player-fp/flowplayer.commercial-3.2.4.swf", wmode: "opaque"}, {
+		key: '#$57a53169d353e6fbf73',
+		clip: {
+			autoBuffering: true,
+			autoPlay: false,
+			//provider: 'rtmp',
+			scaling: 'fit',
+		},
+		canvas: {backgroundColor: "#3B2C20"},
+		// play: {width:'10pct',height:'10pct',opacity:'0.8',label:'',replayLabel:'Play Again'},
+		/*plugins: {
+				rtmp: {
+					url: 'http://jade.clubrubydesigners.com/player-fp/flowplayer.rtmp-3.2.3.swf',
+					netConnectionUrl: 'rtmp://video.clubrubydesigners.com/cfx/st',
+					durationFunc: 'getStreamLength'
+				},
+			}*/
+	});
+	
+});
+</script>
+{if '{embed:playlist}' == 'true'}
+<script type="text/javascript">  
+$(function() {
+	$f("player").playlist("div.clips", 
+		{
+			playingClass: 'playing',
+			pausedClass: 'paused',
+			progressClass:'progress',
+			loop:true,
+		}
+	);
+	//$("div.playlist").scrollable({items:'div.clips', vertical:true, next:'a.up', prev:'a.down', size:3, clickable:false, hoverClass: 'hover'});
+});
+</script>
+{/if}

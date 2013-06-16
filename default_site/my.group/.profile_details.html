@@ -1,0 +1,127 @@
+<div id="content" class="left grid_11">
+
+	<div class="personal-info userdata tab-item"> 
+	
+	{exp:user:edit screen_name_password_required="no" return="my/profile/details"}
+	<div class="form">
+		<h2>My Profile Photo</h2>
+		<div class="box-image left">
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="128" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			<span class="small">{screen_name}</span>
+		</div>
+
+		<div class="grid_7 omega">
+			
+			<p>Your personal photo will be used to identify you. For example, when you add a comment to a Discussion, this photo will show up beside your comment.</p>
+			<p class="filebox">Change your profile photo:	<input type="file" name="avatar_filename" /></p>
+			<p class="small">You can upload .JPG, .PNG, or .GIF images. Your image will be resized if it is larger than 128px wide.</p>
+			<p style="margin:0; clear: both; text-align: right"><!-- input type="submit" title="Click to upload your photo" class="button" value="Upload Photo" / --></p>
+		</div>
+		<div class="cl"></div>
+		{!-- IMPORTANT: We get some resized images here to use in the Forums and to pre-cache --}
+		<div class="avatar-sizes" style="margin: 10px 0;">
+			<p>When identifying you, we'll need to resize and crop your photo. Here are some examples:</p>
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="25" height="25" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="50" height="50" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			{exp:imgsizer:size src="{avatar_url}{avatar_filename}" width="75" height="75" default="images/default/member_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+		</div>
+	</div>
+		
+	<div class="profile-section">
+		<h2>About Me</h2>
+		<div class="form">
+			
+			<label for="screen_name" class="left">Screen Name
+				<span class="field-instructions">Used to identify your activity. You do not need to use your real name.</span>
+			</label>
+			<input type="text" value="{screen_name}" name="screen_name" id="screen_name" />
+			<div class="cl">&nbsp;</div>
+			
+			<label for="datepicker" class="left">Birthday
+				<span class="field-instructions">We'll try to get everyone to throw you a party (no promises). mm/dd/yyyy</span>
+			</label>
+			<div class="date-container">
+				<input type="text" name="bday" class="left" value="{bday}" id="" />
+			</div>
+			
+			<label for="location" class="left">Location
+				<span class="field-instructions">Be as specific or as vauge as you like (eg Branson, MO; New York, Outer-space)</span>
+			</label>
+			<input type="text" value="{location}" name="location" id="location" />
+			<div class="cl">&nbsp;</div>
+			
+			<label for="url" class="left">Website
+				<span class="field-instructions">If you have a website or blog, let it be known. Don't include the "http://" part.</span>
+			</label>
+			<input type="text" value="{url}" name="url" id="url" />
+			<div class="cl">&nbsp;</div>
+		
+			<label for="personal_label" class="left">Label Yourself
+				<span class="field-instructions">Label yourself in two words or less (eg Scrapbooking Queen, Craft Diva, Mom)</span>
+			</label>
+			<input type="text" value="{personal_label}" name="personal_label" id="personal_label" />
+			<div class="cl">&nbsp;</div>
+			
+			<label for="bio">I would sum myself up as...
+				<span class="field-instructions">In a paragraph, how would you like to describe yourself to others? Keep this brief; you'll have plenty of opportunity to share more!</span>
+			</label>
+			<textarea name="bio" id="bio"></textarea>
+			
+		</div>
+	</div>
+	
+	<div class="profile-section">
+		<h2>About My Craft</h2>
+		<div class="form">
+			
+			<label for="specialty" class="left">My specialty is:
+				<span class="field-instructions"></span>
+			</label>
+			<select name="specialty" id="specialty"> 
+			{select_specialty} 
+			<option value="{value}" {selected}>{value}</option> 
+			{/select_specialty} 
+			</select>
+			<div class="cl">&nbsp;</div>
+			
+			<label for="skill_level" class="left">My skill level is:
+				<span class="field-instructions"></span>
+			</label>
+			<select name="skill_level" id="skill_level"> 
+			{select_skill_level} 
+			<option value="{value}" {selected}>{value}</option> 
+			{/select_skill_level} 
+			</select>
+			<div class="cl">&nbsp;</div>
+			
+			<label for="enjoy_because" class="left">I enjoy my craft because:
+				<span class="field-instructions">Complete this sentence in 140 characters or less.</span>
+			</label>
+			<input type="text" value="{enjoy_because}" name="enjoy_because" id="enjoy_because" />
+			<div class="cl">&nbsp;</div>
+			
+			<label for="craft_toolbox">My Craft Toolbox isn't complete without:
+				<span class="field-instructions">List your essential craft tools, one per line.</span>
+			</label>
+			<textarea name="craft_toolbox" id="craft_toolbox" rows="5">{craft_toolbox}</textarea>
+			
+		</div>
+	</div>
+	
+	<div class="cl">&nbsp;</div>
+	<p style="margin:0; clear: both; text-align: right"><input type="submit" title="Click to update and save your profile" class="button" value="Update and Save Profile" /></p>
+	
+		
+	
+	{/exp:user:edit}
+
+	</div> 
+</div>

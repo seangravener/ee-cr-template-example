@@ -1,0 +1,28 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	<h2>My Journal</h2>
+	
+	{exp:channel:entries channel="journals" author_id="CURRENT_USER" status="not closed" limit="15" paginate="bottom"}
+	{if no_results}
+		You havn't written in your journal yet. Share your crafting adventures by <a href="{path=my/journal/add}" title="">writting in your journal</a>!
+	{/if}
+	{embed="_embed/.activity_{channel_short_name}"
+		author="{author}"
+		avatar_url="{avatar_url}"
+		author_id="{author_id}"
+		title="{title}"
+		entry_id="{entry_id}"
+		url_title="{url_title}"
+		view_count_one="{view_count_one}"
+		entry_date="{entry_date}"
+		comment_total="{comment_total}"
+		status="{status}"
+		journal_body="{exp:tagstripper:stripAllTags}{exp:word_limit total="50"}{journal_body}{/exp:word_limit}{/exp:tagstripper:stripAllTags}"
+		edit_bar="yes"
+		quick_comments="no"
+	}
+	{paginate}{if total_pages > 1}
+	<p>Page {current_page} of {total_pages} pages {pagination_links}</p>
+	{/if}{/paginate}
+	{/exp:channel:entries}
+</div>

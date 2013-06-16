@@ -1,0 +1,39 @@
+{exp:dm_force_ssl:force}
+{embed="_embed/.head_landing"}
+<div id="what-is-ruby"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		<div class="cl">&nbsp;</div> 
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+
+	<div class="nav nav-type-1"> 
+		<div class="in"> 
+				<h2 class="heading">Create Your Account</h2>
+			<div class="cl">&nbsp;</div> 
+		</div> 
+	</div>
+
+	{if logged_in}
+		{if segment_3 == 'basic'}
+			{redirect="my/profile"}
+		{if:else}
+			{redirect="account/checkout/onepage"}
+		{/if}
+	{if:else}
+		<div id="signup" class="prefix_2 suffix_2 join-form">
+			{embed="join/.register_form"
+				{if segment_3 == 'basic'}
+					return="my/profile"
+				{if:else}
+					return="account/checkout/onepage"
+				{/if}
+				group_id="5"
+			}
+		</div>
+	{/if}
+	<div class="cl" style="padding-bottom: 20px;"></div>
+	
+{embed="_embed/.footer_landing"}

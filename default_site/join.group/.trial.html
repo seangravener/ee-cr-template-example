@@ -1,0 +1,23 @@
+<div id="content" class="left grid_11">
+	<div class="personal-info tab-item">
+
+	<p>Quick sign-up form</p>
+	
+	{exp:user:register form:name="signup" return="activity" group="{embed:group_id}"}
+ 
+	<p>Email: <br /><input type="text" name="username" class="input" size="25" /></p>
+	<p>First Name: <br /><input type="text" name="fname" class="input" size="25" /><br />
+	
+	Last Name: <br /><input type="text" name="lname" class="input" size="25" />
+	</p>
+	<!-- p>Your Name: <input type="text" name="screen_name" class="input" size="25" /></p -->
+	 
+	<p>Password: <br /><input type="password" name="password" class="input" size="25" /></p>
+	<!-- p>Confirm Password: <input type="password" name="password_confirm" class="input" size="25" /></p -->
+		 
+	<p><input type="submit" value="Submit" /></p>
+	 
+	{/exp:user:register}  
+	
+	</div>
+</div>

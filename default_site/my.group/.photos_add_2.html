@@ -1,0 +1,125 @@
+			{exp:safecracker channel="photos" return="my/photos/saved/ENTRY_ID" entry_id="{segment_4}" datepicker="no" include_jquery="no" safecracker_head="no"}
+			<fieldset>
+				<legend>Title and Description</legend>
+				
+				<div class="input-row clearfix">
+					<!-- label for="title">Add a title...</label -->
+						<span class="field border-5">
+						<input class="text border-3" type="text" name="title" id="title" title="Add a title..." value="{title}" />
+						</span>
+						<p class="instructions">Page Link: {path=designer}/{member_id}/photos/{url_title}/{entry_id}</p>
+				</div>
+				
+				<div class="input-row clearfix">
+					<!-- label for="projects_summary">Write a brief summary...</label -->
+						<span class="field border-5">
+						<textarea class="summary border-3" name="photos_gallery_description" id="photos_gallery_description" title="Write a description for this photo album..." />{photos_gallery_description}</textarea>
+						</span>
+				</div>
+			</fieldset>	
+				
+			<fieldset id="entry-images">
+				<legend>Upload Photos</legend>
+				<p>Upload photos to your photo album. You can add captions to each photos, too. When you're done uploading your photos, mark the best one to use as the "main thumbmail".</p>
+				{exp:photo_manager:upload entry_id="{segment_4}"}
+			
+				<!-- This is the template container - Everything inside is used to represent an image -->
+				<div id="image_template" style="display:none">
+	
+					<div class='image' id='image_'>
+						<div class="default_photo" id="default_container_"><input type="radio" id="is_default_thumb_" name="is_default_thumb_" value="y" /><label for="is_default_thumb_">Use as main thumbmail</label></div>
+						<div class='image_edit' id='image_edit_'>
+							<a class='img_done' id='done_'>Done</a>
+							<div class='img_title'>Edit Photo</div>
+							
+							<!-- Image Edit Fields (prefix with "data_" except for caption) -->
+							<span>Caption:</span>
+							<!-- input type='text' name='caption_'></input -->
+							<textarea rows='4' name='caption_'></textarea>
+							<!-- span>Description:</span>
+							<textarea rows='4' name='data_description_'></textarea>
+							<span>Season:</span>
+							<select name='data_season_'><option value='spring'>Spring</option><option value='summer'>Summer</option><option value='fall'>Fall</option><option value='winter'>Winter</option></select>
+							-->
+							<!-- Image Edit Fields -->
+							
+						</div>
+						<div class='image_holder' id='file_'></div>
+						<div class='progress_text' id='progress_'>0%</div>
+						<div class='image_options'>
+							<a class='img_delete' id='delete_'>Delete</a>
+							<a class='img_edit' id='edit_'>Edit</a>
+						</div>
+					</div>
+	
+					</div>
+					<!-- End Image Container -->
+					
+					<div id="imageContainer"></div>
+					<p style="clear: both;">Select one or more files at a time. You can upload more photos at any time.</p>
+					<div id="uiElements" style="display:block;margin-top: 10px;">
+						<div id="uploaderContainer" style="clear: both;">
+							<div id="uploaderOverlay" style="position:absolute; z-index:2"></div>
+							<div id="selectFilesLink" style="z-index: 1; clear: both; margin-top: 10px;">
+								<span><a id="selectLink">+ Add Photos</a></span>
+							</div>
+						</div>
+					</div>
+					<p class="small">*Adobe Flash is required to upload photos</p>
+					
+					<script type="text/javascript">
+		
+						YAHOO.util.Event.onDOMReady(function () { 
+						var uiLayer = YAHOO.util.Dom.getRegion('selectLink');
+						var overlay = YAHOO.util.Dom.get('uploaderOverlay');
+						YAHOO.util.Dom.setStyle(overlay, 'width', uiLayer.right-uiLayer.left + "px");
+						YAHOO.util.Dom.setStyle(overlay, 'height', uiLayer.bottom-uiLayer.top + "px");
+						});
+		
+						var entry_id = {entry_id};
+						var current_id = {current_id};
+						
+						var thumb_width = {thumb_width};
+						var thumb_height = {thumb_height};
+						var upload_url = "{upload_url}";
+						var simultaneous_upload_limit = {sim_limit};
+						var swf_url = "{flash_url}";
+						var file_extensions = "{file_extensions}";
+						var file_ext_title = "{file_ext_title}";
+						var ajax_url = "{ajax_url}";
+						
+						var existing_photos = jQuery.parseJSON('{existing_photos}');
+					</script>
+					<script type="text/javascript" src="/assets/uploader/upload_manager.js"></script>
+					
+				{/exp:photo_manager:upload}
+			</fieldset>
+				
+				{if group_id >= '9' && group_id != '13' || group_id == '1'}
+				<div class="input-row clearfix">
+					<label for="projects_kits">Club Ruby Kit Used:</label>
+					<span class="">
+					<select name="projects_kits" id="projects_kits">
+						{custom_fields}
+						{if relationship}
+						{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}
+						</select>
+						{/if}
+						{/custom_fields}
+					</select>
+					</span>
+				</div>
+				{/if}
+						
+			<fieldset id="entry-save">
+				<legend>Save & Publish</legend>
+				<div class="publish-options" style="text-align: right; margin-bottom: 10px;">
+				<label for="status-1">I'm not ready to publish, make only visible to me</label> <input type="radio" name="status" value="Draft" id="status-1" />  <br />
+				<label for="status-2">I'm ready to publish, make visible on my profile</label> <input type="radio" name="status" value="Published" id="status-2" CHECKED /> 
+				</div>
+				<input type="hidden" name="entry_date" value="{entry_date}" />
+				<input type="hidden" name="allow_comments" value="y" />
+				<p class="text-right"><a href="{path=my/profile}">Cancel</a> or <input type="submit" value="Save!" /></p>
+			</fieldset>
+		{/exp:safecracker}
+		

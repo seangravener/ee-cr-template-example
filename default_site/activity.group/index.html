@@ -1,0 +1,23 @@
+{embed="_acl/.default"
+	target="{segment_1}/.default"
+	active_location="activity"
+	page_title="Community"
+	page_layout="rightrail"
+	page_tabs="{segment_1}/.default_tabs"
+	channel="creations|journals|photos|kits|videos"
+	limit="15"
+	
+	{if segment_2 == 'dt'}
+		group_id="10|11"
+		limit="15"
+	{if:elseif segment_2 == 'master-dt'}
+		group_id="10"
+		limit="15"
+	{if:elseif segment_2 == 'members'}
+		group_id="5|6|7|8|9"
+		limit="15"
+	{if:elseif segment_2 == 'videos' || segment_2 == 'photos'}
+		limit=""
+		channel="{segment_2}"
+	{/if}
+}

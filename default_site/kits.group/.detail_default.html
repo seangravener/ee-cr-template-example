@@ -1,0 +1,112 @@
+<div id="content" class="left grid_11">
+	<div class="kit-details tab-item ajaxcontent">
+		{exp:channel:entries channel="kits" status="not closed|draft" dynamic="off" entry_id="{segment_4}"}
+		<div class="kit-details-t">
+			{!-- <div class="sidebar left">
+				<div class="box-image">
+					<a href="{kit_photo}">
+						{exp:imgsizer:size src="{kit_photo}" width="180" default="images/default/kit_photo.jpg"}
+						<img src="{sized}" width="{width}" height="{height}" />
+						{/exp:imgsizer:size}
+					</a>
+                    <a href="#responses" class="comments right">{comment_total}</a>
+                    <div class="cl">&nbsp;</div>
+				</div>
+
+				<!-- div class="box-menu quick-menu">
+                    <p class="links"></p>
+                    <p class="own">Don't own this kit? <a href="{kit_buy_url}">Click here to get it!</a></p>
+				</div -->
+				
+				<h3>What Others Are Doing</h3>
+                <p class="small-b">See what others are doing with the "{title}" Club Ruby Kit.</p>
+
+				<ul class="others-list">
+					{reverse_related_entries orderby="date" channel="creations|photos|journals" orderby="date" status="not closed|draft|private" limit="10"}
+					{if no_results}
+					<li>None yet...</li>
+					{/if}
+					
+					{if projects_photo_1}
+					<li>
+						<span class="other-author"><a href="{path=designer}/{author_id}">{author}</a> Created:</span>
+						<a href="{path=designer}/{author_id}/creations/{url_title}/{entry_id}" title="Click to View Creation: {title}">
+							{exp:imgsizer:size src="{projects_photo_1}" width="30" height="30" default="images/default/creations_photo.jpg"}
+							<img src="{sized}" width="{width}" height="{height}" />
+							{/exp:imgsizer:size}
+							"{title}"
+						</a>
+					</li>
+					{/if}
+					
+					{if photos_photo_1}
+					<li>
+						<span class="other-author"><a href="{path=designer}/{author_id}">{author}</a> Photographed:</span>
+						<a href="{path=designer}/{author_id}/photos/{url_title}/{entry_id}" title="Click to Photo Gallery: {title}">
+							{exp:imgsizer:size src="{photos_photo_1}" width="30" height="30" default="images/default/creations_photo.jpg"}
+							<img src="{sized}" width="{width}" height="{height}" />
+							{/exp:imgsizer:size}
+							"{title}"
+						</a>
+					</li>
+					{/if}
+					{/reverse_related_entries}
+				</ul>
+				
+			</div> --}
+			<div class="content left">
+				<h2 class="head-t">{title}</h2>
+				<p>{kit_summary}</p>
+				{kit_body}
+				
+				
+				{!-- group_id isn't working here? --}
+				{if group_title == 'Advantage Member' || group_title == 'Design Team' || group_title == 'Super Admins'}
+				<h2 class="head-t">Get This Month's Kit</h2>
+				{kit_advantage_member} 
+				{if:else}
+				<h2 class="head-t">Upgrade to Advantage and Get This Kit</h2>
+					<p><a href="{path=join/advantage}">Become a Club Ruby Advantage member</a> and get this kit faster and for less!</p>
+					<p>Club Ruby Advantage Members also get:</p>
+					<ul class="disc">
+								<li>Discounts and First Chance to get Club Ruby Kits</li>
+								<li>Access to our constantly growing video library of tutorials and how tos</li>
+<li>Access to tutorials by our Amazingly talented Design Team</li>
+<li>Special Offers, Discounts, Coupons and occasional free Product Samples&nbsp;</li>
+<li>Discounts on featured Cricut cartridges and products that are used in our tutorials so if its something you feel will make your crafting easy and more fun, you don't have to look for the best prices, we are going to help you with that!&nbsp;</li>
+<li>Chat with our growing community and share your talents and be seen!&nbsp;</li>
+<li>Bi-Weekly challenges that help stretch and expand your creativity and allow you chances to win FABULOUS prizes!&nbsp;</li>
+<li>Members only give-aways and prize compitions&nbsp;</li>
+<li>Quarterly LIVE Web Classes with Megan that you can interact, ask questions and get answers live as well as create right with her right from the comfort of your home</li>
+							</ul>
+					<p><a href="{path=join/advantage}">Click here to become a Club Ruby Advantage member!</a></p>
+				{/if}
+				
+				<h2 class="head-t">Kit Videos</h2>
+				<ul class="video-list">
+					{reverse_related_entries channel="videos" orderby="date" status="open|public"}
+					{if no_results}
+					<li>None yet...</li>
+					{/if}
+					{if videos_video_1_thumb}
+					<li>
+						<a href="{title_permalink=videos/view}/{entry_id}" title="Click to Watch: {title}">
+							<span class="title">{title}</span>
+							{exp:imgsizer:size src="{videos_video_1_thumb}" width="190" height="110" default="images/default/creations_photo.jpg"}
+							<img src="{sized}" width="{width}" height="{height}" />
+							{/exp:imgsizer:size}
+						</a>
+						<p>{videos_summary}</p>
+						<div class="cl"></div>
+					</li>
+					{/if}
+					{/reverse_related_entries}
+				</ul>
+			</div>
+			<div class="cl">&nbsp;</div>
+		</div>
+
+		{/exp:channel:entries}
+		
+	</div>
+</div>

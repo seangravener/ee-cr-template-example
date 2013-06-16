@@ -1,0 +1,51 @@
+{embed="landing/.page_head"
+	sticky_js="no"
+}
+
+{if logged_in}
+	{redirect="activity"}
+{/if}
+
+<div id="what-is-ruby"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		<div class="cl">&nbsp;</div> 
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+
+	<div class="nav nav-type-1"> 
+		<div class="in"> 
+				<h2 class="heading">Login to Your Account</h2>
+			<div class="cl">&nbsp;</div> 
+		</div> 
+	</div>
+
+	{if logged_in}
+		<div id="signup" class="prefix_2 suffix_2">
+		<p>You're already logged in, {screen_name}! <a href="{path=activity}">See what's happening in the community</a> or <a href="{path=my/profile}">Goto your profile</a>.
+		
+		<p>If this isn't you, <a href="http://www.clubrubydesigners.com/account/logout.php">click here to logout</a></p>
+		</div>
+	{if:else}
+	{exp:member:login_form return="{exp:ssc_uri:login_redirect default='my/profile' offset='2'}"}
+	<div id="signup" class="prefix_2 suffix_2">
+		<div class="address">
+			<fieldset>
+				<label for="username">Email Address</label>
+				<input class="field" type="text" name="username" />
+			</fieldset>
+			<fieldset>
+				<label for="password">Password</label>
+				<input class="field" type="password" name="password" />
+			</fieldset>
+		<p style="margin-bottom: 20px;"><input type="submit" name="submit" value="Login" style="padding: 5px 10px;"/></p>
+		<p style="margin-bottom: 20px;">Can't login? Forgot your password? <a href="{path=login/forgot}">Click here to reset your password.</a></p>
+		</div>
+	</div>
+	{/exp:member:login_form}
+	{/if}
+	<div class="cl" style="padding-bottom: 20px;"></div>
+	
+{embed="landing/.page_footer"}

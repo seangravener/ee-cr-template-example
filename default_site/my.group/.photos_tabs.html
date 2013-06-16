@@ -1,0 +1,9 @@
+<div class="main-tabs">
+	<ul>
+	    <!-- li{if segment_2 == '' && segment_3 == ''} class="active"{/if}><a href="{path=creations}"><span>Member Creations</span></a><span class="ribbon"></span></li -->
+		<li{if segment_2 == 'photos' && segment_3 == ''} class="active"{/if}><a href="{path=my/photos}"><span>My Photos</span></a><span class="ribbon"></span></li>
+		<li{if segment_3 == 'add'} class="active"{/if}><a href="{path=my/journal/add}"><span>+ Upload Photos</span></a><span class="ribbon"></span></li>
+		{if segment_3 == 'edit'}<li class="active"><a href="{path=my/journal/edit}/{segment_4}"><span>Editing Photo Gallery</span></a><span class="ribbon"></span></li>{/if}
+	</ul>
+	<div class="cl">&nbsp;</div>
+</div>

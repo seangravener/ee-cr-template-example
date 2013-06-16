@@ -1,0 +1,53 @@
+{exp:channel:entries channel="kits" status="public|open" uncategorized_entries="no" dynamic="off" entry_id="{segment_3}" limit="1"}
+		{if segment_3 == entry_id && segment_4 == kit_access_code}
+		<div class="kit-details-t">
+			
+			<div class="content left">
+				<h2 class="head-t">{title}</h2>
+				
+				<h2 class="head-t">Kit Videos</h2>
+				<ol class="video-list">
+					{reverse_related_entries channel="videos" orderby="date" status="not closed|draft|private"}
+					{if no_results}
+					<li>None yet...</li>
+					{/if}
+					{if videos_vimeo_embed_src}
+					<li>
+					<h3>{title}</h3>
+					<iframe src="{videos_vimeo_embed_src}?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="704" height="396" frameborder="0"></iframe>
+					{/if}
+					</li>
+					{/reverse_related_entries}
+				</ol>
+			</div>
+	
+			<h2 class="head-t">Upgrade to Advantage</h2>
+					<p><a href="{am_join_advantage}">Become a Club Ruby Advantage member</a> and get this kit faster and for less!</p>
+					<p>Club Ruby Advantage Members also get:</p>
+					<ul class="disc">
+								<li>Discounts and First Chance to get Club Ruby Kits</li>
+								<li>Access to our constantly growing video library of tutorials and how tos</li>
+<li>Access to tutorials by our Amazingly talented Design Team</li>
+<li>Special Offers, Discounts, Coupons and occasional free Product Samples&nbsp;</li>
+<li>Discounts on featured Cricut cartridges and products that are used in our tutorials so if its something you feel will make your crafting easy and more fun, you don't have to look for the best prices, we are going to help you with that!&nbsp;</li>
+<li>Chat with our growing community and share your talents and be seen!&nbsp;</li>
+<li>Bi-Weekly challenges that help stretch and expand your creativity and allow you chances to win FABULOUS prizes!&nbsp;</li>
+<li>Members only give-aways and prize compitions&nbsp;</li>
+<li>Quarterly LIVE Web Classes with Megan that you can interact, ask questions and get answers live as well as create right with her right from the comfort of your home</li>
+							</ul>
+					<p><a href="{am_join_advantage}">Click here to become a Club Ruby Advantage member!</a></p>
+			
+			<div class="cl">&nbsp;</div>
+		</div>
+		{if:else}
+		<p>We're sorry, your access code doesn't seem to be correct. If you believe this is an error or you have lost your access code, please email us at hello@clubrubydesigners.com and include the following:</p>
+		<ol>
+			<li>Your full name</li>
+			<li>your email address</li>
+			<li>Where you purchased your kit from (Club Ruby or Craft-e-Corner.com)</li>
+			<li>The name of the Club Ruby kit you purchased</li>
+		</ol>
+		{/if}
+		{/exp:channel:entries}
+		
+		<p>Already a member? <a href="{path=login}">Login to your account</a> </p>

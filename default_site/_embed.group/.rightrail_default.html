@@ -1,0 +1,91 @@
+<div id="sidebar" class="right grid_5 omega do-cufon">
+		
+	<!-- div class="account">
+		<div class="badge"></div>
+		<div class="cl">&nbsp;</div>
+		<a href="{path=my/profile}" class="avatar left" title="Change your photo">
+			{exp:member:custom_profile_data}
+			{exp:imgsizer:size src="{avatar_url}" width="76" default="images/default/member_photo.jpg"}
+			<img title="{screen_name}" class="avatar-image" src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			{/exp:member:custom_profile_data}
+		</a>
+		<div class="info left">
+			<h3><a href="{path=designer}/{member_id}">{screen_name}</a></h3>
+			
+			<div class="own">
+				<p>{group_title}</p>
+			</div>
+			
+		</div>
+		<div class="cl">&nbsp;</div>
+		<p style="font-size: 10px;"><a href="{path=my/profile/details}">Change Profile Photo</a></p>
+		<a href="{path=my/creations/add}" class="button">+ Upload Creation</a>
+		<a href="{path=my/journal/add}" class="button secondary">+ Write in Your Journal</a>
+		<a href="{path=my/photos/add}" class="button secondary">+ Upload Photo Gallery</a>
+	</div -->
+	{!-- if segment_1 == 'my'}
+		{embed="{segment_1}/.profile_rightrail"}
+	{/if --}
+	
+	{embed="_sidebar/.current-kit"}
+	
+	<h3>Build Your Profile</h3>
+	<div class="box-1 border-5">
+		<p>Build <a href="{path=designer}/{member_id}">your Club Ruby profile</a> by uploading photos of projectsm, designs and other creations and by journaling about your personal crafting adventures.</p>
+		<div  style="text-align: center;"><a href="#global-add-bar" class="button secondary lightbox">+ Add New Content</a></div>
+	</div>
+	
+	{embed="_sidebar/.upgrade"}
+	
+	{embed="_sidebar/.cr-blog-feed"}
+	
+	{embed="_sidebar/.calendar"}
+	
+	{!-- embed="_sidebar/.premium_content" --}
+	
+	<!-- div class="sidebar-ad" style="font-size: 12px;">
+		<h3><span>Online Classes</span></h3>
+		<p><a href="{path=forums/viewforum/18}">Cast your vote</a> for the Online Class on September 23rd!</p>
+	</div -->
+	
+	<!-- div class="sidebar-ad notice" style="font-size: 12px;">
+		<h2>Club Ruby is in Beta</h2>
+		<p><img src="/themes/clubruby/images/beta-construction.png" style="float: left; margin: 0 5px 0px 0;"/> 
+		In beta what? This means that, although we're tying very hard to make the website work just right, we haven't found all the "bugs" yet and from time to time you might find that something is "broken" isn't working the way you'd expect.
+		We appreciate your help by notifying us of any problems you find or suggestions you have! Use the link below to report a problem or make a suggestion.
+		</p>
+		<ul>
+			<li>Website Mode: Beta</li>
+			<li>{exp:multipass sso_key="db718c5bf66e624d788eac140124894a03c2b48a6124b4b555416973a0491be221c77c320fa419520d48eb379c0c55fcf38ae37a135b17f9280befd20f63fb90" key="club-ruby" link="help.clubrubydesigners.com/discussions/report-a-website-problem" text="Report a Website Problem"}</li>
+		</ul>
+		<div class="cl">&nbsp;</div>
+	</div -->
+	
+	<!-- div class="sidebar-ad">
+		<h3><span>Sponsored Advertisement</span></h3>
+		<div class="image left">
+			<a href="#"><img src="css/images/sidebar-ad-image.jpg" alt="" /></a>
+		</div>
+		<div class="info left">
+			<h2><a href="#">Cricut Cutting Guide</a></h2>
+			<p>Over 13,000 crafters already enjoy the benefits in this guide!</p>
+		</div>
+		<div class="cl">&nbsp;</div>
+	</div -->
+	
+	<!-- div class="blog">
+		<div class="blog-c">
+			<div class="blog-b">
+				<h2>Club Ruby Blog</h2>
+				<ul>
+				    <li><a href="#">T-Shirt with Flitter Decal</a></li>
+				    <li><a href="#">Paper Flower Wreath For Any Occasion</a></li>
+				    <li><a href="#">How to Master Your Gypsy and Get MORE from Your Cricut!</a></li>
+				    <li><a href="#">Video Difficulties</a></li>
+				    <li><a href="#">Questions from Ustream</a></li>
+				</ul>
+			</div>
+		</div>
+	</div -->
+</div>

@@ -1,0 +1,65 @@
+<div class="main-sup">
+	<div class="container_16">
+		
+		<div class="content-sup" class="">
+			
+				<div class="video ajaxcontent">
+					{exp:channel:entries channel="videos" status="not draft|closed|private"}	
+					{if videos_vimeo_embed_src}
+					<iframe src="{videos_vimeo_embed_src}?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="704" height="396" frameborder="0"></iframe>
+					
+					{if:else}
+					{embed="_embed/.player"
+						first_video="{videos_video_1}"
+						format="{videos_video_format}"
+						playlist="true"
+					}
+				
+					{if videos_playlist}
+					<div class="left playlist" style="width: 225px; height: 400px; overflow: auto;">
+						<div class="clips">
+							{videos_playlist}
+							<a href="http://d56llr5urhjl0.cloudfront.net/{path}.{videos_video_format}">
+								{exp:imgsizer:size src="{thumb}" width="75" default="images/default/member_photo.jpg"}
+								<img src="{sized}" width="{width}" height="{height}" />
+								{/exp:imgsizer:size}
+								{row_count} - {video_title}
+								<div class="cl"></div>
+							</a>
+							{/videos_playlist}
+						</div>
+					</div>
+					{/if}
+					{/if}
+					<div style="clear: both;" class="video-meta item-meta">
+						Published on {entry_date format="%D, %F %d, %Y"} in the {categories}<a href="{path=videos}">{category_name}</a>{/categories} channel.
+					</div>
+					
+					<?php 
+					if ('{videos_recipe}' != '')
+						$videos_recipe = true; 
+					?>
+					{/exp:channel:entries}
+				
+				</div>
+			
+		</div>
+
+	</div>
+</div>
+<!-- div class="main-sup">
+	<div class="container_16">
+		<div class="content-sup" class="">
+			other channels
+		</div>
+	</div>
+</div -->
+<div class="main-tabs">
+	<ul>
+	    <li{if segment_5 == ''} class="active"{/if}><a href="{path=videos/view}/{segment_3}/{segment_4}"><span>Summary</span></a><span class="ribbon"></span></li>
+	    <?php if (isset($videos_recipe)) { ?>
+		<li{if segment_5 == 'recipe'} class="active"{/if}><a href="{path=videos/view}/{segment_3}/{segment_4}/recipe"><span>Recipe Card</span></a><span class="ribbon"></span></li>
+		<?php } ?>
+	</ul>
+	<div class="cl">&nbsp;</div>
+</div>

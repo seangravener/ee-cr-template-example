@@ -1,0 +1,91 @@
+<div id="content" class="left grid_11">
+
+	<div class="personal-info tab-item"> 
+	
+	<h2 class="header-t">What You've Been up to</h2>
+	<p>You've created a total of <strong>{total_entries} items</strong> that have a total of <strong>{total_comments} comments</strong>. You've also contributed <strong><?php echo $this->EE->session->userdata['total_forum_posts']; ?> messages in the forums</strong>.</p>
+	<!-- p>entries: {total_entries}, comments: {total_comments}, forum: <?php // echo $this->EE->session->userdata['total_forum_posts']; ?></p -->
+	
+	<h2 class="header-t">Your Latest Creations</h2>
+	<ul class="entry-list">
+	{exp:channel:entries channel="creations" author_id="CURRENT_USER" status="not closed" limit="5"}
+		{if no_results}
+		<li>You don't have any creations uploaded yet. Have a case of scrapper's block? Share something you've created inthe past or <a href="{path=gallery}">get inspired by designs from other members</a>, then get creative and <a href="{path=my/creations/add}" title="upload a new project">share it with everyone</a>!</li>
+		{/if}
+		<li class="clearfix">
+			{exp:imgsizer:size src="{projects_photo_1}" width="50" height="38" default="images/default/projects_photo.jpg"}
+			<a href="{path=designer}/{author_id}/creations/{url_title}/{entry_id}"><img src="{sized}" width="{width}" height="{height}" /></a>
+			{/exp:imgsizer:size}
+			<a class="title" title="Click to view: {title}" href="{path=designer}/{author_id}/creations/{url_title}/{entry_id}">{title}</a> <a class="edit" href="{path=my/creations/edit}/{entry_id}" title="Edit this entry">(edit)</a>
+			<p>
+				Added {exp:friendly_date}{entry_date}{/exp:friendly_date}
+				<span class="extra-meta">
+					<a class="comments" href="{path=designer}/{author_id}/creations/{url_title}/{entry_id}/#responses">{comment_total} responses</a> and <strong>{view_count_one}</strong> views - Status: <a href="{path=my/creations/edit}/{entry_id}" title="Edit this entry"><strong>{status}</strong></a>
+				</span>
+			</p>
+			
+		</li>
+	{/exp:channel:entries}
+	</ul>
+	<p style="text-align: right"><a href="{path=my/creations}">See all my creations</a> or <a title="Click to upload a new creation" class="button secondary" href="{path=my/creations/add}">+ Upload New Creation</a></p>
+	
+	<h2 class="header-t">Dear Journal...</h2>
+	<ul class="entry-list">
+	{exp:channel:entries channel="journals" author_id="CURRENT_USER" status="not closed" limit="5"}
+		{if no_results}
+		<li>You haven't written in your Journal yet. <a href="{path=my/journal/add}" title="Write in your Journal">Don't be shy</a>, everyone is waiting to hear from you!</li>
+		{/if}
+		<li class="clearfix">
+			{exp:imgsizer:size src="{journal_photo_1}" width="50" height="38" default="images/default/journal_photo.jpg"}
+			<img src="{sized}" width="{width}" height="{height}" />
+			{/exp:imgsizer:size}
+			<a class="title" title="Click to view: {title}" href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}">{title}</a> <a class="edit" href="{path=my/journal/edit}/{entry_id}" title="Edit this entry">(edit)</a> 
+			<p>
+				Written {exp:friendly_date}{entry_date}{/exp:friendly_date}
+				<span class="extra-meta">
+					<a class="comments" href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}/#responses">{comment_total} responses</a> and <strong>{view_count_one}</strong> views - Status: <a href="{path=journals/edit}/{entry_id}" title="Edit this entry"><strong>{status}</strong></a>
+				</span>
+			</p>
+			
+		</li>
+	{/exp:channel:entries}
+	</ul>
+	<p style="text-align: right"><a href="{path=my/journal}">See all my entries</a> or <a title="Click to write in your journal" class="button secondary" href="{path_add_journal}">+ Write in Your Journal</a></p>
+	
+	<h2 class="header-t">Photo Galleries</h2>
+	<ul class="image-list">
+	{exp:channel:entries channel="photos" author_id="CURRENT_USER" status="not closed" limit="8"}
+		{if no_results}
+		<li>You haven't uploaded any photos yet. <a href="{path=my/photos/add}" title="Upload Photos">Everyone wants to see your life in action!</a></li>
+		{/if}
+		<li class="images">
+			{exp:imgsizer:size src="{photos_photo_1}" width="120" height="90" default="images/default/photos_photo.jpg"}
+			<a title="title" href="{path=designer}/{author_id}/photos/{url_title}/{entry_id}"><img src="{sized}" width="{width}" height="{height}" /></a>
+			{/exp:imgsizer:size}
+			{exp:imgsizer:size src="{photos_photo_2}" width="50" height="37" default="images/default/photos_photo.jpg"}
+			<a title="title" href="{path=designer}/{author_id}/photos/{url_title}/{entry_id}"><img src="{sized}" width="{width}" height="{height}" /></a>
+			{/exp:imgsizer:size}
+			{exp:imgsizer:size src="{photos_photo_3}" width="50" height="37" default="images/default/photos_photo.jpg"}
+			<a title="title" href="{path=designer}/{author_id}/photos/{url_title}/{entry_id}"><img src="{sized}" width="{width}" height="{height}" /></a>
+			{/exp:imgsizer:size}
+		</li>
+	{/exp:channel:entries}
+	</ul>
+	<p style="clear: both; text-align: right"><a href="{path=my/photos}">See all my photos</a> or <a title="Click to upload photos" class="button secondary" href="{path=my/photos/add}">+ Upload Photos</a></p>
+	
+	<h2>Latest Discussion Topics</h2>
+	<ul class="entry-list">
+		{exp:forum:topic_titles orderby="post_date" sort="desc" limit="5"}
+		<li class="clearfix">
+			<a class="title" title="Click to view: {title}" href="{thread_path=forums/viewthread}">{title}</a> 
+			<p>
+				Posted {exp:friendly_date}{topic_date}{/exp:friendly_date} by {author} with {views} views.
+				<span class="extra-meta"><a href="{thread_path=forums/viewthread}">Reply</a></span>
+			</p>
+			
+		</li>
+		{/exp:forum:topic_titles}
+	</ul>	
+	
+	</div>
+</div>

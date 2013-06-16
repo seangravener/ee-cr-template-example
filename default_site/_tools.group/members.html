@@ -1,0 +1,8 @@
+{if group_id == 1}
+{exp:ajw_export 
+    sql="SELECT member_id, password, screen_name, email, group_id FROM exp_members" 
+    format="csv" 
+    delimter=","
+    filename="cr-members_{current_time format="%Y%m%d-%H%i%s"}.csv"
+  }
+ {/if}

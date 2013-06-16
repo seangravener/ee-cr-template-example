@@ -1,0 +1,71 @@
+<div id="content" class="left grid_11">
+	
+	<div class="personal-info tab-item"> 
+	
+	<div class="form custom-form">
+	<h2>Email Address</h2>
+	<ul class="entry-list">
+		<li>
+			<strong>Email:</strong> {username}
+		</li>
+	</ul>
+	<div class="cl" style="position: relative;"></div>
+	<p style="text-align: right;"><a style="" class="button secondary" href="{path=my/account/email}">Change Email Address</a></p>
+	
+	<h2>Password</h2>
+	<ul class="entry-list">
+		<li>
+			<strong>Password:</strong>: *******
+		</li>
+	</ul>
+	<div class="cl" style="position: relative;"></div>
+	<p style="text-align: right;"><a style="" class="button secondary" href="{path=my/account/password}">Change Password</a></p>
+	</div>
+	
+	
+	<div class="form">
+	<h2>Account Addresses</h2>
+
+	<p style="text-align: right;"><a class="button secondary" href="{path=my/account/address}/">Change Address</a></p>
+	</div>
+	
+		<h2 id="account-plans">Your Club Ruby Plan</h2>
+
+		<table id="ver-minimalist" summary="Club Ruby Plan">
+		    <thead>
+		    	<tr valign="bottom">
+		        	<th>Plan Name</th>
+		            <th>Price</th>
+		            <th>Billed</th>
+		            <th>Next<br />Delivery</th>
+					<th>Status</th>
+					<th></th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	
+				{if no_results}
+				<tr>
+					<td colspan="6">
+						<p>We haven't received any payments from you.</p>
+					</td>
+				</tr>
+				{/if}
+				{items}
+				<tr>
+		        	<td>{name}</td>
+		            <td>${price}</td>
+		            <td>{period_name}</td>
+		            <td>{date_next_payment}</td>
+					<td>{subscription_status}</td>
+					<td><a href="{path=my/account/history}/{subscription_id}">Change or View Details</td>
+		        </tr>
+				{/items}
+		       
+		    </tbody>
+		</table>
+
+		
+	</div>
+	
+</div>

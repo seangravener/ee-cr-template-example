@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{if embed:page_title}{embed:page_title} | {/if}Club Ruby</title>
+	<link rel="shortcut icon" href="/themes/clubruby/images/favicon.ico" /> 	
+	<link media="all" rel="stylesheet" type="text/css" href="/themes/clubruby_v2/css/all.css" />
+    <link media="all" rel="stylesheet" type="text/css" href="/themes/clubruby_v2/css/thickbox.css" />    
+    {if segment_1}
+	<link media="all" rel="stylesheet" type="text/css" href="/themes/clubruby_v2/css/{segment_1}.css" />   
+    {/if}
+	<script type="text/javascript" src="/themes/clubruby_v2/js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="/themes/clubruby_v2/js/main.js"></script>
+    {if segment_1 == "kits"}
+    <script type="text/javascript" src="/themes/clubruby_v2/js/thickbox-compressed.js"></script>  
+    <script type="text/javascript" src="/themes/clubruby_v2/js/tabs.js"></script>    
+    {/if}
+</head>
+<body{if embed:body_class} class="{embed:body_class}"{/if}>

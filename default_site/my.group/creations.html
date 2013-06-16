@@ -1,0 +1,12 @@
+{embed="_acl/.default"
+	{if segment_3 == 'add' || segment_3 == 'edit' || segment_3 == 'delete' || segment_3 == 'hide' || segment_3 == 'saved'}
+		target="{segment_1}/.creations_{segment_3}"
+	{if:else}
+		target="{segment_1}/.creations_default"
+	{/if}
+	active_location="profile"
+	page_title="My Creations"
+	sidebar="my/.creations_sidebar"
+	page_tabs="my/.profile_tabs"
+	group_id=""
+}

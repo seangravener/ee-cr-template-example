@@ -1,0 +1,37 @@
+<div id="content" class="left grid_11">
+	<div class="content-area tab-item">
+		{exp:channel:entries channel="videos" status="not draft|closed|private"}
+		{if no_results}
+			<p>Nothing here.</p>
+		{/if}
+		<h2>{if segment_5 == 'recipe'}Recipe for {/if}{title}</h2>
+		<div class="upload-items ajaxcontent">
+			{if segment_5 == ''}	
+			<p>{videos_summary}</p>
+			{videos_body}
+			{if:elseif segment_5 == 'recipe'}
+				{videos_recipe_notes}
+				<ul>
+					<?php
+					$string_br = nl2br('{videos_recipe}');
+					$string_array = explode('<br />', $string_br);
+					
+					foreach ($string_array as $string) {
+						if (strlen($string) > 1)
+							echo '<li>' . $string . '</li>';
+					}
+					?>
+				</ul>
+	
+			{/if}
+		</div>
+		{/exp:channel:entries}
+	</div>
+	{if segment_5 == ''}
+	{embed="_embed/.comments"
+		entry_id="{segment_4}"
+		channel="videos"
+		preview="videos/preview"
+	}
+	{/if}
+</div>

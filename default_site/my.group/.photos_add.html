@@ -1,0 +1,43 @@
+<div id="main-content" class="grid_11 do-cufon">
+		
+		<div class="form-2">
+			<h2>Add a Photo Album</h2>
+			<p>Use the form on this page to add a photo album to your profile for everyone to see and comment on.</p>
+		
+			{if segment_4 == ''}
+			{exp:safecracker channel="photos" return="my/photos/add/ENTRY_ID#entry-images" datepicker="no" include_jquery="no" safecracker_head="no"}
+			<fieldset>
+				<legend>Title and Description</legend>
+				
+				<div class="input-row clearfix">
+					<!-- label for="title">Add a title...</label -->
+						<span class="field border-5">
+						<input class="text border-3" type="text" name="title" id="title" title="Add a title..." />
+						</span>
+						<p class="instructions">Give your creation a creative, but meaningful title</p>
+				</div>
+				
+				<div class="input-row clearfix">
+					<!-- label for="projects_summary">Write a brief summary...</label -->
+						<span class="field border-5">
+						<textarea class="summary border-3" name="photos_gallery_description" id="photos_gallery_description" title="Write a description for this photo album..." /></textarea>
+						</span>
+						<!-- p class="instructions">Write a brief summary about your creation. You will be able to add more detail in the next step.</p -->
+				</div>
+			</fieldset>
+			
+			<input type="hidden" name="status" value="Draft" />
+			<input type="hidden" name="allow_comments" value="y" />
+			<p class="text-right"><input type="submit" value="Continue to Upload Photos" /></p>
+			{/exp:safecracker}
+
+			{if:else}
+			
+			{embed="my/.photos_add_2"}
+			
+			{/if}
+		
+		
+		</div>
+
+</div>

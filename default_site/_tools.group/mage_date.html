@@ -1,0 +1,23 @@
+{if group_id == '1'}
+
+<!--<p>This tool will update the "next payment" date to the 1st day of each customer's next billing month for ALL customers</p>
+
+<p><a href="{path=_tools/mage_date}/ruby-elite-1/yes512">Confirm update for sku "ruby-elite-1" (cycle every 6 months)</a></p> 
+<p><a href="{path=_tools/mage_date}/ruby-elite-2/yes512">Confirm update for sku "ruby-elite-2" (cycle monthly)</a></p>
+
+	{if segment_3}
+		{!-- exp:mage_tools:adjust_next_payment_date sku="{segment_3}" confirm="{segment_4}" --}
+		
+		{!-- exp:mage_tools:adjust_dates sku="{segment_3}" confirm="{segment_4}" --}
+	{/if} -->
+
+<h1>New Mage Tool Update</h1>
+
+<p><a href="{path=_tools/mage_date}/yes434">Perform Update on all Skus</a></p>
+<p><a href="{path=_tools/mage_date}/yes678">Add new sequence records</a></p>
+
+{exp:mage_tools:update confirm="{segment_3}"}
+
+{/exp:mage_tools:update}
+
+{/if}

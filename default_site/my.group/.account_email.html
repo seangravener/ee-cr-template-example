@@ -1,0 +1,43 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	{exp:user:edit screen_name_password_required="no" password_required="n" username_override="yes"}
+	<div class="form">
+		<h2>Email Address</h2>
+		<p class="summary">Your email is also your primary username you use to login to your Club Ruby account. If you update your email address, remember in the future to login with your updated email address. We also send important account information to you via email. Use this form to change your email address, so it's important to keep it updated.</p>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="username">Current Email:</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<div style="margin-bottom: 20px; padding: 3px 0;">{username}</div>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="username">New Email</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{username}" name="username" id="username" />
+				<p>Enter a valid email address</p>
+			</div>
+		</div>
+		
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="username">Current Password</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="password" name="current_password" id="current_password" />
+				<p>Enter your current password for security</p>
+			</div>
+		</div>
+		
+		<p style="margin:0; clear: both; text-align: right"><input type="submit" title="Click to update and save your profile" class="button" value="Update and Save Email" /></p>
+		
+	</div>
+	{/exp:user:edit}
+	
+</div>

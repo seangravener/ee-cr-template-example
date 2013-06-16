@@ -1,0 +1,280 @@
+{embed="_embed/.head_landing2"
+	page_title="Kits"
+}
+	<div class="header-wrapper">
+		<div class="top-header">
+			<strong class="logo"><a href="{path=''}">ClubRuby</a></strong>
+			<div class="login-search">
+				<div class="login">
+                    <p><a href="{am_join_basic}" style="margin-left: 0px;">Join Now!</a> | Already registered? &mdash; </p>
+                    <a href="{path=login}" class="btn"><strong>Log in to your account</strong></a>
+                </div>
+				<!-- <form action="#">
+					<fieldset>
+						<div class="wrapper-input">
+							<input type="text" value="Search site" />
+						</div>
+						<input class="submit" type="submit" value="" />
+					</fieldset>
+				</form>-->
+			</div>
+		</div>
+		{embed="_common/.nav_main"}
+	</div>
+    <div id="main">
+        {exp:channel:entries channel="kits" status="open|published" limit="1" url_title="{segment_3}"}
+		<div class="block">
+            <div class="holder">
+                <div class="frame">
+                	<a href="{path='kits'}" class="back"><< Back to all kits</a>
+                    <div class="heading">
+                        <h2>{title}</h2>
+                        <p id="kit-release-date">Release date: {entry_date format="%m.%d.%Y"}</p>
+                    </div>
+                    <div id="kit-left">
+                        <div id="kit-video-wrapper">
+                            <div id="kit-video-left">
+                                {kit_video}
+                            </div>
+                            <div id="kit-video-right">
+                                <div class="kit-video-details">
+                                    <h3>Kit availability:</h3>
+                                    Available now only for Advantage program members.
+                                </div>
+                                {if kit_quick_links}
+                                <div class="kit-video-details">
+                                    <h3>Quick Links:</h3>
+	                                    <a href="#tab1" class="kit-quick-links">test</a>
+	                                    <a href="#tab2" class="kit-quick-links">test</a>
+	                                    <a href="#tab3" class="kit-quick-links">test</a>                                </div>
+                                {/if}
+                            </div>
+                        </div>
+                        {if kit_photos}
+                        <div id="kit-additional-images">
+                            <p>Click image to zoom</p>
+                            {kit_photos}
+                                {exp:imgsizer:size src="{photo_url}" width="90" height="60"}
+                                    <a href="{photo_url}" class="thickbox"><img src="{sized}" width="{width}" height="{height}" class="kit-thumbs"/></a>
+                                {/exp:imgsizer:size}
+                            {/kit_photos}
+                        </div>
+                        {/if}
+                        <div id="kit-purchase">
+                            <div class="kit-purchase-box right-divider">
+                                <h4>Your best deail on this kit as an Advantage program member:</h4>
+                                <p class="price"><span>${kit_advantage_price}</span> + Free Shipping</p>
+                                <img src="/themes/clubruby_v2/images/btn-kit-purchase.png" />
+                            </div>
+                            <div class="kit-purchase-box">
+                                <h4>Kit availability varies, secure your next kits with auto-ship feature</h4>
+                                <p>Auto-ship feature is...Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                <img src="/themes/clubruby_v2/images/btn-kit-auto.png" />
+                            </div>
+                        </div>
+                        <div id="kit-share">
+                            <iframe src="http://www.facebook.com/plugins/like.php?app_id=151273598275805&amp;href={path='kits/detail'}/{url_title}&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+                            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+                            <div style="display:inline;">
+                               <a href="http://twitter.com/share" class="twitter-share-button"
+                                  data-url="{path='kits/detail'}/{url_title}"
+                                  data-related="anywhere:The Javascript API"
+                                  data-count="horizontal">Tweet</a>
+                            </div>                           
+                        </div>
+                        <div id="kit-tabs">
+                            <ul class="tabs">
+                                <li><a href="#tab1">Kit information</a></li>
+                                <li><a href="#tab2">Video and tutorials</a></li>
+                                <li><a href="#tab3">Recent activity</a></li>
+                                
+                            </ul>
+                            
+                            <div class="tab_container">
+                                <div id="tab1" class="tab_content">
+                                    <div id="kit-body">
+                                    	{kit_body}
+                                    </div>
+                                </div>
+                                <div id="tab2" class="tab_content">
+                                    <div id="kit-videos">
+                                    {reverse_related_entries channel="videos" orderby="date" status="open|public"}
+                                        {if no_results}
+                                        <li>None yet...</li>
+                                        {/if} 
+                                        {if videos_video_1_thumb}
+                                        <li>
+                                            <a href="{title_permalink=videos/view}/{entry_id}" title="Click to Watch: {title}">
+                                                <span class="title">{title}</span>                                                {exp:imgsizer:size src="{videos_video_1_thumb}" width="180" height="100" default="images/default/creations_photo.jpg"}
+                                                <img src="{sized}" width="{width}" height="{height}" />
+                                                {/exp:imgsizer:size}
+                                            </a>
+                                        </li>
+                                        {/if}                                                                   
+                                    {/reverse_related_entries}
+    								</div>
+                                </div>
+                                <div id="tab3" class="tab_content">
+                                    {embed="_embed/.comments"
+                                        entry_id = "{entry_id}"
+                                    }
+                                </div>                            
+                              </div>
+                           </div>
+						   <div class="clear"><br /></div>
+                           <div id="kit-purchase">
+                                <div class="kit-purchase-box right-divider">
+                                    <h4>Your best deail on this kit as an Advantage program member:</h4>
+                                    <p class="price"><span>${kit_advantage_price}</span> + Free Shipping</p>
+                                    <img src="/themes/clubruby_v2/images/btn-kit-purchase.png" />
+                                </div>
+                                <div class="kit-purchase-box">
+                                    <h4>Kit availability varies, secure your next kits with auto-ship feature</h4>
+                                    <p>Auto-ship feature is...Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                    <img src="/themes/clubruby_v2/images/btn-kit-auto.png" />
+                                </div>
+                            </div>
+                            <div id="kit-share">
+                                <iframe src="http://www.facebook.com/plugins/like.php?app_id=151273598275805&amp;href={path='kits/detail'}/{url_title}&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+                                <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+                                <div style="display:inline;">
+                                   <a href="http://twitter.com/share" class="twitter-share-button"
+                                      data-url="{path='kits/detail'}/{url_title}"
+                                      data-related="anywhere:The Javascript API"
+                                      data-count="horizontal">Tweet</a>
+                                </div>                           
+                            </div>
+                        </div>
+                        <div id="kit-right">
+                        	<div id="kit-participate">
+                        	<h2>Participate!</h2>
+                                <img src="/themes/clubruby_v2/images/btn-kit-upload.png" />
+                                <img src="/themes/clubruby_v2/images/btn-kit-post.png" />
+                           	</div>
+                           	<div id="kit-more">
+	                            <h2>Recent projects</h2>
+ 									{reverse_related_entries channel="projects" orderby="date" status="open|public"}
+                                        {if no_results}
+                                        <li>None yet...</li>
+                                        {/if} 
+                                        <li>
+											{title}
+                                        </li>
+                                    {/reverse_related_entries}                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		{/exp:channel:entries}
+        
+    </div>
+	<div class="footer-wrapper">
+		<div class="footer-holder">
+			<div id="footer">
+				<div class="holder">
+					<div class="follow">
+						<!--<h5>FOLLOW US:</h5>
+						<ul>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+						</ul>-->
+					</div>
+                    <div class="connect">
+                        <h5>CONNECT WITH US</h5>
+                        <ul class="social">
+                            <li><a class="twitter" href="http://www.twitter.com/clubruby"></a></li>
+                            <li><a class="facebook" href="http://www.facebook.com/ClubRuby"></a></li>
+                            <!-- li><a class="other" href="#"></a></li -->
+                        </ul>
+                        <div class="contact">
+                            <p>Club Ruby&trade; is an Above Rubies Studio Production.</p>
+                            <p>2011 (c) Above Rubies Studio, llc.</p>
+                            <p>All Rights Reserved.</p>
+                            <ul class="add-nav">
+                                <li><a href="http://blog.clubrubydesigners.com/">Blog</a></li>
+                                <li><a href="{path=site/privacy-policy}">Privacy Policy</a></li>
+                                <li><a href="{path=site/terms}">Terms &amp; Conditions</a></li>
+                                <li><a href="{path=login}">Log In</a></li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{embed="_embed/.analytics"}
+</body>
+</html>

@@ -1,0 +1,37 @@
+<div id="content" class="left grid_11">
+	
+	<div class="tab-item hide"> 
+		<p>My Profile</p> 
+	</div> 
+
+	<div class="personal-info tab-item"> 
+	
+		<p style="text-align: right; font-size: 12px;"><a href="{path=designer}/{member_id}">View your profile as other see it</a></p>
+		
+		<h1>My Plans</h1>
+{exp:mage_checkout:subscriptions}
+<table border="1">
+<thead>
+				<tr class="first last">
+					<th>Product(s)</th>
+											
+										<th>Price</th>
+					<th>Start</th>
+										<th>Expires</th>
+						
+					<th>Period</th>
+											<th>Next payment</th>
+						
+											<th>Next delivery</th>
+										
+					<th>Status</th>
+					<th class="last a-center"></th>
+				</tr>
+			</thead><tbody><tr>
+<td>{items}{name}{/items}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><a href="{path=dash/subscription_view}/{subscription_id}">Edit</a><br />
+<a href="{path=dash/payment_history}/{subscription_id}">History</a></td>
+</tr></table>
+{/exp:mage_checkout:subscriptions}
+		
+	</div> 
+</div>

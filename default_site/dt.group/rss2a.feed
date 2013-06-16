@@ -1,0 +1,35 @@
+{exp:rss:feed channel="projects"}
+
+<?xml version="1.0" encoding="{encoding}"?>
+<rss version="2.0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+    <channel>
+    
+    <title>{exp:xml_encode}{channel_name}{/exp:xml_encode}</title>
+    <link>{channel_url}</link>
+    <description>{channel_description}</description>
+    <dc:language>{channel_language}</dc:language>
+    <dc:creator>{email}</dc:creator>
+    <dc:rights>Copyright {gmt_date format="%Y"}</dc:rights>
+    <dc:date>{gmt_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+    <admin:generatorAgent rdf:resource="http://expressionengine.com/" />
+    
+{exp:user:users group_id="11" orderby="last_activity" sort="desc"}
+    <item>
+      <title>{exp:xml_encode}{screen_name}{/exp:xml_encode}</title>
+      <link>{path=designer}/{member_id}</link>
+      <guid></guid>
+      <description><![CDATA[<p style="float: left;"><img src="{avatar_url}{avatar_filename}" />{personal_label}]]></description> 
+      <dc:date></dc:date>
+    </item>
+{/exp:user:users}
+    
+    </channel>
+</rss>
+
+{/exp:rss:feed}

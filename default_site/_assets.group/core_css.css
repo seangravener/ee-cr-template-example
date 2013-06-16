@@ -1,0 +1,14 @@
+/*
+ * Calling all CSS
+ */
+ 
+{embed="_assets/reset"}
+
+{embed="_assets/960"}
+
+{embed="_assets/style2"}
+{embed="_assets/text"}
+
+@media print {
+	{!-- embed="_assets/print" --}	
+}

@@ -1,0 +1,38 @@
+<div id="main-content" class="grid_11 do-cufon">
+		
+		{exp:channel:entries channel="journals" dynamic="off" entry_id="{segment_4}" status="not closed"}
+		<div id="saved">
+			<h2>"{title}" has been saved!</h2>
+			<p class="notice-1">Your journal "{title}" has successfully been saved and added to your profile.</p>
+			<ul>
+				<li><a href="{path=designer}/{author_id}/journal/{url_title}/{entry_id}">View this entry on your profile</a></li>
+				<li><a href="{path=my/creations/edit}/{entry_id}">Edit this journal entry</a></li>
+				<li><a href="#global-add-bar" class="lightbox">+ Add more content to profile</a></li>
+			</ul>
+		
+			{if status == 'Published'}
+			<p>"{title}" is <em>Published</em>. It has been listed in the <a href="{path=activity}">community news feed</a> and is visiable on <a href="{path=designer}/{author_id}">your profile page</a>.</p>
+			{if:else}
+			<p>"{title}" is set to <em>{status}</em>. It will not be visable by anyone but you until you save it as "Published".</p>
+			{/if}
+		
+		
+		</div>
+		
+		{embed="_embed/.activity_{channel_short_name}"
+			author="{author}"
+			avatar_url="{avatar_url}"
+			author_id="{author_id}"
+			title="{title}"
+			entry_id="{entry_id}"
+			url_title="{url_title}"
+			view_count_one="{view_count_one}"
+			entry_date="{entry_date}"
+			comment_total="{comment_total}"
+			journal_body="{exp:tagstripper:stripAllTags}{exp:word_limit total="50"}{journal_body}{/exp:word_limit}{/exp:tagstripper:stripAllTags}"
+			status="{status}"
+			edit_bar="yes"
+		}
+		{/exp:channel:entries}
+
+</div>

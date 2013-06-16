@@ -1,0 +1,48 @@
+{embed="landing/.page_head"
+	sticky_js="no"
+}
+<div id="what-is-ruby"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		<div class="cl">&nbsp;</div> 
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+
+	<div class="nav nav-type-1"> 
+		<div class="in"> 
+				<h2 class="heading">Forgot Password?</h2>
+			<div class="cl">&nbsp;</div> 
+		</div> 
+	</div>
+
+	<form name="sendpass" method="post" action="http://www.clubrubydesigners.com/account/sendpass.php">
+	<div id="signup" class="prefix_2 suffix_2">
+		<p style="margin-bottom: 20px;">If you've forgotten your password, just enter your email address you registered with and you will receive an email with instructions for resetting your Password.</p>
+		<div class="address">
+			<fieldset>
+				<label for="username">Email Address</label>
+				<input class="field" type="text" name="login" />
+			</fieldset>
+		<p><input type="submit" name="submit" value="Reset Password" style="padding: 5px 10px;" /></p>
+		</div>
+	</div>
+	</form>
+
+	{!-- exp:user:forgot_password}
+	<div id="signup" class="prefix_2 suffix_2">
+		<p style="margin-bottom: 20px;">If you've forgotten your password, just enter your email address you registered with and you will receive an email with instructions for resetting your Password.</p>
+		<div class="address">
+			<fieldset>
+				<label for="username">Email Address</label>
+				<input class="field" type="text" name="email" />
+			</fieldset>
+		<p><input type="submit" name="submit" value="Reset Password" style="padding: 5px 10px;" /></p>
+		</div>
+	</div>
+	{/exp:user:forgot_password --}
+
+	<div class="cl" style="padding-bottom: 20px;"></div>
+	
+{embed="landing/.page_footer"}

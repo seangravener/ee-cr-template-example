@@ -1,0 +1,75 @@
+<div id="sidebar" class="right grid_5 omega">
+
+	<h3>Your Account</h3>
+	<div class="box-1 border-5">
+		<p>Update your account picture, email, password, etc...</p>
+		<ul>
+			<li><a href="{path=my/profile/info}">Update Public Profile</a></li>
+			<li><a href="{path=my/profile/picture}">Change Your Picture</a></li>
+			<li><a href="{path=my/account/info}">Edit Your Account Info</a></li>
+			{if group_id > 5}<li><a href="{path=my/account/history}">Billing History</a></li>{/if}
+			{if group_id <= 5}<li><a href="{path=join/advantage}">Upgrade to Advantage</a></li>{/if}
+		</ul>
+		
+		 
+	</div>
+	
+	{embed="_sidebar/.current-kit"}
+	
+	<h3>Your Club Ruby Badge</h3>
+	<div class="box-1 border-5">
+		{if group_id <= '5'}
+		<div style="text-align: center;">
+			<a href="{path=designer}/{member_id}" title="See more of creations on my designer profile at Club Ruby "><img src="{path=public/member-badges}/badge_member-dabbler.gif" /></a>
+		</div>
+		<p>Share your Club Ruby badge on your blog, website or in your message board signature...</p>
+		<h5 class="small-title">Copy & paste the code below:</h5>
+		<div class="badge-code">
+			<textarea onclick="this.select()" style="width: 220px; cursor: pointer;">&lt;!-- Club Ruby Badge START --&gt;&lt;div style="text-align: center;"&gt;&lt;a title="See more of creations on my designer profile at Club Ruby " href="http://www.clubrubydesigners.com/designer/{member_id}/"&gt;&lt;img style="border: none;" src="{path=public/member-badges}/badge_member-dabbler.gif" alt="My Club Ruby Profile" /&gt;&lt;/a&gt;&lt;/div&gt;&lt;!-- Club Ruby Badge END --&gt;</textarea>
+		</div>
+		{if:elseif group_id == '6' || group_id == '9' || group_id == '13' || group_id == '1'}
+		<div style="text-align: center;">
+			<a href="{path=designer}/{member_id}" title="See more of creations on my designer profile at Club Ruby "><img src="{path=public/member-badges}/badge_member.gif" /></a>
+		</div>
+		<p>Share your Club Ruby badge on your blog, website or in your message board signature...</p>
+		<h5 class="small-title">Copy & paste the code below:</h5>
+		<div class="badge-code">
+			<textarea onclick="this.select()" style="width: 220px; cursor: pointer;">&lt;!-- Club Ruby Badge START --&gt;&lt;div style="text-align: center;"&gt;&lt;a title="See more of creations on my designer profile at Club Ruby " href="http://www.clubrubydesigners.com/designer/{member_id}/"&gt;&lt;img style="border: none;" src="{path=public/member-badges}/badge_member.gif" alt="My Club Ruby Profile" /&gt;&lt;/a&gt;&lt;/div&gt;&lt;!-- Club Ruby Badge END --&gt;</textarea>
+		</div>
+		{if:elseif group_id >= '10' && group_id != '13'}
+		<div style="text-align: center;">
+			<a href="{path=designer}/{member_id}" title="See more of creations on my designer profile at Club Ruby "><img src="{path=public/member-badges}/badge_member-designer.gif" /></a>
+		</div>
+		<p>Share your Club Ruby badge on your blog, website or in your message board signature...</p>
+		<h5 class="small-title">Copy & paste the code below:</h5>
+		<div class="badge-code">
+			<textarea onclick="this.select()" style="width: 220px; cursor: pointer;">&lt;!-- Club Ruby Badge START --&gt;&lt;div style="text-align: center;"&gt;&lt;a title="See more of creations on my designer profile at Club Ruby " href="http://www.clubrubydesigners.com/designer/{member_id}/"&gt;&lt;img style="border: none;" src="{path=public/member-badges}/badge_member-designer.gif" alt="My Club Ruby Profile" /&gt;&lt;/a&gt;&lt;/div&gt;&lt;!-- Club Ruby Badge END --&gt;</textarea>
+		</div>
+		{if:else}
+			<p>Your current membership doesn't not include a badge.</p>
+		{/if}
+	</div>
+	
+	{if group_id == '6' || group_id == '1' || group_id == '10' || group_id == '9'}
+	<h3>Your Discount Bin</h3>
+	<div class="box-1 border-5">
+		<p>As a <strong>{group_title}</strong> of Club Ruby, you're entitled to special discounts from Above Rubies Studio and our partners.</p>
+		<h4>123 Stamp DVD</h4>
+		Savings: $8.00 off retail price. <br />
+		<span class="small">Private Coupon Code:</span>
+		<div class="coupon-code">
+			CR-123STAMP-498
+		</div>
+		<p><a href="http://www.aboverubiesstudio.com/store/checkout/cart/add/product/33/" target="_blank">Click here to use your coupon code</a></p>
+		 
+	</div>
+	{/if}
+	
+	<div class="box-1 border-5">
+		<a href="{path=designer}/{member_id}" target="blank">View your profile as others see it &gt;&gt;</a>
+	</div>
+	
+	{embed="_sidebar/.calendar"}
+	{!-- embed="_sidebar/.upgrade" --}
+	
+</div>

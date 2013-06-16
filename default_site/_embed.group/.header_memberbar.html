@@ -1,0 +1,51 @@
+<div id="memberbar">
+	<div class="container_16 clearfix">
+		<div class="grid_4 alpha">
+			<a id="show-notice-bar" href="#">Annoucements (0 new)</a>
+		</div>		
+		<div id="top-nav" class="grid_12 omega">
+			<ul id="top-nav-list" class="">
+				<li class="has-sub icons">
+					{exp:member:custom_profile_data}
+					<a href="{path=my/profile}" class="icon" title="Edit your profile" style="background: url({exp:imgsizer:size src='{avatar_url}' width='16' height='16' default='images/default/member_photo.jpg'}{sized}{/exp:imgsizer:size}) no-repeat 0 7px; ">
+						{screen_name}
+					</a>
+					{/exp:member:custom_profile_data}
+					<ul>
+						<li><a href="{path=my/profile/info}">Profile Information</a></li>
+						<li><a href="{path=my/profile/picture}">Picture</a></li>
+						<li><a href="{path=my/journal}">Journal</a></li>
+						<li><a href="{path=my/creations}">Creations</a></li>
+						<li><a href="{path=my/photos}">Photo Albums</a></li>
+						{if group_id == '11' || group_id == '1'}<li><a href="{path=page/design-team}">Design Team</a></li>{/if}
+					</ul>
+				</li>
+				<li class="highlight"><a href="#global-add-bar" class="lightbox">+ Add Content</a></li>
+				<li class="has-sub">
+					<a href="{path=my/account}">Account</a>
+					<ul>
+						<li><a href="{path=my/account/info}">My Info</a></li>
+						{if group_id == 5 || group_id == 1}<li><a href="{path=join/advantage}">Upgrade Account</a></li>{/if}
+						{if group_id > 5}<li><a href="{path=my/account/history}">Billing History</a></li>{/if}
+					</ul>
+				</li>
+				<li class="has-sub">
+					<a href="">Help</a>
+					<ul>
+						<li><a href="{path=page/contact-us}">Contact Us</a></li>
+						<li><a href="{path=forums}">Ask in the Forums</a></li>
+					</ul>
+				</li>
+				<li><a href="http://www.clubrubydesigners.com/account/logout.php">Logout</a></li>
+			</ul>
+		</div>
+	
+	<div id="notice-bar" style="display: none; clear: both; color: #fff;">
+		There are no new accouncements
+		{if group_id == '1'}
+		
+		{/if}
+	</div>
+		
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div id="sidebar" class="right grid_5 omega">
+
+	{if segment_4}
+	<h3>Details</h3>
+	<div class="box-1 border-5">
+		{exp:safecracker channel="test" return="my/creations" entry_id="{segment_4}" safecracker_head="no"}
+			<ul>
+				<li>Created {entry_date}</li>
+				<li>Status: {status}</li>
+				
+			</ul>
+			<p>Permanently delete this entry</p>
+			<input type="hidden" name="status" value="Closed" />
+			<input type="submit" value="Delete">
+		{/exp:safecracker}
+	</div>
+	{/if}
+	
+	<h3>What is a Creation?</h3>
+	<div class="box-1 border-5">
+		<p>Your "creations" are photos of projects that you've created and want to share on <a href="{path=designer}/{member_id}">your Club Ruby profile</a>. Upload photos of your creations for everyone to see, comment on and be inspired by.</p>
+		<div style="text-align: center;"><a class="button secondary" href="{path=my/creations/add}">+ Add a Creation</a></div>
+	</div>
+	<div class="box-1 border-5">
+		how to take great photos...
+	</div>
+	
+	<!-- h3>Status</h3>
+	<div class="box-1 border-5">
+		
+	</div -->
+	
+	{embed="_sidebar/.calendar"}
+	
+</div>

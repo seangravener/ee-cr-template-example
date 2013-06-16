@@ -1,0 +1,13 @@
+<div class="main-tabs">
+	<ul>
+	    <!-- li{if segment_2 == '' && segment_3 == ''} class="active"{/if}><a href="{path=creations}"><span>Member Creations</span></a><span class="ribbon"></span></li -->
+		<li{if segment_2 == 'account' && segment_3 == ''} class="active"{/if}><a href="{path=my/account}"><span>My Account</span></a><span class="ribbon"></span></li>
+		<li{if segment_3 == 'info'} class="active"{/if}><a href="{path=my/account/info}"><span>My Info</span></a><span class="ribbon"></span></li>
+		<!-- li{if segment_3 == 'password'} class="active"{/if}><a href="{path=my/account/password}"><span>Password</span></a><span class="ribbon"></span></li>
+		<li{if segment_3 == 'address'} class="active"{/if}><a href="{path=my/account/address}"><span>Addresses</span></a><span class="ribbon"></span></li -->
+		{if group_id > 5}
+		<li{if segment_3 == 'history'} class="active"{/if}><a href="{path=my/account/history}"><span>Billing History</span></a><span class="ribbon"></span></li>
+		{/if}
+	</ul>
+	<div class="cl">&nbsp;</div>
+</div>

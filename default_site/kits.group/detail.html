@@ -1,0 +1,11 @@
+{embed="_acl/.default"
+	{if segment_5 == 'others'}
+		target="{segment_1}/.detail_others"
+	{if:else}
+		target="{segment_1}/.detail_default"
+	{/if}
+	active_location="kits"
+	page_tabs="{segment_1}/.detail_tabs"
+	page_title="<?php echo ucwords(str_replace('-', ' ', '{segment_3}')); ?>"
+	page_layout="rightrail"
+}

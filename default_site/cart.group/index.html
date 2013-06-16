@@ -1,0 +1,15 @@
+{if segment_3 == ''}
+	{embed="_acl/.checkout"
+		target="{segment_1}/.checkout"
+		active_location="cart"
+		page_title="Secure Checkout"
+		page_layout="full"
+	}
+{if:elseif segment_3 == 'success'}
+	{embed="_acl/.default"
+		target="{segment_1}/.success"
+		active_location="cart"
+		page_title="Secure Checkout"
+		page_layout="full"
+	}
+{/if}

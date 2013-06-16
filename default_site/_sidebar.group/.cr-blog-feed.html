@@ -1,0 +1,20 @@
+{!--
+<h3>Club Ruby Blog</h3>
+<div class="box-1 border-5" style="background: #F6F3E4;">
+	<ul class="list-1">
+	{exp:ajw_feedparser 
+    	url="http://blog.clubrubydesigners.com/feed/"
+    	cache_refresh="60"
+    	limit="5" parse="inward"
+	}
+	<li>
+		<span class="title"><a href="{link}">{title}</a></span>
+		{ -- <span class="small">{exp:word_limit total="20"}{description}{/exp:word_limit}</span> -- }
+		<span class="small">Published by {dc:creator} on {pubDate format="%F %d, %Y"}</span>
+	</li>
+	{/exp:ajw_feedparser}
+	</ul>  
+	<div class="small text-right"><a target="_blank" href="http://blog.clubrubydesigners.com/">Visit the Club Ruby Blog</a></div>
+</div>
+
+--}

@@ -1,0 +1,58 @@
+{!-- if group_id != '1'}{redirect="site/maintenance"}{/if --}
+{embed="_embed/.head"
+	ssl="{embed:ssl}"
+	body_class="{embed:body_class}"
+	page_title="{embed:page_title}"
+	active_location="{embed:active_location}" 
+}
+{embed="_embed/.header_memberbar}
+{embed="_embed/.header"
+	page_title="{embed:page_title}"
+	active_location="{embed:active_location}"
+}
+{!-- <div class="container_16">
+	<div class="notice" style="margin-top: 20px;">
+		<strong>Tonight's Live Class has been postponed!</strong> Unfortunately, due to the severe weather approaching the east, tonight's live online class is being postponed.  There will be a <strong>live broadcast on Thursday night</strong> welcoming new members to CR and talking about 123 Stamp and we WILL reschedule the live online class very soon. 
+	</div>
+</div> --}
+
+<div id="main"{if '{embed:page_tabs}' != ''} class="has-tabs"{/if}>
+	<div class="shell">
+		{if '{embed:page_tabs}' != ''}
+			{embed="{embed:page_tabs}"
+				active_location="{embed:active_location}"
+			}
+		{/if}
+		<div class="main-c">
+			<div class="container_16">
+				{embed="{embed:target}"
+					group_id="{embed:group_id}"
+					channel="{embed:channel}"
+					category="{embed:category}"
+					member_id="{embed:member_id}"
+				}
+				{if '{embed:page_layout}' == 'rightrail'}
+					{if logged_in}
+						{embed="_embed/.rightrail_default"}
+					{if:else}
+						{embed="_embed/.rightrail_public"}
+					{/if}
+				{/if}
+				{if embed:sidebar}
+					{embed="{embed:sidebar}"}
+				{/if}
+				<div class="cl">&nbsp;</div>		
+			</div>
+		</div>
+		
+		<div class="main-b"></div>
+			
+	</div>
+</div>
+
+<!-- div class="container_16">
+	<div class="page-notice">
+		We're working hard to improve this section ({embed:active_location}). If you are experiencing problems, {exp:multipass sso_key="db718c5bf66e624d788eac140124894a03c2b48a6124b4b555416973a0491be221c77c320fa419520d48eb379c0c55fcf38ae37a135b17f9280befd20f63fb90" key="club-ruby" link="help.clubrubydesigners.com/discussions/report-a-website-problem" text="please let us know"}. 
+	</div>
+</div -->
+{embed="_embed/.footer"}

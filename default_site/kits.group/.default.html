@@ -1,0 +1,43 @@
+<?php
+	function num_to_month($num) {
+		$month = date("F", mktime(0, 0, 0, $num));
+		return $month; 
+	}
+?>
+<div id="content" class="left grid_11">
+	<div class="all-kits tab-item ajaxcontent">
+		{if segment_2 == 'catalog' && segment_3 != ''}<h2>Ruby Kits for {if segment_4}<?php echo num_to_month('{segment_4}'); ?>, {/if}{segment_3}</h2>{/if}
+		{exp:channel:entries channel="kits" status="not closed|draft" year="{segment_3}" month="{segment_4}"}
+		<div class="box-kit">
+			<div class="box-image left">
+				<a href="{title_permalink=kits/detail}/{entry_id}">
+					{exp:imgsizer:size src="{kit_photo}" width="128" default="images/default/kit_photo.jpg"}
+					<img src="{sized}" width="{width}" height="{height}" />
+					{/exp:imgsizer:size}
+				</a>
+               
+				<a href="{title_permalink=kits/detail}/{entry_id}" class="comments right">{comment_total}</a>
+				<div class="cl">&nbsp;</div>
+			</div>
+			<div class="info right">
+				<h2 class="left"><a href="{title_permalink=kits/detail}/{entry_id}">{title}</a></h2>
+
+				<!-- div class="date right">
+					<p><a href="{path=kits/catalog}/{entry_date format='%Y'}/{entry_date format='%m'}">{entry_date format="%M %Y"}</a></p>
+				</div -->
+				<div class="cl">&nbsp;</div>
+
+				<p class="text">{kit_summary}</p>
+				<!-- div class="quick-menu">
+					<p class="links left"><a href="#">Scrapbooking</a> <span>|</span> <a href="#">Add to Wishlist</a></p>
+
+					<p class="own right">You don't own this kit, <a href="#">Buy It</a></p>
+					<div class="cl">&nbsp;</div>
+				</div -->
+			</div>
+			<div class="cl">&nbsp;</div>
+		</div>
+		{/exp:channel:entries}
+		
+	</div>
+</div>

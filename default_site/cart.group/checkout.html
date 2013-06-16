@@ -1,0 +1,51 @@
+<?php
+	function show_flatrate($subtotal, $sku, $show="subtotal") {
+		if ($sku == 'ruby-elite-1') $rate = 42;
+		if ($sku == 'ruby-elite-2') $rate = 7;
+		if ($sku == 'ruby-member-1') $rate = 0;
+		if ($sku == 'ruby-member-2') $rate = 0;
+		
+		if (!isset($rate))
+			return;
+			
+		$new_subtotal = $subtotal - $rate;
+		
+		if ($show == 'rate')
+			echo money_format('%i', $rate);
+			
+		if ($show == 'subtotal')
+			echo money_format('%i', $new_subtotal);
+	}
+?>
+{exp:dm_force_ssl:force}
+{embed="landing/.page_head"
+	sticky_js="no"
+}
+<div id="what-is-ruby"> 
+	<div id="header"> 
+		<h1 id="logo"><a href="http://www.clubrubydesigners.com">Club Ruby Designers</a></h1> 
+		<div class="seals">
+			<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="dd35bdf9-5357-484e-a901-96b1d4d86607";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script></div>
+			<div class="ssl-seal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=qm2itMJhSyeqAidp3wCa3RZ6t2KNveF4uhZSDelWCzxGJPk1Op"></script></div>
+		</div>
+		<div class="cl">&nbsp;</div> 
+	</div> 
+	
+	<div class="cl">&nbsp;</div>	
+</div> 
+
+	{if segment_3 == '2'}
+		{embed="cart/.checkout_2"}
+	{if:else}
+		{embed="cart/.checkout_1"}
+	{/if}
+	
+	<div class="seals">
+			<p style="font-size: 11px; padding-top: 10px;" class="grid_12">Order online safely and securely. All orders are secured by 256-bit Secure Sockets Layer encryption (SSL) -- You're 100% protected!)</p>
+			<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="dd35bdf9-5357-484e-a901-96b1d4d86607";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script></div>
+			<div class="ssl-seal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=qm2itMJhSyeqAidp3wCa3RZ6t2KNveF4uhZSDelWCzxGJPk1Op"></script></div>
+		</div>
+	<div class="cl" style="padding-bottom: 20px;"></div>
+
+</div>
+{embed="landing/.page_footer"}

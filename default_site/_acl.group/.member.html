@@ -1,0 +1,12 @@
+{if group_id == '1' || group_id >= '5'}
+	{embed="_embed/.page_constructor"
+		target="{embed:target}"
+		page_title="{embed:page_title}"
+		page_layout="{embed:page_layout}"
+		active_location="{embed:active_location}"
+	}
+{if:elseif logged_in}
+	{redirect="join/advantage"}
+{if:else}
+	{redirect="login/{exp:ssc_uri:get_uri}"}
+{/if}

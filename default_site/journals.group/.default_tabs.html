@@ -1,0 +1,9 @@
+<div class="main-tabs">
+	<ul>
+	    <li{if segment_2 == '' && segment_3 == ''} class="active"{/if}><a href="{path=journals}"><span>Member Journals</span></a><span class="ribbon"></span></li>
+		<li{if segment_2 == 'journal'} class="active"{/if}><a href="{path=my/journal}"><span>My Journal</span></a><span class="ribbon"></span></li>
+		<li{if segment_2 == 'add'} class="active"{/if}><a href="{path=my/journal/add}"><span>+ Write in Your Journal</span></a><span class="ribbon"></span></li>
+		{if segment_2 == 'edit'}<li class="active"><a href="{path=my/journal/edit}/{segment_3}"><span>Editing Journal</span></a><span class="ribbon"></span></li>{/if}
+	</ul>
+	<div class="cl">&nbsp;</div>
+</div>

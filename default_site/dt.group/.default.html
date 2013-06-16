@@ -1,0 +1,8 @@
+<div id="main-content" class="grid_11 do-cufon">
+	{exp:channel:entries channel="dt" limit="10" status="open" category="{embed:category}"}
+	<h2>{title}</h2>
+	{general_body}
+	
+	{if segment_2 == ''}<p><a href="{title_permalink=dt}">Read more...</a></p>{/if}
+	{/exp:channel:entries}
+</div>

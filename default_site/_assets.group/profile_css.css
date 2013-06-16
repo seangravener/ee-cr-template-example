@@ -1,0 +1,358 @@
+{embed="_assets/reset"}
+{embed="_assets/960"}
+{embed="_assets/text_profile"}
+
+body { background: #3b2c20 /* url(/themes/clubruby/images/profile/striped-bg.gif) repeat 0 0; */}
+
+ul.inline {
+	margin: 0; padding: 0;
+	list-style-type: none; }
+	ul.inline li {
+		margin: 0; padding: 0;
+	}
+
+#header {
+	background: url(/themes/clubruby/images/profile/header_bg.png) repeat-x 0 0;
+}
+	#header #logo {
+		margin: 0 20px 0 0;
+	}
+	#header #logo a {
+		height: 75px;
+		display: block;
+		background: url(/themes/clubruby/images/profile/header_logo.png) no-repeat 0 0;
+	}
+	
+	#header .wrapper {
+		background: url(/themes/clubruby/images/profile/scalloped_bg.png) repeat-x 0 bottom;
+	}
+
+	#titlebar {
+		padding: 10px 0 20px 0;
+	}
+		#titlebar .badge {
+			float: left;
+			margin-right: 20px;
+		}
+		
+		#titlebar h2 {
+			margin: 0 0 0 0;
+		}
+		#titlebar h2 a { color: #000; text-decoration: none; }
+		#titlebar ul {
+			margin: 0; padding: 0;
+			list-style-type: none;
+		}
+			#titlebar ul li {
+				display: block;
+				float: left;
+				margin: 0 60px 0 0; padding: 3px 0 0 0;
+				
+				font-size: .8em;
+				text-transform: uppercase;
+			}
+			#titlebar ul li.personal-label {
+				text-transform: capitalize;
+				font-size: 1em;
+				font-style: italic;
+				padding: 0;
+			}
+	
+#profile-meta .profile-image {
+	
+}
+
+.social-list {
+	margin: 0; padding: 0;
+	list-style-type: none;
+}
+	.social-list li {
+		margin: 0; padding: 0;
+		display: inline; 
+	}
+	.social-list li a {
+		display: block;
+		float: left;
+		margin-right: 10px;
+		width: 32px; height: 32px;
+	}
+	.social-list li a.social-cr { background: url(http://jade.clubrubydesigners.com/profile/social-cr.gif) no-repeat 0 0; }
+	.social-list li a.social-fb { background: url(http://jade.clubrubydesigners.com/profile/social-fb.gif) no-repeat 0 0; }
+	.social-list li a.social-tw { background: url(http://jade.clubrubydesigners.com/profile/social-tw.gif) no-repeat 0 0; }
+	.social-list li a.social-yt { background: url(http://jade.clubrubydesigners.com/profile/social-yt.gif) no-repeat 0 0; }
+
+.line-style-1,
+.line-style-2 {
+	padding: 20px 0;
+	border-top: 3px solid #3b2c20;
+	font-size: 1.1em;
+}
+	.line-style-1 {background: #f6f3e4;}
+	.line-style-1 span { color: #4b4b4a; }
+	.line-style-2 {background: #dbf1f8;}
+
+.noise-bg h3,
+.pattern-bg h3 {
+	font-weight: normal;
+	font-size: 2.5em;
+}	
+.noise-bg h3 {color: #fff;}
+.pattern-bg h3 { color: #000; }
+
+
+.thumb-list .thumb-row {
+	margin-bottom: 20px;
+}
+	.thumb-list .thumb {
+		background: #fff;
+		padding: 5px;
+		border-radius: 3px;	-moz-border-radius: 3px; -webkit-border-radius: 3px;
+	}
+	
+	.thumb-list .item-meta {
+		font-size: .8em;
+		color: #999;
+	}
+		.thumb-list .item-meta li {
+			display: block;
+			float: right;
+			margin-left: 10px;
+			padding: 3px 0 3px 16px;
+		}
+		.thumb-list .item-meta li.likes { background: url(/themes/clubruby/images/profile/icn_entry-stats.png) no-repeat 0 5px; }
+		.thumb-list .item-meta li.comments { background: url(/themes/clubruby/images/profile/icn_entry-stats.png) no-repeat 0 -18px; }
+		.thumb-list .item-meta li.views { background: url(/themes/clubruby/images/profile/icn_entry-stats.png) no-repeat 0 -41px; }
+		
+ul.additional-images li a {
+	display: block;
+	padding: 5px; margin-right: 10px; margin-bottom: 10px;
+	background: #fff;
+	float: left;
+	border-radius: 3px;	-moz-border-radius: 3px; -webkit-border-radius: 3px;
+}
+	ul.additional-images li.col2 a { margin: 0;}
+#journal .entry {
+	overflow: hidden;
+	height: 300px;
+	padding: 20px;
+	background: #fff;
+	border-radius: 3px;	-moz-border-radius: 3px; -webkit-border-radius: 3px;
+}	
+	#journal .thumb-row {
+		margin-bottom: 20px;
+	}
+	#journal h4 {
+		font-size: 1.2em;
+		font-weight: normal;
+		margin-bottom: 10px;
+	}
+	#journal a h4 {color: #3b2c20;}
+	#journal a { display: block; color: #737373; text-decoration: none;}
+	#journal a:hover {color: #000; }
+	.journal-entry .date,
+	#journal .entry .date {
+		border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;
+		padding: 3px 0;
+		margin-bottom: 10px;
+		text-align: center;
+		font-size: .8em;
+		color: #999; 
+	}
+	
+	#journal .comments {
+		float: right;
+		padding: 3px 0;
+		font-size: .8em;
+		padding-left: 16px;
+		background: url(/themes/clubruby/images/profile/icn_entry-stats.png) no-repeat 0 -18px;  
+	}
+	
+#creations .main-image {
+	padding: 10px;
+	background: #fff;
+}
+	#creations a {
+		color: #DBF1F8;
+	}
+	
+	#creations .comments a {
+		color: #CD265A;
+	}
+#footer,
+.white-bg,
+.pattern-bg,
+.noise-bg {
+	padding: 20px 0;
+	border-top: 3px solid #3b2c20;
+}
+.white-bg { background: #fff; }
+.noise-bg { background: url(/themes/clubruby/images/profile/noise_bg.png) repeat 0 0; }
+.pattern-bg { background: url(/themes/clubruby/images/body-bg.gif) repeat 0 0; }
+
+.project-specs {
+	margin-bottom: 10px;
+	border-bottom: 1px dashed #999;
+}
+
+#premium-content {  }
+
+.box-1 {
+	padding-bottom: 10px; margin-bottom: 20px;
+	border-bottom: 1px dashed #999;
+}
+
+h5.small-title {
+	text-transform: uppercase;
+	margin: 0;	
+	font-size: .8em;
+	color: #999;
+}
+
+#profile-meta {
+	background: #fff;
+}
+
+.profile-section {
+	margin-top: 20px; margin-bottom: 20px;
+}
+
+ol.creation-steps {
+	font-size: 1.2em;
+	margin: 0 20 20 20px; }
+	ol.creation-steps .step-content {
+		clear: both;
+	}
+	ol.creation-steps .title {
+		display: block;
+		font-size: 2em;
+	}
+	ol.creation-steps .step-content img {
+		float: right;
+		padding: 5px; background: #dbf1f8; border: 1px solid #c8dbe2;
+		margin: 0 0px 10px 10px;
+	}
+	
+.profile-header-nav {
+	font-size: 11px;
+}
+	.profile-header-nav ul {
+		list-style-type: none;
+		margin: 0; padding: 0;
+	}
+	.profile-header-nav ul li {
+		display: block;
+		float: left;
+		padding: 5px 20px 5px 0; margin: 10px 20px 0 0px;
+	}
+	.profile-header-nav ul li a {
+		color: #DBF1F8;
+		text-decoration: none;
+	}
+	.profile-header-nav ul li a:hover {
+		text-decoration: underline;
+	}
+
+.gallery-item-author {
+	font-size: .9em;
+}
+	.gallery-item-author img {
+		float: left;
+		/*border: 3px solid #CE275B;*/
+		margin: 5px 5px 0 10px;
+	}
+	.gallery-item-author a {
+		color: #DBF1F8;
+	}
+	.gallery-item-author a:hover span {
+		color: #fff;
+		text-decoration: underline;
+	}
+	.gallery-item-author span {
+		display: block;
+		padding-top: 4px;
+	}
+
+.member-row-titles {
+	font-weight: bold;
+	
+}
+	.member-row {
+		padding: 10px 0;
+		border-bottom: 1px dashed #F689A5;
+	}
+	.member-row .value {
+		text-align: center;
+		padding-top: 10px;
+	}
+	.member-row img.avatar {
+		padding: 3px; margin: 0 5px 0px 0;
+		background: #DBF1F8;
+		/* border: 1px solid #F4789C; */
+		float: left;
+	}
+	.member-row .member-meta {
+		display: block;
+		font-size: 11px;
+	}
+
+.message {
+	padding: 10px;
+	margin-top: 10px;
+	font-weight: bold;
+	background: #f6f3e4;
+}
+
+#footer {
+	
+	color: #fff;
+}
+
+#global-add-bar .instructions {
+	font-size: .9em; 
+	padding: 0 0 10px 0;
+	margin: 0px -15px 15px -15px;
+	text-align: center;
+	border-bottom: 1px solid #E3E1DD;
+}
+#add-content {
+	margin-bottom: 20px;
+	border: 5px solid #C0DFE9;
+}
+	#add-content ul {
+		list-style-type: none;
+		margin: 0; padding: 10px;
+		border: 1px dashed #81D3E8;
+		background: #DBF1F8;
+	}
+	
+	#add-content ul li {
+		padding: 0 40px 0 0; margin: 0 40px 0 0;
+		
+		display: block;
+		float: left;
+		border-right: 1px solid #81D3E8;
+	}
+	
+	#add-content ul li a {
+		display: block;
+		text-align: center;
+		padding-top: 90px;
+		width: 80px;
+		background: url(/themes/clubruby/images/badge_content-types-lg.png) no-repeat;}
+	
+	#add-content .add-creation a { background-position: -300px 0px; }
+	#add-content .add-journal a { background-position: -200px 0px; }
+	#add-content .add-photo a { background-position: 0px 0px; }
+	#add-content .add-video a { background-position: -400px 0px; }
+	
+	#add-content a { color: #039DC4; font-weight: bold; }
+
+
+.border-3 { border-radius: 3px;	-moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.border-5 { border-radius: 5px;	-moz-border-radius: 5px; -webkit-border-radius: 5px; }
+
+.text-center, .center {text-align: center; }
+.right {float: right;}
+.disabled a {color: #ccc;}
+.clear-fix {clear: both;}
+.notext {text-indent: -9999px;}

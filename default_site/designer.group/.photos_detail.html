@@ -1,0 +1,102 @@
+{exp:channel:entries cache="yes" refresh="60" channel="photos" author_id="{segment_2}" dynamic="off" entry_id="{segment_5}" status="published" track_views="one"}
+<div id="profile-meta">
+	<div class="container_16 clearfix">
+		<div class="grid_16 profile-section">
+
+			<div class="right thumb-list">
+				<ul class="inline item-meta">
+							<li class="likes">0 Favorites</li>
+							<li class="comments"><a href="{path=designer}/{author_id}/{channel_short_name}/{url_title}/{entry_id}#responses">{comment_total} Comment{if comment_total != '1'}s{/if}</a></li>
+							<li class="views">{view_count_one} View{if view_count_one != '1'}s{/if}</li>
+				</ul>
+			</div>
+			{exp:imgsizer:size src="{avatar_url}" width="25" height="25" default="images/default/member_photo.jpg"}
+				<a href="{path=designer}/{author_id}" title="View Profile of {author}"><img class="profile-image" style="float: left; margin-right: 10px;" src="{sized}" width="{width}" height="{height}" /></a>
+			{/exp:imgsizer:size}
+			uploaded by <a href="{path=designer}/{author_id}">{author}</a> on {entry_date format="%l, %F %j%S, %Y"}
+			
+			{exp:user:is_mine member_id="{author_id}"}{if mine}
+			<div class="message info">
+				Hey {author}, this is your photo. Feel free to <a href="{path=my/photos/edit}/{entry_id}">add or change details</a>. 
+			</div>
+			{/if}{/exp:user:is_mine}
+			
+		</div>
+	</div>
+</div>
+
+<div id="creations" class="noise-bg thumb-list do-cufon">
+	<div class="container_16 clearfix">
+		<div class="grid_16">
+		
+			<h3>{title}</h3>
+			
+			<div class="grid_12 alpha">
+				<div class="main-image border-5">
+					<div class="center">
+						{exp:photo_manager:show_default entry_id="{segment_5}"}
+						<a class="lightbox" rel="gallery-1" href="{default_url}" title="{caption}">
+							{embed="_embed/.img_sizer"
+								src="{default_url}"
+								width="680"
+								default="images/default/projects_photo.jpg"
+							}
+						</a>
+						{/exp:photo_manager:show_default}
+					</div>
+					<!-- p>{projects_photo_1_caption}</p -->
+				</div>
+			</div>
+			<div class="grid_4 omega">
+				<ul class="inline additional-images">
+					{exp:photo_manager:show entry_id="{segment_5}" show_default="no"}
+					{exp:imgsizer:size src="{image_url}" width="90" height="90"}
+					<li><a class="lightbox" rel="gallery-1" href="{image_url}" title="{caption}"><img src="{sized}" width="{width}" height="{height}" alt="{title}" /></a></li>
+					{/exp:imgsizer:size}
+					{/exp:photo_manager:show}
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div id="item-content" class="white-bg do-cufon">
+	<div class="container_16 clearfix">
+		
+		<div class="project-specs clearfix">
+			<div class="grid_4">
+					<h5 class="small-title">Share</h5>
+					<iframe src="http://www.facebook.com/plugins/like.php?href={path='{exp:ssc_uri:get_uri}'}&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:20px;" allowTransparency="true"></iframe>
+					<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="clubruby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				
+			</div>
+			<div class="grid_12">
+				<h5 class="small-title">Album Description</h5>
+				{photos_gallery_description}
+			</div>
+		</div>
+		<div class="grid_4">
+			
+			{related_entries id="photos_kits"}
+				<strong>{title}</strong>	
+				<a href="{title_permalink=kits/detail}/{entry_id}">
+					{exp:imgsizer:size src="{kit_photo}" width="220" default="images/default/kit_photo.jpg"}
+					<img src="{sized}" width="{width}" height="{height}" alt="{title}" />
+					{/exp:imgsizer:size}
+				</a>
+				<p>This creation uses elements from the Club Ruby <a href="{title_permalink=kits/detail}/{entry_id}">"{title}"</a> Kit</p>
+			{/related_entries}
+		</div>
+		<div class="grid_12">
+			
+			{embed="_embed/.comments"
+				entry_id="{segment_5}"
+				channel="photos"
+				preview="comment/preview"
+			}
+			
+		</div>
+	</div>
+</div>
+{/exp:channel:entries}

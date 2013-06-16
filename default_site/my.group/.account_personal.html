@@ -1,0 +1,124 @@
+<div id="content" class="left grid_11">
+	
+	<div class="personal-info tab-item"> 
+		
+		{exp:user:edit screen_name_password_required="no" password_required="no" username_override="yes"}
+			<h2 class="header-t">The Basics</h2>
+			<div class="form">
+				<label for="username" class="left">Email</label>
+				<input type="text" name="username" value="{username}" id="username"/>
+				
+				<label for="screen_name" class="left">Screen Name</label>
+				<input type="text" name="screen_name" value="{screen_name}" id="screen_name"/></p>
+			
+				<label for="password" class="left">New Password</label>
+				<input type="password" name="password" id="password" />
+				
+				<!-- label for="password_confirm" class="left">Confirm Password</label>
+				<input type="password" name="password_confirm" id="password_confirm" / -->
+			
+				<label for="current_password" class="left">Curent Password</label>
+				<input type="password" name="current_password" id="current_password">
+			
+			{!-- set value for unchecked --}
+			<!-- input type="hidden" name="privacy_journal" value="n" />
+			<p>Public Journal?: <input type="checkbox" name="privacy_journal" value="y" {if privacy_journal == "y"}checked="checked"{/if} /></p -->
+			
+			</div>
+			<div class="btns"> 
+				<a href="{path=my/account}" class="cancel">Cancel</a> or 
+				<input type="submit" class="button" value="Save and Update Basic Info" /> 
+				<div class="cl">&nbsp;</div> 
+			</div>
+		{/exp:user:edit}
+		
+		{exp:mage_checkout:address_form uri="{path=dash/address_success}"}
+			<h2 class="header-c">Billing Information</h2>
+			<div class="form">
+				<input type="hidden" name="billing_entity_id" value="{billing_entity_id}" /> 
+				<label for="billing_firstname" class="left">First Name</label>
+				<input type="text" name="billing_firstname" id="billing_firstname" value="{billing_firstname}"/>
+				<label for="billing_lastname" class="left">Last Name</label>
+				<input type="text" name="billing_lastname" id="billing_lastname" value="{billing_lastname}"/>
+				<label for="billing_street_1" class="left">Address</label> 
+				<input type="text" name="billing_street_1" value="{billing_street_1}" id="billing_street_1" /> 
+				<div class="cl">&nbsp;</div> 
+				<label for="billing_street_2" class="left">Address Line 2</label> 
+				<input type="text" name="billing_street_2" value="{billing_street_2}" id="billing_street_2" /> 
+				<div class="cl">&nbsp;</div> 
+				<label for="billing_city" class="left">City</label> 
+				<input type="text" name="billing_city" value="{billing_city}" id="billing_city" /> 
+				<div class="cl">&nbsp;</div> 
+				<label for="billing_country_id" class="left">Country</label>
+				<select name="billing_country_id"><option value="US">United States</option></select>
+				<!-- select name="billing_country_id">{!-- exp:mage_checkout:country_options default='{billing_country_id}' first='-- Select Your Country --' --}</select -->
+				
+				<label for="billing_region_id" class="left">State or Province</label> 
+				<select name="billing_region_id">{exp:mage_checkout:region_options country_code='US' default='{billing_region_id}'}</select>
+				<!-- input class="field2" type="text" name="billing_region_id" value="{billing_region_id}" id="billing_region_id" / --> 
+				<div class="cl">&nbsp;</div> 
+							
+				<label for="billing_postcode" class="left">Postal Code</label> 
+				<input class="field5" type="text" name="billing_postcode" value="{billing_postcode}" id="billing_postcode" /> 
+				<div class="cl">&nbsp;</div> 
+				
+				<label for="billing_telephone" class="left">Daytime Phone</label> 
+				<input type="text" name="billing_telephone" value="{billing_telephone}" id="billing_telephone" /> 
+				<!-- div class="dash"></div> 
+				<input class="field3" type="text" value="554" /> 
+				<div class="dash"></div> 
+				<span><input class="field4" type="text" value="3455" / --> 
+				<div class="cl">&nbsp;</div> 
+			</div>
+			
+			<h2 class="header-c">Shipping Information</h2>
+			<div class="form">
+				<label for="same_as_billing" class="left">Same as Billing?</label>
+				<input type="checkbox" name="same_as_billing" value="yes" {if same_as_billing == "yes"}checked="checked"{/if}/> Use my billing address as my shipping address
+				<div class="cl">&nbsp;</div>
+				
+				<input type="hidden" name="shipping_entity_id" value="{shipping_entity_id}" /> 
+				<label for="shipping_firstname" class="left">First Name</label>
+				<input type="text" name="shipping_firstname" id="shipping_firstname" value="{shipping_firstname}"/>
+				<label for="shipping_lastname" class="left">Last Name</label>
+				<input type="text" name="shipping_lastname" id="shipping_lastname" value="{shipping_lastname}"/>
+				<label for="shipping_street_1" class="left">Address</label> 
+				<input type="text" name="shipping_street_1" value="{shipping_street_1}" id="shipping_street_1" /> 
+				<div class="cl">&nbsp;</div> 
+				<label for="shipping_street_2" class="left">Address Line 2</label> 
+				<input type="text" name="shipping_street_2" value="{shipping_street_2}" id="shipping_street_2" /> 
+				<div class="cl">&nbsp;</div> 
+				<label for="shipping_city" class="left">City</label> 
+				<input type="text" name="shipping_city" value="{shipping_city}" id="shipping_city" /> 
+				<div class="cl">&nbsp;</div> 
+				<label for="shipping_country_id" class="left">Country</label>
+				<select name="shipping_country_id"><option value="US">United States</option></select>
+				<!-- select name="shipping_country_id">{!-- exp:mage_checkout:country_options default='{shipping_country_id}' first='-- Select Your Country --' --}</select -->
+				
+				<label for="shipping_region_id" class="left">State or Province</label> 
+				<select name="shipping_region_id">{exp:mage_checkout:region_options country_code='US' default='{shipping_region_id}'}</select>
+				<!-- input class="field2" type="text" name="shipping_region_id" value="{shipping_region_id}" id="shipping_region_id" / --> 
+				<div class="cl">&nbsp;</div> 
+							
+				<label for="shipping_postcode" class="left">Postal Code</label> 
+				<input class="field5" type="text" name="shipping_postcode" value="{shipping_postcode}" id="shipping_postcode" /> 
+				<div class="cl">&nbsp;</div> 
+				
+				<label for="shipping_telephone" class="left">Daytime Phone</label> 
+				<input type="text" name="shipping_telephone" value="{shipping_telephone}" id="shipping_telephone" /> 
+				<!-- div class="dash"></div> 
+				<input class="field3" type="text" value="554" /> 
+				<div class="dash"></div> 
+				<span><input class="field4" type="text" value="3455" / --> 
+				<div class="cl">&nbsp;</div> 
+				
+			</div> 
+			<div class="btns"> 
+				<a href="#" class="cancel">Cancel</a> or 
+				<input type="submit" class="button" value="Save and Update Address" /> 
+				<div class="cl">&nbsp;</div> 
+			</div>
+			{/exp:mage_checkout:address_form}
+	
+	</div>
+</div>

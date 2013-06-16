@@ -1,0 +1,202 @@
+{embed="_embed/.head_r3"
+	page_title="Club Ruby Magazine"
+	body_class="page"
+}
+	<div class="header-wrapper">
+		<div class="top-header">
+			<strong class="logo"><a href="{path=''}">Club Ruby</a></strong>
+			<div class="login-search">
+				<div class="login">
+                    <p><a href="{am_join_basic}" style="margin-left: 0px;">Join Now!</a> | Already registered? &mdash; </p>
+                    <a href="{path=login}" class="btn"><strong>Log in to your account</strong></a>
+                </div>
+				<!-- <form action="#">
+					<fieldset>
+						<div class="wrapper-input">
+							<input type="text" value="Search site" />
+						</div>
+						<input class="submit" type="submit" value="" />
+					</fieldset>
+				</form>-->
+			</div>
+		</div>
+		<div class="nav-wrapper">
+			<ul id="nav">
+                <li><a href="{path=''}"><em>Home</em><strong>Home</strong></a></li>
+                <!-- li><a href="{path=home/details/#kits}"><em>Kits</em><strong>Kits</strong></a></li -->
+                <li><a href="{path=galleries}"><em>Project Gallery</em><strong>Project Gallery</strong></a></li>
+                <li><a href="{path=designers}"><em>Members</em><strong>Members</strong></a></li>
+                <!-- li><a href="http://blog.clubrubydesigners.com"><em>Blog</em><strong>Blog</strong></a></li -->
+            </ul>
+		</div>
+	</div>
+    <div id="main">
+        
+		{exp:channel:entries channel="magazine"}
+		<div class="block">
+            <div class="holder">
+                <div class="frame">
+                    <div class="heading">
+                        <h2>Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}</h2>
+						{if count == 1}<p style="font-style: italic; float: right; padding-top: 17px;">Current Issue</p>{/if}
+                    </div>
+                    
+					<div class="main-col">
+						
+						{if magazine_body}<div style="margin-top: 10px;">{magazine_body}</div>{/if}
+						
+					</div>
+					
+					<div class="right-col">
+						
+						{exp:channel_files:files entry_id="{entry_id}"}
+						<p style="font-size: 18px; line-height: 24px;"><a href="{file:locked_url}" title="Click to download Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}" target="_blank">Download Vol {magazine_volume}, Issue #{magazine_issue}</a></p>
+						{/exp:channel_files:files}
+					</div>
+                       
+                </div>
+            </div>
+        </div>
+		{/exp:channel:entries}
+		{!-- <div class="block">
+            <div class="holder">
+                <div class="frame">
+                    <div class="heading">
+                        <h2>Past Issues</h2>
+                    </div>
+                    
+                        <div class="main-col">
+                           
+								{exp:channel:entries channel="magazine" offset="1"}
+								{date_heading display="yearly"}
+								<h3>Past Issues from {entry_date format="%Y"}:</h3>
+								{/date_heading}
+                                {if count == 1}<ul>{/if}
+								<li>
+									<strong>Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}</strong>
+									{if magazine_body}<div style="margin-top: 10px;">{magazine_body}</div>{/if}
+									{exp:channel_files:files entry_id="{entry_id}"}
+									<a href="{file:locked_url}" title="Click to download Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}" target="_blank">Download Vol {magazine_volume}, Issue #{magazine_issue} | {entry_date format="%F %Y"}</a>
+									{/exp:channel_files:files}
+                                </li>
+                                {/exp:channel:entries}
+                            </ul>
+                            
+                        </div>
+						
+						<div class="right-col">
+						
+							<!-- h3>Side</h3 -->
+						</div>
+                       
+                </div>
+            </div>
+        </div> --}
+    </div>
+	<div class="footer-wrapper">
+		<div class="footer-holder">
+			<div id="footer">
+				<div class="holder">
+					<div class="follow">
+						<!--<h5>FOLLOW US:</h5>
+						<ul>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+							<li>
+								<div class="avatar">
+									<a href="#"><img src="images/avatar.jpg" width="76" height="77" alt="image description" /></a>
+								</div>
+								<a href="#">Name,<br/> Last Name</a>
+							</li>
+						</ul>-->
+					</div>
+                    <div class="connect">
+                        <h5>CONNECT WITH US</h5>
+                        <ul class="social">
+                            <li><a class="twitter" href="http://www.twitter.com/clubruby"></a></li>
+                            <li><a class="facebook" href="http://www.facebook.com/ClubRuby"></a></li>
+                            <!-- li><a class="other" href="#"></a></li -->
+                        </ul>
+                        <div class="contact">
+                            <p>Club Ruby&trade; is an Above Rubies Studio Production.</p>
+                            <p>2011 (c) Above Rubies Studio, llc.</p>
+                            <p>All Rights Reserved.</p>
+                            <ul class="add-nav">
+                                <!-- li><a href="http://blog.clubrubydesigners.com/">Blog</a></li -->
+                                <li><a href="{path=site/privacy-policy}">Privacy Policy</a></li>
+                                <li><a href="{path=site/terms}">Terms &amp; Conditions</a></li>
+                                <li><a href="{path=login}">Log In</a></li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{embed="_embed/.analytics"}
+</body>
+</html>    

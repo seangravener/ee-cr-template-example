@@ -1,0 +1,147 @@
+<div id="main-content" class="grid_11 do-cufon">
+	
+	{exp:user:edit screen_name_password_required="no" return="my/profile/{segment_3}"}
+	<div class="form">
+		<h2>About You</h2>
+		<p class="summary"><strong>Tell others about yourself.</strong> This information will be viewable on <a target="_blank" href="{path=designer}/{member_id}">your profile page</a>.</p>
+		
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="screen_name">Screen Name</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{screen_name}" name="screen_name" id="screen_name" />
+				<p>Used to identify your activity. You do not need to use your real name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="personal_label">Personal Label</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{personal_label}" name="personal_label" id="personal_label" />
+				<p>Label yourself in a few words (eg Scrapbooking Queen, Craft Diva, Mom)</p>
+			</div>
+		</div>
+		
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="location">Location</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{location}" name="location" id="location" />
+				<p>Be as specific or as vauge as you like (eg Branson, MO; New York, Outer-space)</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="url">Website or Blog</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<span class="small">http:// </span><input class="text border-3" type="text" value="{url}" name="url" id="url" />
+				<p>If you have a website or blog, let it be known. Don't include "http://".</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="facebook">Facebook Profile</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<span class="small">http://www.facebook.com/</span> <input class="text text-short1 border-3" type="text" value="{facebook}" name="facebook" id="facebook" />
+				<p>Enter your Facebook Profile Name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="twitter">Twitter Profile</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<span class="small">http://www.twitter.com/</span> <input class="text text-short1 border-3" type="text" value="{twitter}" name="twitter" id="twitter" />
+				<p>Enter your Twitter Profile Name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="youtube">YouTube Profile</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<span class="small">http://www.youtube.com/</span> <input class="text text-short1 border-3" type="text" value="{youtube}" name="youtube" id="youtube" />
+				<p>Enter your YouTube Profile Name</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="bio">About Me</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<textarea class="text about-me border-3" type="textarea"  name="bio" id="bio" />{exp:form_helper:field_parser}{bio}{/exp:form_helper:field_parser}</textarea>
+				<p>Share a little bit about yourself in a paragraph or two.</p>
+			</div>
+		</div>
+		
+		<h2>About Your Craft</h2>
+		<p class="summary"><strong>Tell others about your craft.</strong> This information will be viewable on <a target="_blank" href="{path=designer}/{member_id}">your profile page</a>.</p>
+		
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="specialty">Craft Specialty</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<select name="specialty" id="specialty" class="text border-3"> 
+				{select_specialty} 
+					<option value="{value}" {selected}>{value}</option> 
+				{/select_specialty} 
+				</select>
+				<p>Choose the craft you practice the most</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="skill_level">Years Practicing Craft</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<select name="years_in_craft" id="years_in_craft" class="text border-3"> 
+				{select_years_in_craft} 
+				<option value="{value}" {selected}>{value}</option> 
+				{/select_years_in_craft} 
+				</select>
+				<p>Choose how long have you been practicing your craft</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="enjoy_because">I enjoy my craft because </label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<input class="text border-3" type="text" value="{enjoy_because}" name="enjoy_because" id="enjoy_because" />
+				<p>Complete this sentence: "I enjoy my craft because..."</p>
+			</div>
+		</div>
+		<div class="input-row clearfix">
+			<div class="grid_3 alpha">
+				<label for="craft_toolbox">Craft Toolbox</label>
+			</div>
+	
+			<div class="grid_8 omega">
+				<textarea class="text about-me border-3" type="textarea"  name="craft_toolbox" id="craft_toolbox" />{exp:form_helper:field_parser}{craft_toolbox}{/exp:form_helper:field_parser}</textarea>
+				<p>List your essential craft tools seperated by commas (eg. cricut, stamps, scor-pal)</p>
+			</div>
+		</div>
+		
+		<p style="margin:0; clear: both; text-align: right"><input type="submit" title="Click to update and save your profile" class="button" value="Update and Save Profile" /></p>
+		
+	</div>
+	{/exp:user:edit}
+	
+</div>

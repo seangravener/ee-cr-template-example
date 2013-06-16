@@ -1,0 +1,30 @@
+{assign_variable:master_channel_name="journals"}
+{assign_variable:master_channel_status="open|public"}
+{assign_variable:master_rss_uri="{path=dt/rss}"}
+
+{exp:rss:feed channel="{master_channel_name}" status="{master_channel_status}"} 
+	
+	<?xml version="1.0" encoding="{encoding}"?> 
+	<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"> 
+		<channel> 
+			<title>{exp:xml_encode}journals{/exp:xml_encode}</title> 
+			<link>{channel_url}</link> 
+			<description>{channel_description}</description> 
+			<dc:language>{channel_language}</dc:language> 
+			<dc:creator>{email}</dc:creator> 
+			<dc:rights>Copyright {gmt_date format="%Y"}</dc:rights> 
+			<pubDate>{gmt_date format="%D, %d %M %Y %H:%i:%s %T"}</pubDate> 
+			<atom:link href="{master_rss_uri}" rel="self" type="application/rss+xml" /> 
+			
+			{exp:channel:entries channel="{master_channel_name}" limit="10" rdf="off" dynamic_start="on" disable="trackbacks" status="{master_channel_status}"} 
+			<item> 
+				<title>{exp:xml_encode protect_entities="yes"}{title}{/exp:xml_encode}</title> 
+				<link>{title_permalink=site/index}</link> 
+				<guid isPermaLink="false">{title_permalink="site/index"}#id:{entry_id}#date:{gmt_entry_date format="%H:%i"}</guid> 
+				<description><![CDATA[{summary}{body}]]></description> 
+				{categories}<category>{exp:xml_encode protect_entities="yes"}{category_name}{/exp:xml_encode}</category> {/categories} 
+				<pubDate>{gmt_entry_date format="%D, %d %M %Y %H:%i %T"}</pubDate> </item> 
+			{/exp:channel:entries} 
+		</channel> 
+	</rss>
+{/exp:rss:feed}

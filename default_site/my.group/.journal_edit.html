@@ -1,0 +1,46 @@
+<div id="main-content" class="grid_11 do-cufon">
+		
+		<div class="form-2">
+					
+			{exp:safecracker channel="journals" return="my/journal/saved/ENTRY_ID" entry_id="{segment_4}" datepicker="no" include_jquery="no" safecracker_head="no"}
+			<h2>Write in Your Journal</h2>
+			<fieldset>
+								
+				<div class="input-row clearfix">
+						<span class="field border-5">
+						<input class="text border-3" type="text" name="title" id="title" value="{if segment_4}{title}{/if}" title="Add a title..."/>
+						</span>
+						{if segment_4}<p class="instructions">Page Link: {path=designer}/{member_id}/journal/{url_title}/{entry_id}</p>{/if}
+				</div>
+				
+				<div class="input-row clearfix">
+						<span class="field border-5">
+						<textarea class="editor" name="journal_body" id="journal_body" />{if segment_4}{journal_body}{/if}</textarea>
+						</span>
+						<p class="instructions">Journal about anything!</p>
+				</div>
+			</fieldset>	
+			
+			<fieldset id="entry-save">
+				<legend>Labels</legend>
+				<div class="input-row clearfix">
+<textarea class="text border-3" id="tag_f" name="tag_f" rows="3" cols="60" title="Label your Journal entry with meaningful words (separate by commas). For example: scrapbooking, summer, club ruby, green, etc">{exp:tag:tags entry_id="{entry_id}" type="weblog"}{tag}
+{/exp:tag:tags}</textarea>
+				</div>
+			</fieldset>
+			
+		
+			<fieldset id="entry-save">
+				<legend>Save & Publish</legend>
+				<div class="publish-options" style="text-align: right; margin-bottom: 10px;">
+				<label for="status-1">I'm not ready to publish, make only visable to me</label> <input type="radio" name="status" value="Draft" id="status-1" />  <br />
+				<label for="status-2">I'm ready to publish, make visable on my profile</label> <input type="radio" name="status" value="Published" id="status-2" CHECKED /> 
+				</div>
+				<input type="hidden" name="allow_comments" value="y" />
+				<p class="text-right"><a href="{path=my/profile}">Cancel</a> or <input type="submit" value="Save!" /></p>
+			</fieldset>
+			{/exp:safecracker}
+		</div>
+		
+
+</div>

@@ -1,0 +1,50 @@
+{if segment_2}
+	{if segment_3 == 'creations' || segment_3 == 'photos'}
+		{embed="_acl/.profile"
+			{if segment_4}
+				target="{segment_1}/.{segment_3}_detail"
+			{if:else}
+				target="gallery/.default"
+				channel="{segment_3}"
+				member_id="{segment_2}"
+			{/if}
+			page_tabs="{segment_1}/.default_tabs"
+			active_location="members"
+			page_title="{exp:user:users member_id='{segment_2}'}{screen_name}{/exp:user:users}"
+			page_layout="rightrail_public"
+		}
+	{if:elseif segment_3 == 'journal'}
+		{embed="_acl/.profile"
+			{if segment_4}
+				target="{segment_1}/.{segment_3}_detail"
+			{if:else}
+				target="journals/.default"
+				member_id="{segment_2}"
+			{/if}
+			active_location="journals"
+			page_title="{exp:user:users member_id='{segment_2}'}{screen_name}{/exp:user:users}"
+			page_tabs="{segment_1}/.default_tabs"
+			page_layout="rightrail_public"
+		}
+	{if:elseif segment_3 == 'craft-room'}
+		{embed="_acl/.profile"
+			target="{segment_1}/.room_default"
+			active_location="craf-room"
+			page_title="{exp:user:users member_id='{segment_2}'}{screen_name}{/exp:user:users}"
+			page_tabs="{segment_1}/.default_tabs"
+			page_layout="rightrail_public"
+		}
+	{if:elseif segment_3 == ''}
+		{embed="_acl/.profile"
+			target="{segment_1}/.profile"
+			active_location="members"
+			page_title="{exp:user:users member_id='{segment_2}'}{screen_name}{/exp:user:users}"
+			page_tabs="{segment_1}/.default_tabs"
+			page_layout="rightrail_public"
+		}
+	{if:else}
+		{redirect="designer/{segment_2}"}
+	{/if}
+{if:else}
+	{redirect="home"}
+{/if}

@@ -1,0 +1,28 @@
+{!-- if segment_2 == 'dt254'}
+	{embed="_acl/.logged_out"
+		target="{segment_1}/.default"
+		active_location="join"
+		page_title="DT Sign up!"
+		page_layout="full"
+	}
+{if:elseif segment_2 == 'trial13'}
+	{embed="_acl/.logged_out"
+		target="{segment_1}/.trial"
+		active_location="join"
+		page_title="Join Club Ruby"
+		page_layout="full"
+		group_id="13"
+	}
+{if:elseif segment_2 == 'plans'}
+	{embed="_embed/.page_constructor"
+		target="join/.plans"
+		page_layout="full"
+		page_title="Join Club Ruby"
+		group_id=""
+	}
+{if:else}
+	{redirect="join/plans"}
+{/if --}
+{!-- redirect="account/signup.php?price_group=free&product_id=1&hide_paysys=free" --}
+
+{redirect="login"}

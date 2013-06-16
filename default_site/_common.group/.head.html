@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{if embed:page_title}{embed:page_title} | {/if}ClubRuby</title>
+	<link rel="shortcut icon" href="/themes/clubruby/images/favicon.ico" /> 	
+	<link media="all" rel="stylesheet" type="text/css" href="/themes/clubruby_v2/css/all.css" />
+	<script type="text/javascript" src="/themes/clubruby_v2/js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="/themes/clubruby_v2/js/main.js"></script>
+    <script type="text/javascript" src="/themes/clubruby_v2/js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#mycarousel').jcarousel({
+			start: 1,
+			scroll: 4,
+			wrap: 'first',
+			buttonNextHTML: '<div class="link-next jcarousel-next"></div>',
+			buttonPrevHTML: '<div class="link-prev jcarousel-prev"></div>',
+        });
+    });
+    </script>    
+</head>
+<body id="www-clubrubydesigners-com"{if '{embed:body_class}' != ''} class="{embed:body_class}"{/if}>
